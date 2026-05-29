@@ -1,0 +1,439 @@
+/* =========================================
+   Global Reset & Base
+   ========================================= */
+   * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: url('Assets/Background F&F.png') top center repeat, #0D0D0D; 
+    font-family: 'Nunito Sans', sans-serif;
+    color: #F0F0F0;
+  }
+  
+  .peaky-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+  
+  /* =========================================
+     Navbar
+     ========================================= */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    background: #141414;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    padding: 0 30px;
+    position: fixed; 
+    width: 100%;
+    max-width: 1440px;
+    z-index: 1000;
+  }
+  
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .menu-icon {
+    width: 25px;
+    height: 2px;
+    background: white;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .menu-icon::before, .menu-icon::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    background: white;
+  }
+  
+  .menu-icon::before { top: -8px; }
+  .menu-icon::after { top: 8px; }
+  
+  .alfityan-logo {
+    width: 150px;
+    height: 45px;
+    background: url('../Assets/logo-alfityan.png') center / contain no-repeat;
+  }
+  
+  .line-1 {
+    width: 1px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.4);
+    margin: 0 5px;
+  }
+  
+  .elvore {
+    font-family: 'Nova Script', cursive;
+    font-size: 32px;
+    color: #E0E0E0;
+    letter-spacing: 1px;
+  }
+  
+  .yearbook-2026 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    color: white;
+    white-space: nowrap;
+  }
+  
+  /* =========================================
+     Hero Section
+     ========================================= */
+  .hero-section {
+    margin-top: 80px;
+    height: 700px;
+    background: url('Assets/Kel3FNF.png') center 15% / cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  /* =========================================
+     Main Content Layout
+     ========================================= */
+  .main-content {
+    padding: 140px 40px 80px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
+  
+  .section-title {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-title.large { width: 550px; }
+  
+  .title-bg {
+    position: absolute;
+    width: 100%;
+    height: 78px;
+    background: #222222;
+    border: 2px solid #FFBF00; 
+    box-shadow: 7px 5px 10px rgba(255, 191, 0, 0.5); 
+    border-radius: 25px;
+    z-index: 1;
+  }
+  
+  .section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: #F0F0F0;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  /* =========================================
+     Wanted Poster Style
+     ========================================= */
+  .posters-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px; 
+  }
+  
+  .poster-card {
+    position: relative; 
+    width: 416px;
+    height: 595px;
+    overflow: hidden;
+    background: #111;
+    border-radius: 5px;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.4);
+  }
+  
+  .poster-img {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .poster-card::after {
+    content:'';
+    position:absolute;
+    inset:0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 35%, rgba(0,0,0,0.45) 100%);
+    pointer-events:none;
+  }
+  
+  .wanted-text {
+    position:absolute;
+    top:20px;
+    left:20px;
+    z-index:2;
+    font-family: 'Racing Sans One', sans-serif;
+    font-weight:400;
+    font-size:75px;
+    line-height:0.9;
+    letter-spacing:0.03em;
+    color:#8F5D55;
+    -webkit-text-stroke:3px #000;
+    text-shadow:4px 4px 0 #000,0 0 10px rgba(0,0,0,0.5);
+    transform: rotate(-8deg);
+  }
+  
+  /* Modifier class to push the text to the bottom for specific posters */
+  .wanted-text-bottom {
+    top: auto;
+    bottom: 70px;
+  }
+  
+  /* Applied Racing Sans One to ALL poster text */
+  .poster-name, .poster-desc {
+    position: absolute;
+    left: 20px;
+    z-index: 2;
+    font-family: 'Racing Sans One', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 15px;
+    letter-spacing: 0.08em;
+    color: #EFECE3;
+  }
+  
+  .poster-name { bottom: 35px; }
+  .poster-desc { bottom: 15px; }
+  
+  .poster-line { display:none; }
+  
+  /* =========================================
+     ID Card Style (Strictly Inter + Cursive)
+     ========================================= */
+  .id-cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+  }
+  
+  .id-card {
+    width: 100%;
+    max-width: 1274px;
+    background: linear-gradient(135deg,#F2F2F2 0%,#ECECEC 40%,#DCDCDC 100%);
+    border-radius: 25px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.45);
+    color:#111;
+    position: relative;
+    display: flex; 
+    overflow: hidden;
+  }
+  
+  /* Force everything in the ID card to be Inter */
+  .id-card * { 
+    font-family: 'Inter', sans-serif; 
+  }
+  
+  /* Sidebar Fixed Placement */
+  .id-sidebar { 
+    width: 120px; 
+    position: relative;
+    flex-shrink: 0; 
+  }
+  
+  /* Override Inter with Homemade Apple strictly for the signature */
+  .sidebar-signature {
+    position: absolute;
+    top: 50%;
+    left: 75px; 
+    transform: translate(-50%, -50%) rotate(-90deg);
+    font-family: 'Homemade Apple', cursive !important;
+    font-size: 75px; 
+    color: #000;
+    pointer-events: none;
+    z-index: 10;
+    white-space: nowrap;
+  }
+  
+  .sidebar-line { 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    left: 100px; 
+    width: 4px; 
+    background: #000; 
+  }
+  
+  .sidebar-text { 
+    position: absolute; 
+    top: 50%; 
+    left: 115px; 
+    transform: translate(-50%, -50%) rotate(-90deg); 
+    font-size: 16px; 
+    letter-spacing: 6px; 
+    color: #000; 
+    white-space: nowrap; 
+  }
+  
+  /* Main Layout Grid */
+  .id-main { 
+    flex: 1; 
+    padding: 40px 60px 40px 30px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 30px; 
+  }
+  
+  .id-header { display:flex; justify-content:space-between; align-items:flex-start; }
+  .header-left p { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px; }
+  .header-left .mt-small { margin-top: 15px; }
+  
+  .header-center { text-align: center; margin-top: -10px; }
+  .header-center h2 { font-size: 40px; letter-spacing: 5px; font-weight: 700; margin-bottom: 5px; }
+  .header-center p { font-size: 10px; letter-spacing: 3px; }
+  
+  .header-right { display: flex; align-items: flex-end; gap: 15px; }
+  .date-label { font-size: 25px; }
+  .date-group { display: flex; flex-direction: column; }
+  .date-value { font-size: 35px; font-weight: 500; padding: 0 5px; }
+  .date-line { background:#111; height:1.5px; width:100%; margin-top:2px; }
+  
+  /* Form Layout */
+  .id-form { display: flex; flex-direction: column; gap: 20px; }
+  .form-row { display: flex; flex-direction: column; }
+  .row-values { display: flex; justify-content: space-between; align-items: flex-end; padding: 0 15px; }
+  .row-values.single { justify-content: flex-start; }
+  .val-text { font-size: clamp(30px, 4vw, 45px); line-height: 1; font-weight: 500; }
+  .row-line { height: 2px; background: #000; width: 100%; margin: 3px 0; }
+  .row-labels { display: flex; justify-content: space-between; padding: 0 15px; }
+  .row-labels.single { justify-content: flex-start; }
+  .label-text { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; font-weight: 300; }
+  
+  /* Body Layout */
+  .id-body { display: flex; gap: 40px; margin-top: 10px; flex: 1; }
+  .id-photo { width: 180px; height: 260px; background-size: cover; background-position: center; border: 1px solid rgba(0,0,0,0.5); flex-shrink: 0; }
+  
+  .id-auth-area { flex: 1; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
+  .id-watermark { position: absolute; top: 50%; left: 45%; transform: translate(-50%, -50%); width: 250px; height: 250px; background: url('Assets/FNF Stamp.png') center / contain no-repeat; pointer-events: none; filter: grayscale(100%); }
+  
+  .auth-text { font-weight: 700; font-size: clamp(16px, 2vw, 22px); line-height: 2.2; letter-spacing: 0.25em; text-align: justify; z-index: 2; position: relative; }
+  
+  .exec-officer { align-self: flex-end; display: flex; flex-direction: column; align-items: flex-end; gap: 5px; position: relative; z-index: 2; margin-top: 20px; }
+  .exec-line { border: none; border-top: 1.5px solid #000; width: 280px; }
+  .exec-officer p { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-right: 10px; }
+  
+  /* =========================================
+     Footer
+     ========================================= */
+  .footer {
+    background: #141414;
+    border-top: 2.5px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+  }
+  
+  .copyright { 
+    font-family: 'Inter', sans-serif; 
+    font-size: 20px; 
+    letter-spacing: 2px; 
+    color: #FFFFFF; 
+  }
+  
+  /* =========================================
+     RESPONSIVE DESIGN
+     ========================================= */
+  @media (max-width: 1350px) {
+    .id-card { width: 1274px; max-width: none; zoom: 0.8; }
+  }
+  
+  @media (max-width: 1024px) {
+    .id-card { width: 1274px; max-width: none; zoom: 0.6; }
+  }
+  
+  @media (max-width: 768px) {
+    body { background-size: 250px auto, auto; }
+  
+    .hero-section { 
+      height: auto !important; 
+      aspect-ratio: 16 / 9; 
+      background-size: cover !important; 
+      background-position: center !important;
+      min-height: unset !important;
+    }
+  
+    .main-content { padding: 100px 0px 60px 0px; gap: 60px; }
+  
+    .navbar { padding: 0 10px; }
+    .nav-left, .brand-link { gap: 8px; }
+    .alfityan-logo { width: 90px; height: 30px; }
+    .line-1 { height: 20px; }
+    .elvore { font-size: 20px; }
+    .yearbook-2026 { font-size: 11px; }
+    .menu-icon { margin-right: 5px; }
+  
+    .section-title { 
+      width: 400px !important;
+      max-width: 400px !important;
+      margin: 20px auto 60px auto !important; 
+      zoom: 0.8; 
+    }
+  
+    .section-title.large { 
+      width: 550px !important;
+      max-width: 550px !important;
+      margin: 40px auto 100px auto !important; 
+      zoom: 0.6; 
+    }
+  
+    .section-title h2 { white-space: nowrap; font-size: 40px; padding: 0; }
+  
+    .posters-grid { gap: 30px; }
+    .poster-card { width: 100%; max-width: 350px; height: auto; aspect-ratio: 1/1.4; padding: 20px; }
+    
+    /* Reset bottom anchoring slightly for mobile if needed */
+    .wanted-text { font-size: 45px; }
+    .wanted-text-bottom { bottom: 50px; }
+  
+    .id-cards-container { gap: 60px; }
+    .id-card {
+      width: 1274px !important; 
+      max-width: 1274px !important;
+      margin: 0 auto !important; 
+      zoom: 0.31; 
+    }
+  }
+  
+  @media (max-width: 380px) {
+    .alfityan-logo { width: 85px; height: 28px; }
+    .elvore { font-size: 22px; } 
+    .yearbook-2026 { font-size: 13px; } 
+    .id-card { zoom: 0.30; } 
+  }

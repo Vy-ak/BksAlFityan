@@ -1,0 +1,508 @@
+/* =========================================
+   Global Resets & Base
+   ========================================= */
+   * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #1F1F1F;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #fff;
+  }
+  
+  /* Centers the entire page and prevents horizontal scrolling */
+  .home {
+    max-width: 1440px;
+    margin: 0 auto;
+    /* Updated Background Casing */
+    background: url('Assets/Homepage_Background.png') center / cover no-repeat, #1F1F1F;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+/* =========================================
+   Navbar
+   ========================================= */
+   .navbar {
+    display: flex; /* Diubah dari grid ke flex */
+    justify-content: space-between; /* Secara otomatis mendorong nav-left ke kiri dan nav-right ke kanan penuh */
+    align-items: center;
+    height: 80px;
+    background: #141414;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    padding: 0 30px;
+    position: fixed; 
+    width: 100%;
+    max-width: 1440px;
+    z-index: 1000;
+  }
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Jarak antar elemen di sisi kiri */
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Keeps the spacing between the logo, line, and text */
+  text-decoration: none; /* Removes the default blue underline from the link */
+  cursor: pointer;
+}
+
+.nav-center {
+  display: flex;
+  justify-content: center;
+}
+
+/* Styling Ikon Hamburger Menu */
+.menu-icon {
+  width: 25px;
+  height: 2px;
+  background: white;
+  position: relative;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.menu-icon::before, .menu-icon::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 2px;
+  background: white;
+}
+
+.menu-icon::before { top: -8px; }
+.menu-icon::after { top: 8px; }
+
+/* Logo Alfityan */
+.alfityan-logo {
+  width: 150px;
+  height: 45px;
+  background: url('Assets/logo-alfityan.png') center / contain no-repeat;
+}
+
+/* Garis Pemisah | */
+.line-1 {
+  width: 1px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.4);
+  margin: 0 5px;
+}
+
+/* Teks Brand Elvore */
+.elvore {
+  font-family: 'Nova Script', cursive;
+  font-size: 32px;
+  color: #E0E0E0;
+  letter-spacing: 1px;
+}
+
+/* Teks Tengah: 2025 Yearbook */
+.yearbook-2025 {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  color: white;
+  white-space: nowrap;
+}
+
+/* Hero Section Adjustment (Agar tidak tertutup navbar fixed) */
+.hero-section {
+  margin-top: 80px; 
+  height: 500px;
+  background: url('Assets/Hero Image 1.png') center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+  
+  /* =========================================
+     Main Content Layout & Titles
+     ========================================= */
+  .main-content {
+    padding: 80px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+  }
+  
+  .section-title {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+  
+  /* Enforce Cinzel Font and prevent text wrapping */
+  .section-title h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    white-space: nowrap; /* Forces text to stay on one line */
+  }
+  
+  /* Golden Border added to Title Backgrounds */
+  .title-bg {
+    position: absolute;
+    width: 550px;
+    height: 78px;
+    background: rgba(20, 20, 20, 0.85);
+    border-radius: 25px;
+    border: 1.5px solid rgba(212, 175, 55, 0.6); 
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.15); 
+    z-index: 1;
+  }
+  
+  .title-container { position: relative; width: 400px; display: flex; justify-content: center; align-items: center; }
+  .title-container .title-bg { width: 100%; }
+  
+  /* Adjusted Large container for "Technical Masterminds" to ensure it fits the 1-line text */
+  .title-container.large { width: 750px; } 
+  .title-container.large .title-bg { width: 100%; }
+  
+  /* Spacing to keep Icons strictly outside the box */
+  .with-icons {
+    display: flex;
+    gap: 40px; /* Increased gap keeps icons away from text */
+    align-items: center;
+  }
+  
+  /* Updated Asset Paths for Section Icons */
+  .ticket-icon { width: 80px; height: 80px; background: url('Assets/Ticket.png') center / contain no-repeat; z-index: 2; }
+  .cam-icon { width: 80px; height: 80px; background: url('Assets/Video Cam.png') center / contain no-repeat; z-index: 2; }
+  
+  /* =========================================
+   Cherish Every Moment (Infinite Gallery)
+   ========================================= */
+.gallery-container {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden; /* Hides the scrollbar and edges */
+    padding: 20px 0;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between the top and bottom rows */
+  }
+  
+  .gallery-scroller {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    /* 40s determines the speed. Change it to make it faster/slower */
+    animation: scrollGallery 40s linear infinite; 
+  }
+  
+  /* Offsets the entire bottom row seamlessly */
+  .gallery-scroller.staggered {
+    margin-left: -265px; 
+  }
+  
+  /* Pauses the loop when the user hovers their mouse over the pictures */
+  .gallery-scroller:hover {
+    animation-play-state: paused;
+  }
+  
+  .gallery-track {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .gallery-card {
+    width: 500px;
+    height: 281px;
+    background: #141414;
+    border-radius: 10px;
+    border: 1.5px solid rgba(212, 175, 55, 0.6); 
+    box-shadow: 10px 20px 4px rgba(0, 0, 0, 0.25), 0 0 15px rgba(212, 175, 55, 0.15);
+    flex-shrink: 0; /* Prevents the cards from shrinking */
+  }
+  
+  @keyframes scrollGallery {
+    0% { transform: translateX(0); }
+    /* Translates exactly halfway (one track + one gap) to create an infinite illusion */
+    100% { transform: translateX(calc(-50% - 15px)); } 
+  }
+  
+  /* =========================================
+     Movie Cards (Grid)
+     ========================================= */
+  .movie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 0 20px;
+  }
+  
+  /* Golden Border added to Movie Cards */
+  .movie-card {
+    height: 433px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(212, 175, 55, 0.6); 
+    box-shadow: 10px 20px 4px rgba(0, 0, 0, 0.25), 0 0 15px rgba(212, 175, 55, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .movie-card h3 {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 40px;
+    z-index: 2;
+  }
+  
+  .peaky { background: linear-gradient(180deg, #555555 0%, #1C1C1C 100%); }
+  .fast { background: linear-gradient(180deg, #222222 0%, #000000 100%); }
+  .elena { background: linear-gradient(180deg, #F4E4BC 0%, #E0D0A0 100%); color: #000; }
+  .harry { background: linear-gradient(180deg, #1A1A2E 0%, #0F0F1A 100%); }
+  
+  /* Updated Asset Paths & Specific Corner Placements */
+  .card-decor { position: absolute; z-index: 1; opacity: 0.8; }
+  
+  /* Fedora -> Top Left */
+  .fedora { width: 130px; height: 130px; top: -30px; left: -30px; transform: rotate(-15deg); background: url('Assets/Fedora.png') center / contain no-repeat; }
+  /* Nitro -> Bottom Left */
+  .nitro { width: 110px; height: 110px; bottom: -30px; left: -30px; background: url('Assets/Nitro.png') center / contain no-repeat; }
+  /* Question Mark -> Top Right */
+  .question-mark { width: 90px; height: 90px; top: -20px; right: -20px; background: url('Assets/Question Mark.png') center / contain no-repeat; }
+  /* Mag Glass -> Bottom Right */
+  .mag-glass { width: 110px; height: 110px; bottom: -30px; right: -30px; background: url('Assets/Mag Glass.png') center / contain no-repeat; }
+  /* Wand -> Bottom Right */
+  .wand { width: 140px; height: 140px; bottom: -30px; right: -30px; background: url('Assets/Wand.png') center / contain no-repeat; }
+  
+  /* Megaphone -> Top Right of Staff */
+  .megaphone { width: 125px; height: 125px; top: -30px; right: -30px; background: url('Assets/MegaPhone.png') center / contain no-repeat; }
+  /* Clipper -> Bottom Left of Guru */
+  .clipper { width: 125px; height: 125px; bottom: -30px; left: -30px; background: url('Assets/Cliipper.png') center / contain no-repeat; }
+  
+  /* =========================================
+     Crew & Actor Cards
+     ========================================= */
+  .crew-grid, .actor-grid-top, .actor-grid-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 70px; /* Increased to fix HORIZONTAL tabrakan */
+  }
+  .actor-grid-bottom { 
+    margin-top: 160px; /* Increased to fix VERTICAL tabrakan */
+    margin-bottom: 50px; 
+  }
+  
+  /* Golden Border added */
+  .crew-card, .actor-card {
+    width: 267px;
+    height: 400px;
+    background: #141414;
+    border-radius: 10px;
+    border: 1.5px solid rgba(212, 175, 55, 0.6); 
+    box-shadow: 10px 20px 4px rgba(0, 0, 0, 0.25), 0 0 15px rgba(212, 175, 55, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .crew-card h3, .actor-card h3 {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 48px;
+    opacity: 0.25;
+  }
+  
+  /* Golden Border added and spaced properly */
+  .actor-badge {
+    position: absolute;
+    bottom: -65px; /* Pushed down clearly off the card */
+    width: 120%;
+    padding: 20px 0;
+    background: linear-gradient(180deg, #E0E0E0 0%, #FFFFFF 50%, #A9A9A9 100%);
+    border-radius: 25px;
+    border: 1.5px solid rgba(212, 175, 55, 0.8); 
+    box-shadow: 4px 14px 4px rgba(0, 0, 0, 0.25), 0 0 10px rgba(212, 175, 55, 0.2);
+    color: #000;
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 22px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  
+  /* =========================================
+     Footer
+     ========================================= */
+  .footer {
+    background: #141414;
+    border-top: 2.5px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+  }
+  .copyright {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+  }
+
+  /* =========================================
+   RESPONSIVE DESIGN (Tablets & Smaller Screens)
+   ========================================= */
+
+@media (max-width: 1024px) {
+    /* Scale down grids for Tablet */
+    .movie-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 cards per row instead of 4 */
+      gap: 40px;
+    }
+  
+    .crew-grid, .actor-grid-top, .actor-grid-bottom {
+      gap: 30px; /* Reduce horizontal gap */
+    }
+  
+    /* Make Title Backgrounds flexible */
+    .title-bg {
+      width: 100% !important;
+    }
+    .title-container, .title-container.large {
+      width: 80%;
+    }
+  
+    /* Scale down the photo gallery */
+    .gallery-card {
+      width: 350px;
+      height: 196px;
+    }
+    .gallery-scroller.staggered {
+      margin-left: -190px; /* Adjust staggered offset for new card size */
+    }
+  }
+  
+  /* =========================================
+     RESPONSIVE DESIGN (Mobile Phones)
+  ========================================= */
+  
+  @media (max-width: 768px) {
+    /* Navbar adjustments */
+    .navbar {
+      padding: 0 15px;
+    }
+    .elvore {
+      font-size: 24px;
+    }
+    .yearbook-2025 {
+      font-size: 14px;
+    }
+    .alfityan-logo {
+      width: 40px;
+      height: 35px;
+    }
+  
+    /* Hero Section adjustments */
+    .hero-section { 
+      height: auto !important; 
+      
+      /* Ganti rasio di bawah ini sesuai bentuk asli foto heromu! 
+         - Jika fotonya memanjang seperti foto grup 9A, gunakan: 2.8 / 1
+         - Jika fotonya seperti ukuran layar TV/YouTube, gunakan: 16 / 9 
+         - Jika fotonya agak kotak, gunakan: 4 / 3 */
+      aspect-ratio: 16 / 9; 
+      
+      background-size: cover !important; 
+      background-position: center !important;
+      min-height: unset !important;
+    }
+
+    .vid-bebas {
+      font-size: 45px;
+      line-height: 1.2;
+    }
+    .disini-subtitle {
+      font-size: 16px;
+    }
+  
+    /* Section Titles */
+    .main-content {
+      padding: 40px 20px;
+      gap: 80px;
+    }
+    .section-title h2 {
+      font-size: 22px;
+      white-space: normal; /* Allow text to wrap to two lines if needed */
+      padding: 0 20px;
+    }
+    .title-container, .title-container.large {
+      width: 100%;
+    }
+    .ticket-icon, .cam-icon {
+      display: none; /* Hide decorative title icons on very small screens to save space */
+    }
+  
+    /* Movie Grid adjustments */
+    .movie-grid {
+      grid-template-columns: 1fr; /* 1 card per row */
+      padding: 0;
+    }
+  
+    /* Crew & Actor Grid adjustments (Stack vertically) */
+    .crew-grid, .actor-grid-top, .actor-grid-bottom {
+      flex-direction: column;
+      align-items: center;
+      gap: 90px; /* Give enough space for the bottom badges */
+    }
+    .actor-grid-bottom {
+      margin-top: 90px;
+    }
+  
+    /* Card Decorations (Scale down floating items like fedora, nitro) */
+    .card-decor {
+      transform: scale(0.7);
+    }
+  
+    /* Scale down the photo gallery further for mobile */
+    .gallery-card {
+      width: 250px;
+      height: 140px;
+    }
+    .gallery-row {
+      gap: 15px;
+    }
+    .gallery-wrapper {
+      gap: 15px;
+    }
+    .gallery-scroller {
+      gap: 15px;
+    }
+    .gallery-scroller.staggered {
+      margin-left: -132px; /* Center staggered offset for mobile */
+    }
+    .gallery-container {
+      gap: 15px;
+    }
+  
+    /* Actor Badge fixes for mobile */
+    .actor-badge {
+      width: 100%;
+      bottom: -45px;
+      font-size: 18px;
+      padding: 15px 0;
+    }
+  }

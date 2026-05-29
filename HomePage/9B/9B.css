@@ -1,0 +1,306 @@
+/* =========================================
+   Global Resets & Base
+   ========================================= */
+   * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: url('Assets/Background F&F.png') top center / cover no-repeat fixed, #0D0D0D;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #F0F0F0;
+  }
+  
+  .peaky-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+  
+  /* =========================================
+     Navbar
+     ========================================= */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    background: #141414;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    padding: 0 30px;
+    position: fixed;
+    width: 100%;
+    max-width: 1440px;
+    z-index: 1000;
+  }
+  
+  .nav-left { display: flex; align-items: center; gap: 15px; }
+  .brand-link { display: flex; align-items: center; gap: 15px; text-decoration: none; cursor: pointer; }
+  .menu-icon { width: 25px; height: 2px; background: white; position: relative; cursor: pointer; margin-right: 10px; }
+  .menu-icon::before, .menu-icon::after { content: ''; position: absolute; width: 25px; height: 2px; background: white; }
+  .menu-icon::before { top: -8px; }
+  .menu-icon::after { top: 8px; }
+  
+  .alfityan-logo { width: 150px; height: 45px; background: url('../Assets/logo-alfityan.png') center / contain no-repeat; }
+  .line-1 { width: 1px; height: 30px; background: rgba(255, 255, 255, 0.4); margin: 0 5px; }
+  .elvore { font-family: 'Nova Script', cursive; font-size: 32px; color: #E0E0E0; letter-spacing: 1px; }
+  .yearbook-2025 { font-family: 'Nunito Sans', sans-serif; font-size: 25px; font-weight: 400; color: white; white-space: nowrap; }
+  
+  /* =========================================
+     Hero Section
+     ========================================= */
+     .hero-section {
+        margin-top: 80px; 
+        height: 700px;
+        background: url('Assets/9BHero.png') center / cover no-repeat, #2B2B2B;
+      }
+      
+/* =========================================
+    Main Content Layout
+    ========================================= */
+    .main-content {
+        padding: 80px 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+    }
+
+  /* =========================================
+     Section Titles
+     ========================================= */
+  .section-title {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 810px;
+    max-width: 100%;
+  }
+  
+  .section-title.small { width: 300px; }
+  
+  .title-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%; /* Fix tinggi agar mengikuti teks */
+    min-height: 78px;
+    background: #222222;
+    border: 2px solid #FFBF00; 
+    box-shadow: 7px 5px 10px rgba(255, 191, 0, 0.5); 
+    border-radius: 25px;
+    z-index: 1;
+  }
+  
+  .section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: clamp(28px, 4vw, 48px); /* Dinamis */
+    letter-spacing: 2px;
+    color: #F0F0F0;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+    padding: 15px 20px;
+  }
+  
+  .section-title.small h2 { font-weight: 700; font-size: clamp(28px, 4vw, 40px); }
+  
+  /* =========================================
+     Godfather Section
+     ========================================= */
+  .godfather-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    justify-content: space-between;
+  }
+  
+  .godfather-quote {
+    flex: 1;
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+    color: #F0F0F0;
+    text-align: justify;
+  }
+  
+  .godfather-image {
+    width: 100%;
+    max-width: 350px; /* Fleksibel */
+    aspect-ratio: 3.5 / 4.5;
+    height: auto;
+    background: #E2E2E2; 
+    padding: 20px 20px 80px 20px; 
+    box-shadow: 10px 15px 25px rgba(0, 0, 0, 0.4); 
+    flex-shrink: 0;
+    display: flex;
+  }
+  
+  .walas-img {
+    width: 100%;
+    height: 100%;
+    background: url('Assets/Walas9B.png') center / cover no-repeat;
+  }
+  
+  /* =========================================
+     FnF Group Cards (Image Only)
+     ========================================= */
+  .newspaper-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+  }
+  
+  .newspaper-card {
+    width: 100%;
+    max-width: 1177px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: none; /* remove white/cream background */
+    padding: 0;
+  }
+  
+  .newspaper-card img.article-image {
+    width: 100%;
+    display: block;
+    border-radius: 15px;
+    object-fit: cover;
+  }
+  
+  /* Hover effect */
+  .newspaper-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 10px 25px 30px rgba(0,0,0,0.3);
+  }
+  
+  /* =========================================
+     Finish Section
+     ========================================= */
+  .fin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .bubblechat {
+    width: 100px;
+    height: 75px;
+    background: url('Assets/Finish\ Flag.png') center / contain no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .fin-text {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-top: -10px;
+  }
+  
+  /* =========================================
+     Footer
+     ========================================= */
+  .footer {
+    background: #141414;
+    border-top: 2.5px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+  }
+  
+  .footer .copyright {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+  }
+  
+  /* =========================================
+   RESPONSIVE DESIGN (Tablets & Mobile)
+   ========================================= */
+
+/* Mengatur Kartu Koran agar HANYA mengecil (zoom), struktur layout tetap utuh (horizontal) */
+@media (max-width: 1350px) {
+  .newspaper-card { width: 1177px; max-width: none; zoom: 0.8; }
+}
+
+@media (max-width: 1024px) {
+  /* Bagian pesan Walas (Godfather) tetap kita buat vertikal agar rapi dibaca */
+  .godfather-content { flex-direction: column-reverse; align-items: center; }
+  
+  /* Koran di-zoom lebih kecil untuk tablet */
+  .newspaper-card { width: 1177px; max-width: none; zoom: 0.65; }
+}
+
+@media (max-width: 768px) {
+  /* --- BACKGROUND & HERO FIX --- */
+  body { background-size: 250px auto, auto; }
+  
+  .hero-section { 
+    height: auto; 
+    aspect-ratio: 2.8 / 1; 
+    background: url('Assets/9BHero.png') center / cover no-repeat; 
+    min-height: unset;
+  }
+
+  /* --- SPACING FIX --- */
+  /* Kosongkan padding kiri-kanan layar utama agar koran mendapat ruang maksimal */
+  .main-content { padding: 40px 0px; gap: 60px; }
+
+  /* Berikan batas tepi pada elemen lain karena padding layar utama dihilangkan */
+  .godfather-quote { padding: 0 15px; font-size: 16px; text-align: justify; line-height: 1.8; }
+  .godfather-image { margin: 0 15px; width: 90%; }
+  .section-title { width: 340px !important; margin: 0 auto 30px auto !important; }
+  .section-title.small { width: 280px !important; margin: 0 auto 30px auto !important; }
+
+  /* --- NAVBAR FIX --- */
+  .navbar { padding: 0 10px; }
+  .nav-left, .brand-link { gap: 8px; }
+  .alfityan-logo { width: 100px; height: 32px; }
+  .line-1 { height: 22px; }
+  .elvore { font-size: 26px; }
+  .yearbook-2025 { font-size: 15px; }
+  .menu-icon { margin-right: 5px; }
+  
+  /* --- NEWSPAPER CARD PERFECT ZOOM FIX --- */
+  .newspaper-container { 
+    gap: 40px; 
+    width: 100%; 
+    overflow-x: hidden; /* Mencegah layar bergeser ke samping tanpa sengaja */
+  }
+
+  .newspaper-card { 
+    width: 1177px !important; /* Paksa gunakan lebar aslinya (Desktop) */
+    max-width: 1177px !important; 
+    margin: 0 auto !important; /* Kunci presisi di tengah layar */
+    padding: 40px 50px !important; /* Pertahankan padding internal aslinya */
+    
+    /* Trik Utama: Susutkan seluruh kartu menjadi 32% agar proporsional di HP */
+    zoom: 0.32; 
+  }
+}
+
+/* Penyesuaian ekstra untuk layar HP yang sangat kecil (seperti iPhone SE / Mini) */
+@media (max-width: 380px) {
+  .alfityan-logo { width: 85px; height: 28px; }
+  .elvore { font-size: 22px; }
+  .yearbook-2025 { font-size: 13px; }
+  
+  .newspaper-card { zoom: 0.28; } /* Susutkan lebih jauh agar tidak terpotong */
+}

@@ -1,0 +1,420 @@
+/* =========================================
+   Global Reset & Base
+   ========================================= */
+   * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #2A4B4C;
+    font-family: 'Montserrat', sans-serif;
+    color: #F0F0F0;
+  }
+  
+  .peaky-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+  
+  /* =========================================
+     Navbar
+     ========================================= */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    background: #141414;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    padding: 0 30px;
+    position: fixed; 
+    width: 100%;
+    max-width: 1440px;
+    z-index: 1000;
+  }
+  
+  .nav-left { display: flex; align-items: center; gap: 15px; }
+  .brand-link { display: flex; align-items: center; gap: 15px; text-decoration: none; cursor: pointer; }
+  
+  .menu-icon {
+    width: 25px;
+    height: 2px;
+    background: white;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  .menu-icon::before, .menu-icon::after { content: ''; position: absolute; width: 25px; height: 2px; background: white; }
+  .menu-icon::before { top: -8px; }
+  .menu-icon::after { top: 8px; }
+  
+  .alfityan-logo { width: 150px; height: 45px; background: url('../Assets/logo-alfityan.png') center / contain no-repeat; }
+  .line-1 { width: 1px; height: 30px; background: rgba(255, 255, 255, 0.4); margin: 0 5px; }
+  
+  .elvore {
+    font-family: 'Nova Script', cursive;
+    font-size: 32px;
+    color: #E0E0E0;
+    letter-spacing: 1px;
+  }
+  
+  .yearbook-2026 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    color: white;
+    white-space: nowrap;
+  }
+  
+  /* =========================================
+     Hero Section
+     ========================================= */
+  .hero-section {
+    margin-top: 80px;
+    height: 700px;
+    background: url('Assets/Kel2Hero.png') center 15% / cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  /* =========================================
+     Main Content Layout
+     ========================================= */
+  .main-content {
+    padding: 140px 40px 80px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
+  
+  .section-title {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-title.large { width: 550px; }
+  
+  .title-bg {
+    position: absolute;
+    width: 100%;
+    height: 78px;
+    background: rgba(20, 20, 20, 0.85);
+    border: 2px solid #FFBF00; 
+    box-shadow: 7px 5px 10px rgba(255, 191, 0, 0.5); 
+    border-radius: 25px;
+    z-index: 1;
+  }
+  
+  .section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: #F0F0F0;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  /* =========================================
+     Magazine Gallery (Diaries Grid) - MANUAL CSS
+     ========================================= */
+  .diaries-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+  }
+  
+  .diary-card {
+    width: calc(33.333% - 34px); 
+    background-color: #E6D2B5; 
+    border: 3px solid #1a1a1a;
+    outline: 1px solid #1a1a1a;
+    outline-offset: -6px; 
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    padding: 30px 25px 35px 25px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .diary-card::before {
+    content: "The DAILY PROPHET";
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 2vw, 24px);
+    font-weight: 900;
+    color: #1a1a1a;
+    width: 100%;
+    text-align: center;
+    border-top: 3px solid #1a1a1a;
+    border-bottom: 2px solid #1a1a1a;
+    padding: 8px 0;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+  
+  .diary-photo {
+    width: 100%;
+    aspect-ratio: 4 / 5; 
+    background-size: cover;
+    background-position: center top;
+    border: 2px solid #1a1a1a;
+    margin-bottom: 20px;
+  }
+  
+  .diary-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 2vw, 24px);
+    color: #1a1a1a !important;
+    margin: 0 0 10px 0;
+    z-index: 2;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+  }
+  
+  .diary-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(13px, 1.3vw, 15px);
+    color: #333333 !important;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  
+  /* =========================================
+     ID Card Style
+     ========================================= */
+  .id-cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+  }
+  
+  .id-card {
+    width: 100%;
+    max-width: 1274px;
+    background: #FDFBF7;
+    border-radius: 25px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.45);
+    color: #1B2A41;
+    position: relative;
+    display: flex; 
+    overflow: hidden;
+  }
+  
+  .id-bg-gradient {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(212, 196, 168, 0) 0%, rgba(139, 69, 19, 0.25) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .id-sidebar { 
+    width: 120px; 
+    position: relative;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  
+  .sidebar-signature {
+    position: absolute;
+    top: 50%;
+    left: 75px; 
+    transform: translate(-50%, -50%) rotate(-90deg);
+    font-family: 'Homemade Apple', cursive;
+    font-size: 60px; 
+    color: #1B2A41;
+    pointer-events: none;
+    z-index: 10;
+    white-space: nowrap;
+  }
+  
+  .sidebar-line { 
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    left: 100px; 
+    width: 5px; 
+    background: #1B2A41; 
+  }
+  
+  .sidebar-text { 
+    position: absolute; 
+    top: 50%; 
+    left: 115px; 
+    transform: translate(-50%, -50%) rotate(-90deg); 
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; 
+    letter-spacing: 6px; 
+    color: #1B2A41; 
+    white-space: nowrap; 
+  }
+  
+  .id-main { 
+    flex: 1; 
+    padding: 40px 60px 40px 30px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 30px;
+    z-index: 1;
+  }
+  
+  .id-header { display: flex; justify-content: space-between; align-items: flex-start; }
+  .header-left p { font-family: 'Playfair Display', serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px; }
+  .header-left .mt-small { margin-top: 15px; }
+  
+  .header-center { text-align: center; margin-top: -10px; }
+  .header-center h2 { font-family: 'Playfair Display', serif; font-size: 35px; letter-spacing: 5px; font-weight: 700; margin-bottom: 5px; }
+  .header-center p { font-family: 'Playfair Display', serif; font-size: 12px; letter-spacing: 3px; }
+  
+  .header-right { display: flex; align-items: flex-end; gap: 15px; }
+  .date-label { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 25px; }
+  .date-group { display: flex; flex-direction: column; }
+  .date-value { font-family: 'Pinyon Script', cursive; font-size: 40px; font-weight: 500; padding: 0 5px; line-height: 0.9; }
+  .date-line { background: #1B2A41; height: 2px; width: 100%; margin-top: 2px; }
+  
+  .id-form { display: flex; flex-direction: column; gap: 20px; }
+  .form-row { display: flex; flex-direction: column; }
+  .row-values { display: flex; justify-content: space-between; align-items: flex-end; padding: 0 15px; }
+  .row-values.single { justify-content: flex-start; }
+  .val-text { font-family: 'Tangerine', cursive; font-size: clamp(40px, 4vw, 55px); line-height: 1; font-weight: 500; }
+  .row-line { height: 2px; background: #1B2A41; width: 100%; margin: 3px 0; }
+  .row-labels { display: flex; justify-content: space-between; padding: 0 15px; }
+  .row-labels.single { justify-content: flex-start; }
+  .label-text { font-family: 'Playfair Display', serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; }
+  
+  .id-body { display: flex; gap: 40px; margin-top: 10px; flex: 1; }
+  .id-photo { width: 180px; height: 260px; background-size: cover; background-position: center; border: 2px solid #1B2A41; border-radius: 5px; flex-shrink: 0; }
+  
+  .id-auth-area { flex: 1; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
+  
+  .id-watermark { position: absolute; top: 50%; left: 45%; transform: translate(-50%, -50%); width: 280px; height: 280px; background: url('Assets/ Stamp.png') center / contain no-repeat; pointer-events: none; opacity: 0.3; }
+  
+  .auth-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(16px, 2vw, 20px); line-height: 2.2; letter-spacing: 0.20em; text-align: justify; z-index: 2; position: relative; }
+  
+  .exec-officer { align-self: flex-end; display: flex; flex-direction: column; align-items: flex-start; gap: 5px; position: relative; z-index: 2; margin-top: 20px; width: 280px;}
+  .exec-line { border: none; border-top: 2px solid #1B2A41; width: 100%; }
+  .exec-officer p { font-family: 'Playfair Display', serif; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
+  
+  /* =========================================
+     Footer
+     ========================================= */
+  .footer {
+    background: #141414;
+    border-top: 2.5px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+  }
+  
+  .copyright { 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 20px; 
+    letter-spacing: 2px; 
+    color: #FFFFFF; 
+  }
+  
+  /* =========================================
+     RESPONSIVE DESIGN
+     ========================================= */
+  @media (max-width: 1350px) {
+    .id-card { width: 1274px; max-width: none; zoom: 0.8; }
+  }
+  
+  @media (max-width: 1200px) {
+    .diaries-grid {
+      gap: 40px;
+    }
+    .diary-card {
+      width: calc(50% - 20px); /* 2 Kolom pada Tablet */
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .id-card { width: 1274px; max-width: none; zoom: 0.6; }
+  }
+  
+  @media (max-width: 768px) {
+    .hero-section { 
+      height: auto !important; 
+      aspect-ratio: 4 / 3; 
+      background-size: cover !important; 
+      background-position: center !important;
+      min-height: unset !important;
+    }
+  
+    .main-content { padding: 100px 0px 60px 0px; gap: 60px; }
+  
+    .navbar { padding: 0 10px; }
+    .nav-left, .brand-link { gap: 8px; }
+    .alfityan-logo { width: 90px; height: 30px; }
+    .line-1 { height: 20px; }
+    .elvore { font-size: 20px; }
+    .yearbook-2026 { font-size: 11px; }
+    .menu-icon { margin-right: 5px; }
+  
+    .section-title { 
+      width: 400px !important;
+      max-width: 400px !important;
+      margin: 20px auto 60px auto !important; 
+      zoom: 0.8; 
+    }
+  
+    .section-title.large { 
+      width: 550px !important;
+      max-width: 550px !important;
+      margin: 40px auto 100px auto !important; 
+      zoom: 0.6; 
+    }
+  
+    .section-title h2 { white-space: nowrap; font-size: 40px; padding: 0; }
+  
+    .diaries-grid { 
+      flex-direction: column;
+      align-items: center;
+      gap: 40px; 
+      padding: 0 20px;
+    }
+    .diary-card {
+      width: 100%;
+      max-width: 400px; /* 1 Kolom pada Mobile */
+    }
+  
+    .id-cards-container { gap: 60px; }
+    .id-card {
+      width: 1274px !important; 
+      max-width: 1274px !important;
+      margin: 0 auto !important; 
+      zoom: 0.31; 
+    }
+  }
+  
+  @media (max-width: 380px) {
+    .alfityan-logo { width: 85px; height: 28px; }
+    .elvore { font-size: 22px; } 
+    .yearbook-2026 { font-size: 13px; } 
+    .id-card { zoom: 0.30; } 
+  }

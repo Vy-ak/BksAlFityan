@@ -1,0 +1,606 @@
+/* =========================================
+   Global Resets & Base
+   ========================================= */
+   * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: url('Assets/PeakyBackground.png') top center repeat, #36454F; 
+    font-family: 'Nunito Sans', sans-serif;
+    color: #F0F0F0;
+  }
+  
+  .peaky-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+  
+  /* =========================================
+   Navbar
+   ========================================= */
+   .navbar {
+    display: flex; /* Diubah dari grid ke flex */
+    justify-content: space-between; /* Secara otomatis mendorong nav-left ke kiri dan nav-right ke kanan penuh */
+    align-items: center;
+    height: 80px;
+    background: #141414;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    padding: 0 30px;
+    position: fixed; 
+    width: 100%;
+    max-width: 1440px;
+    z-index: 1000;
+  }
+  
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Jarak antar elemen di sisi kiri */
+  }
+
+  .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Keeps the spacing between the logo, line, and text */
+    text-decoration: none; /* Removes the default blue underline from the link */
+    cursor: pointer;
+  }
+  
+  /* Styling Ikon Hamburger Menu */
+  .menu-icon {
+    width: 25px;
+    height: 2px;
+    background: white;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .menu-icon::before, .menu-icon::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    background: white;
+  }
+  
+  .menu-icon::before { top: -8px; }
+  .menu-icon::after { top: 8px; }
+  
+  /* Logo Alfityan */
+  .alfityan-logo {
+    width: 150px;
+    height: 45px;
+    background: url('../Assets/logo-alfityan.png') center / contain no-repeat;
+  }
+  
+  /* Garis Pemisah | */
+  .line-1 {
+    width: 1px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.4);
+    margin: 0 5px;
+  }
+  
+  /* Teks Brand Elvore */
+  .elvore {
+    font-family: 'Nova Script', cursive;
+    font-size: 32px;
+    color: #E0E0E0;
+    letter-spacing: 1px;
+  }
+  
+  /* Teks Tengah: 2025 Yearbook */
+  .yearbook-2025 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    color: white;
+    white-space: nowrap;
+  }
+  
+  /* Hero Section Adjustment (Agar tidak tertutup navbar fixed) */
+  .hero-section {
+    margin-top: 80px; 
+    height: 700px;
+    background: url('Assets/HeroKel2.png') center / cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  /* =========================================
+   Hero Section 
+   ========================================= */
+.hero-section {
+  margin-top: 80px; 
+  height: 700px;
+  /* KUNCI: Ubah 'center' menjadi 'center 15%' agar gambar didorong turun sedikit dan kepala terlihat */
+  background: url('Assets/HeroKel2.png') center 15% / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+  
+  /* =========================================
+     Main Content Layout & Section Titles
+     ========================================= */
+  .main-content {
+    padding: 140px 40px 80px 40px; 
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
+  
+  .section-title {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-title.large { width: 550px; }
+  
+  .title-bg {
+    position: absolute;
+    width: 100%;
+    height: 78px;
+    background: #222222;
+    border: 2px solid #FFBF00; 
+    box-shadow: 7px 5px 10px rgba(255, 191, 0, 0.5); 
+    border-radius: 25px;
+    z-index: 1;
+  }
+  
+  .section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: #F0F0F0;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  /* =========================================
+     The Bounty Section (Wanted Posters)
+     ========================================= */
+  .posters-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 50px; }
+  .poster-card {
+    width: 416px; height: 595px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(212, 196, 168, 0) 0%, rgba(139, 69, 19, 0.25) 100%), #D4C4A8;
+    border-radius: 5px; box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.4);
+    display: flex; flex-direction: column; align-items: center; padding: 30px;
+  }
+  .wanted-text { font-family: 'Playfair Display SC', serif; font-size: 75px; color: #000000; margin-bottom: 10px; line-height: 1; }
+  .poster-img { width: 100%; flex: 1; background-size: cover; background-position: center; border: 2px solid #000; }
+  .poster-line { border: none; border-top: 5px solid #000000; width: 100%; margin: 15px 0 10px 0; }
+  .poster-name { font-family: 'Special Elite', cursive; font-size: 25px; color: #000000; text-align: center; width: 100%; }
+  .poster-desc { font-family: 'Special Elite', cursive; font-size: 12px; color: #000000; text-align: center; width: 100%; }
+  
+  /* =========================================
+     FIXED: Informant Section (ID Cards)
+     ========================================= */
+  .id-cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+  }
+  
+  .id-card {
+    width: 100%;
+    max-width: 1274px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(212, 196, 168, 0) 0%, rgba(139, 69, 19, 0.25) 100%), #D4C4A8;
+    border-radius: 20px;
+    display: flex;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.5);
+    color: #000000;
+    position: relative;
+  }
+  
+  /* ---------------- Sidebar Fixed ---------------- */
+.id-sidebar {
+    width: 120px;
+    position: relative;
+    flex-shrink: 0;
+  }
+  
+  /* 1. Tanda Tangan (Sisi Luar) */
+  .sidebar-signature {
+    position: absolute;
+    top: 50%;
+    left: 75px; /* Tetap di kiri agar tidak menabrak teks */
+    transform: translate(-50%, -50%) rotate(-90deg);
+    font-family: 'Homemade Apple', cursive;
+    font-size: 60px; 
+    color: #000;
+    pointer-events: none;
+    z-index: 10;
+    white-space: nowrap;
+  }
+  
+  /* 2. Garis Pemisah (Ditebalkan dan ditempelkan ke teks) */
+  .sidebar-line {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 100px; /* Digeser ke kanan agar menempel dengan teks */
+    width: 4px; /* Ditebalkan sesuai permintaan */
+    background: #000;
+  }
+  
+  /* 3. Teks Tegak Lurus (Menempel pas di kanan garis) */
+  .sidebar-text {
+    position: absolute;
+    top: 50%;
+    left: 95px; /* Posisi teks disesuaikan agar pas di samping garis tebal */
+    transform: translate(-50%, -50%) rotate(-90deg);
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    letter-spacing: 5px;
+    color: #000;
+    white-space: nowrap;
+  }
+  
+  /* 3. Teks Tegak Lurus (Sisi Kanan/Dalam, menghadap image) */
+  .sidebar-text {
+    position: absolute;
+    top: 50%;
+    left: 90px; /* Berada di sebelah kanan garis tipis */
+    transform: translate(-50%, -50%) rotate(-90deg);
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    letter-spacing: 5px;
+    color: #000;
+    white-space: nowrap;
+  }
+  
+  /* 3. Teks Tegak Lurus (Paling Kanan) */
+  .sidebar-text {
+    position: absolute;
+    top: 50%;
+    left: 115px; /* Aman di sebelah kanan, sejajar dan menempel garis tebal */
+    transform: translate(-50%, -50%) rotate(-90deg);
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    letter-spacing: 6px;
+    color: #000;
+    white-space: nowrap;
+  }
+  
+  /* ---------------- Main Area ---------------- */
+  .id-main {
+    flex: 1;
+    padding: 40px 60px 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  /* Header */
+  .id-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .header-left p {
+    font-family: 'Playfair Display', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .header-left .mt-small { margin-top: 15px; }
+  
+  .header-center { text-align: center; margin-top: -10px; }
+  .header-center h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    letter-spacing: 5px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .header-center p {
+    font-family: 'Playfair Display', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+  }
+  .date-label { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 5px; }
+  .date-group { display: flex; flex-direction: column; }
+  .date-value {
+    font-family: 'Special Elite', cursive;
+    font-size: 32px;
+    letter-spacing: 0.05em;
+    padding: 0 5px;
+  }
+  .date-line { height: 1.5px; background: #000; width: 100%; margin-top: 2px; }
+  
+  /* ---------------- Form Fields ---------------- */
+  .id-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .row-values {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 15px;
+  }
+  
+  .row-values.single {
+    justify-content: flex-start;
+  }
+  
+  .val-text {
+    font-family: 'Special Elite', cursive;
+    font-size: clamp(30px, 4vw, 45px); 
+    line-height: 1;
+  }
+  
+  .row-line {
+    height: 2px;
+    background-color: #000;
+    width: 100%;
+    margin: 3px 0;
+  }
+  
+  .row-labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+  
+  .row-labels.single {
+    justify-content: flex-start;
+  }
+  
+  .label-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  
+  /* ---------------- Body & Photo ---------------- */
+  .id-body {
+    display: flex;
+    gap: 40px;
+    margin-top: 10px;
+    flex: 1;
+  }
+  
+  .id-photo {
+    width: 180px;
+    height: 260px;
+    background-color: #999;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(0,0,0,0.5);
+    flex-shrink: 0;
+  }
+  
+  .id-auth-area {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Watermark Stamp */
+  .id-watermark {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    background: url('Assets/Peaky Stamp.png') center / contain no-repeat;
+    pointer-events: none;
+  }
+  
+  .auth-text {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(16px, 2vw, 22px);
+    letter-spacing: 6px;
+    line-height: 2.2;
+    text-align: justify;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Signature block on bottom right */
+  .exec-officer {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+  }
+  
+  .exec-line {
+    border: none;
+    border-top: 1.5px solid #000000;
+    width: 280px;
+  }
+  
+  .exec-officer p {
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-right: 10px;
+  }
+  
+  /* =========================================
+     Footer
+     ========================================= */
+  .footer {
+    background: #141414;
+    border-top: 2.5px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+  }
+  .copyright { font-family: 'Montserrat', sans-serif; font-size: 20px; letter-spacing: 2px; color: #FFFFFF; }
+  
+  /* =========================================
+   RESPONSIVE DESIGN (Tablets & Mobile)
+   ========================================= */
+
+/* Mengatur ID Card agar HANYA mengecil (zoom), tidak berubah menjadi vertikal */
+@media (max-width: 1350px) {
+  .id-card { width: 1274px; max-width: none; zoom: 0.8; }
+}
+
+@media (max-width: 1024px) {
+  .id-card { width: 1274px; max-width: none; zoom: 0.6; }
+}
+
+@media (max-width: 768px) {
+  /* Background fix */
+  body { background-size: 250px auto, auto; }
+
+  /* Hero section fix (Menyesuaikan rasio foto grup 9A) */
+  .hero-section { 
+    height: auto; 
+    aspect-ratio: 2.8 / 1; 
+    background: url('Assets/HeroKel2.png') center / cover no-repeat; 
+    min-height: unset;
+  }
+
+  /* Spacing fix */
+  .main-content { padding: 40px 15px; gap: 60px; }
+
+  /* Navbar */
+  .navbar { padding: 0 10px; }
+  .nav-left, .brand-link { gap: 8px; }
+  .alfityan-logo { width: 100px; height: 32px; } /* Logo sedikit dibesarkan */
+  .line-1 { height: 22px; }
+  .elvore { font-size: 26px; } /* TEKS DIPERBESAR */
+  .menu-icon { margin-right: 5px; }
+  
+  .godfather-quote { 
+    font-size: 16px; /* TEKS DIPERBESAR */
+    line-height: 1.8;
+    text-align: justify; 
+  }
+  
+  .godfather-image { 
+    padding: 15px 15px 60px 15px; 
+  }
+  
+  /* Layout koran agar muat & terbaca jelas */
+  .newspaper-card { padding: 25px 20px; }
+  .paper-name { font-size: 45px; text-align: left; } /* TEKS DIPERBESAR */
+  .student-names { font-size: 18px; text-align: left; } /* TEKS DIPERBESAR */
+  .headline { font-size: 26px; text-align: left; } /* TEKS DIPERBESAR */
+
+  /* --- HERO IMAGE & DIVIDER FIX --- */
+  .hero-section { 
+    height: auto !important; 
+    
+    /* Ganti rasio di bawah ini sesuai bentuk asli foto heromu! 
+       - Jika fotonya memanjang seperti foto grup 9A, gunakan: 2.8 / 1
+       - Jika fotonya seperti ukuran layar TV/YouTube, gunakan: 16 / 9 
+       - Jika fotonya agak kotak, gunakan: 4 / 3 */
+    aspect-ratio: 16 / 9; 
+    
+    background-size: cover !important; 
+    background-position: center !important;
+    min-height: unset !important;
+  }
+
+  /* --- MENGATASI MASALAH SPASI (TIGHT SPACE) --- */
+  .main-content {
+    padding: 100px 0px 60px 0px; /* Padding kiri-kanan di-set 0 agar ruang layar jadi maksimal */
+    gap: 60px; 
+  }
+
+  /* --- NAVBAR RESPONSIVE FIX --- */
+  .navbar { padding: 0 10px; }
+  .nav-left, .brand-link { gap: 8px; }
+  .alfityan-logo { width: 90px; height: 30px; }
+  .line-1 { height: 20px; }
+  .elvore { font-size: 20px; }
+  .yearbook-2025 { font-size: 11px; }
+  .menu-icon { margin-right: 5px; }
+
+  /* --- SECTION TITLES CENTERING FIX --- */
+  /* Paksa ukuran absolut dan margin ekstra besar untuk mengkompensasi efek zoom */
+  .section-title { 
+    width: 400px !important;
+    max-width: 400px !important;
+    /* Tambahkan margin bawah lebih besar agar tidak menabrak poster */
+    margin: 20px auto 60px auto !important; 
+    zoom: 0.8; 
+  }
+
+  .section-title.large { 
+    width: 550px !important;
+    max-width: 550px !important;
+    /* Margin atas untuk jarak dari gambar pistol pembatas */
+    /* Margin bawah ekstra raksasa agar saat ter-zoom 0.6, jaraknya tetap luas ke ID Card */
+    margin: 40px auto 100px auto !important; 
+    zoom: 0.6; 
+  }
+  .section-title h2 { white-space: nowrap; font-size: 40px; padding: 0; }
+
+  /* --- POSTERS --- */
+  .posters-grid { gap: 30px; }
+  .poster-card { width: 100%; max-width: 350px; height: auto; aspect-ratio: 1/1.4; padding: 20px; }
+  .wanted-text { font-size: 45px; }
+
+  /* --- ID CARD PERFECT CENTERING FIX --- */
+  .id-cards-container { 
+    gap: 60px; /* Jarak antar ID Card diperbesar agar tidak terlalu padat */
+  }
+  .id-card {
+    width: 1274px !important; 
+    max-width: 1274px !important;
+    margin: 0 auto !important; 
+    zoom: 0.31; 
+  }
+}
+
+/* Penyesuaian ekstra untuk layar HP yang sangat kecil (seperti iPhone SE) */
+@media (max-width: 380px) {
+  .alfityan-logo { width: 85px; height: 28px; }
+  .elvore { font-size: 22px; } /* TEKS DIPERBESAR */
+  .yearbook-2025 { font-size: 13px; } /* TEKS DIPERBESAR */
+  .paper-name { font-size: 35px; } /* TEKS DIPERBESAR */
+  .id-card { zoom: 0.30; } 
+}
