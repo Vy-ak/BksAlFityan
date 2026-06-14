@@ -24,10 +24,10 @@
     overflow-x: hidden;
   }
   
-/* =========================================
-   Navbar
-   ========================================= */
-   .navbar {
+  /* =========================================
+     Navbar
+     ========================================= */
+  .navbar {
     display: flex; /* Diubah dari grid ke flex */
     justify-content: space-between; /* Secara otomatis mendorong nav-left ke kiri dan nav-right ke kanan penuh */
     align-items: center;
@@ -40,89 +40,124 @@
     max-width: 1440px;
     z-index: 1000;
   }
-
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 15px; /* Jarak antar elemen di sisi kiri */
-}
-
-.brand-link {
-  display: flex;
-  align-items: center;
-  gap: 15px; /* Keeps the spacing between the logo, line, and text */
-  text-decoration: none; /* Removes the default blue underline from the link */
-  cursor: pointer;
-}
-
-.nav-center {
-  display: flex;
-  justify-content: center;
-}
-
-/* Styling Ikon Hamburger Menu */
-.menu-icon {
-  width: 25px;
-  height: 2px;
-  background: white;
-  position: relative;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-.menu-icon::before, .menu-icon::after {
-  content: '';
-  position: absolute;
-  width: 25px;
-  height: 2px;
-  background: white;
-}
-
-.menu-icon::before { top: -8px; }
-.menu-icon::after { top: 8px; }
-
-/* Logo Alfityan */
-.alfityan-logo {
-  width: 150px;
-  height: 45px;
-  background: url('Assets/logo-alfityan.png') center / contain no-repeat;
-}
-
-/* Garis Pemisah | */
-.line-1 {
-  width: 1px;
-  height: 30px;
-  background: rgba(255, 255, 255, 0.4);
-  margin: 0 5px;
-}
-
-/* Teks Brand Elvore */
-.elvore {
-  font-family: 'Nova Script', cursive;
-  font-size: 32px;
-  color: #E0E0E0;
-  letter-spacing: 1px;
-}
-
-/* Teks Tengah: 2025 Yearbook */
-.yearbook-2025 {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 25px;
-  font-weight: 400;
-  color: white;
-  white-space: nowrap;
-}
-
-/* Hero Section Adjustment (Agar tidak tertutup navbar fixed) */
-.hero-section {
-  margin-top: 80px; 
-  height: 500px;
-  background: url('Assets/Hero Image 1.png') center / cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
+  
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Jarak antar elemen di sisi kiri */
+  }
+  
+  .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Keeps the spacing between the logo, line, and text */
+    text-decoration: none; /* Removes the default blue underline from the link */
+    cursor: pointer;
+  }
+  
+  .nav-center {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Styling Ikon Hamburger Menu */
+  .menu-icon {
+    width: 25px;
+    height: 2px;
+    background: white;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .menu-icon::before, .menu-icon::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    background: white;
+  }
+  
+  .menu-icon::before { top: -8px; }
+  .menu-icon::after { top: 8px; }
+  
+  /* Logo Alfityan */
+  .alfityan-logo {
+    width: 150px;
+    height: 45px;
+    background: url('Assets/logo-alfityan.png') center / contain no-repeat;
+  }
+  
+  /* Garis Pemisah | */
+  .line-1 {
+    width: 1px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.4);
+    margin: 0 5px;
+  }
+  
+  /* Teks Brand Elvore */
+  .elvore {
+    font-family: 'Nova Script', cursive;
+    font-size: 32px;
+    color: #E0E0E0;
+    letter-spacing: 1px;
+  }
+  
+  /* Teks Tengah: 2025 Yearbook */
+  .yearbook-2025 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    color: white;
+    white-space: nowrap;
+  }
+  
+  /* Hero Section Adjustment (Agar tidak tertutup navbar fixed) */
+  .hero-section {
+    margin-top: 80px; 
+    height: 500px;
+    
+    /* Base background properties */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    /* Start with the first image so it doesn't flash white on load */
+    background-image: url('9A/Assets/9AHero.png');
+    
+    /* Attach the slideshow animation (16s total, loops forever) */
+    animation: heroSlideshow 16s infinite;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  /* Hero Image Slideshow Animation */
+  @keyframes heroSlideshow {
+    /* Image 1: 9A */
+    0%, 20% { 
+      background-image: url('9A/Assets/9AHero.png'); 
+    }
+    /* Image 2: 9B */
+    25%, 45% { 
+      background-image: url('9B/Assets/9BHero.png'); 
+    }
+    /* Image 3: 9C */
+    50%, 70% { 
+      background-image: url('9C/Assets/9CHero.png'); 
+    }
+    /* Image 4: 9D */
+    75%, 95% { 
+      background-image: url('9D/Assets/9DHero.png'); 
+    }
+    /* Loop back seamlessly */
+    100% { 
+      background-image: url('9A/Assets/9AHero.png'); 
+    }
+  }
   
   /* =========================================
      Main Content Layout & Titles
@@ -187,7 +222,7 @@
   /* =========================================
    Cherish Every Moment (Infinite Gallery)
    ========================================= */
-.gallery-container {
+  .gallery-container {
     width: 100vw;
     position: relative;
     left: 50%;
@@ -362,12 +397,12 @@
     letter-spacing: 2px;
     color: #FFFFFF;
   }
-
+  
   /* =========================================
    RESPONSIVE DESIGN (Tablets & Smaller Screens)
    ========================================= */
-
-@media (max-width: 1024px) {
+  
+  @media (max-width: 1024px) {
     /* Scale down grids for Tablet */
     .movie-grid {
       grid-template-columns: repeat(2, 1fr); /* 2 cards per row instead of 4 */
@@ -430,7 +465,7 @@
       background-position: center !important;
       min-height: unset !important;
     }
-
+  
     .vid-bebas {
       font-size: 45px;
       line-height: 1.2;
