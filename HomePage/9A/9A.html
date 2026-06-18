@@ -13,19 +13,42 @@
   <div class="peaky-wrapper">
     
     <nav class="navbar">
-        <div class="nav-left">
-            <div class="menu-icon"></div>
-            
-            <a href="../index.html" class="brand-link">
-              <div class="alfityan-logo"></div>
-              <div class="line-1"></div>
-              <div class="elvore">Elvore</div>
-            </a> 
-          </div>
+      <div class="nav-left">
+        <div class="menu-icon" onclick="toggleSidebar()"></div>
+        
+        <a href="../index.html" class="brand-link">
+          <div class="alfityan-logo"></div>
+          <div class="line-1"></div>
+          <div class="elvore">Elvore</div>
+        </a> 
+      </div>
       <div class="nav-right">
         <div class="yearbook-2025">2026 Yearbook</div>
       </div>
     </nav>
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="alfityan-logo"></div>
+        <div class="elvore">Elvore</div>
+        <button class="sidebar-close" onclick="closeSidebar()" aria-label="Close menu">&times;</button>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="../index.html" class="sidebar-link">Home</a>
+
+        <div class="sidebar-label">Kelas 9</div>
+        <a href="9A.html" class="sidebar-link current">9A</a>
+        <a href="../9B/9B.html" class="sidebar-link">9B</a>
+        <a href="../9C/9C.html" class="sidebar-link">9C</a>
+        <a href="../9D/9D.html" class="sidebar-link">9D</a>
+
+        <div class="sidebar-divider"></div>
+        <a href="../Gallery.html" class="sidebar-link">Gallery</a>
+        <a href="../Guru.html" class="sidebar-link">Guru</a>
+      </nav>
+    </aside>
 
     <header class="hero-section"></header>
 
@@ -55,23 +78,23 @@
 
         <div class="newspaper-container">
           
-            <a href="9A1.html" class="newspaper-card">
-                <div class="newspaper-header">
-                  <h1 class="paper-name">The Birmingham</h1>
-                  <p class="student-names">Adli Rashid - Adli Suman - Adzam Rafasya Altaf - Ahmad Zamzami - Athar Rafardhan</p>
-                </div>
-                <hr class="separator-line">
-                <h2 class="headline">BY ORDER OF THE GRADUATING CLASS: THE SYNDICATE OF 2026 SEIZES THE FUTURE</h2>
-                <div class="article-body">
-                  <div class="article-image kel1"></div>
-                  <div class="article-text-container">
-                    <p class="article-text">BIRMINGHAM — The brick-and-mortar corridors of this establishment are eerily quiet this morning. After three years of highly coordinated operations, whispered alliances in the back rows, and an uncompromising campaign for supremacy, the notorious Class of 2026 has officially completed their final takeover. The reign of curfews, grueling examinations, and the ever-watchful eyes of the faculty has come to an abrupt and historic end. They did not merely walk these halls; they owned them. From the sharp-witted bookmakers who ran the underground trade of shared notes, to the silver-tongued negotiators who could talk their way out of any detention, this was no ordinary cohort. They were a syndicate, bound by a shared code and an unwavering ambition to make this territory their own. They operated by their own rules, turning the schoolyard into their personal empire and treating every ringing bell not as a command, but as a mere suggestion.</p>
-                    <p class="source-credit">Source: Kelompok 1</p>
-                  </div>
-                </div>
-            </a>
+          <a href="9A1.html" class="newspaper-card">
+            <div class="newspaper-header">
+              <h1 class="paper-name">The Birmingham</h1>
+              <p class="student-names">Adli Rashid - Adli Suman - Adzam Rafasya Altaf - Ahmad Zamzami - Athar Rafardhan</p>
+            </div>
+            <hr class="separator-line">
+            <h2 class="headline">BY ORDER OF THE GRADUATING CLASS: THE SYNDICATE OF 2026 SEIZES THE FUTURE</h2>
+            <div class="article-body">
+              <div class="article-image kel1"></div>
+              <div class="article-text-container">
+                <p class="article-text">BIRMINGHAM — The brick-and-mortar corridors of this establishment are eerily quiet this morning. After three years of highly coordinated operations, whispered alliances in the back rows, and an uncompromising campaign for supremacy, the notorious Class of 2026 has officially completed their final takeover. The reign of curfews, grueling examinations, and the ever-watchful eyes of the faculty has come to an abrupt and historic end. They did not merely walk these halls; they owned them. From the sharp-witted bookmakers who ran the underground trade of shared notes, to the silver-tongued negotiators who could talk their way out of any detention, this was no ordinary cohort. They were a syndicate, bound by a shared code and an unwavering ambition to make this territory their own. They operated by their own rules, turning the schoolyard into their personal empire and treating every ringing bell not as a command, but as a mere suggestion.</p>
+                <p class="source-credit">Source: Kelompok 1</p>
+              </div>
+            </div>
+          </a>
 
-            <a href="9A2.html" class="newspaper-card">
+          <a href="9A2.html" class="newspaper-card">
             <div class="newspaper-header">
               <h1 class="paper-name">Daily Bugle Post</h1>
               <p class="student-names">Bushido Jabbar - Daffa Abdurrahman - Emir Maulana Tsaqif - Fachrul Rahman - Farash Pudya</p>
@@ -85,7 +108,7 @@
                 <p class="source-credit">Source: Kelompok 2</p>
               </div>
             </div>
-            </a>
+          </a>
 
           <a href="9A3.html" class="newspaper-card">
             <div class="newspaper-header">
@@ -131,10 +154,12 @@
     </main>
 
     <footer class="footer">
-      <p class="copyright">2026© Vy’s Production</p>
+      <p class="copyright">2026© Vy's Production</p>
     </footer>
 
   </div>
+
+  <script src="../sidebar.js"></script>
 
 </body>
 </html>

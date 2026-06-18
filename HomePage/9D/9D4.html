@@ -31,19 +31,45 @@
 </head>
 <body>
     <div class="peaky-wrapper">
+
         <nav class="navbar">
             <div class="nav-left">
-                <div class="menu-icon"></div>
-                <a class="brand-link" href="../index.html">
-                    <div class="alfityan-logo"></div>
-                    <div class="line-1"></div>
-                    <div class="elvore">Elvore</div>
-                </a>
+              <div class="menu-icon" onclick="toggleSidebar()"></div>
+              
+              <a href="../index.html" class="brand-link">
+                <div class="alfityan-logo"></div>
+                <div class="line-1"></div>
+                <div class="elvore">Elvore</div>
+              </a> 
             </div>
             <div class="nav-right">
-                <div class="yearbook-2026">2026 Yearbook</div>
+              <div class="yearbook-2025">2026 Yearbook</div>
             </div>
-        </nav>
+          </nav>
+      
+          <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+      
+          <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+              <div class="alfityan-logo"></div>
+              <div class="elvore">Elvore</div>
+              <button class="sidebar-close" onclick="closeSidebar()" aria-label="Close menu">&times;</button>
+            </div>
+            <nav class="sidebar-nav">
+              <a href="../index.html" class="sidebar-link">Home</a>
+      
+              <div class="sidebar-label">Kelas 9</div>
+              <a href="9A.html" class="sidebar-link current">9A</a>
+              <a href="../9B/9B.html" class="sidebar-link">9B</a>
+              <a href="../9C/9C.html" class="sidebar-link">9C</a>
+              <a href="../9D/9D.html" class="sidebar-link">9D</a>
+      
+              <div class="sidebar-divider"></div>
+              <a href="../Gallery.html" class="sidebar-link">Gallery</a>
+              <a href="../Guru.html" class="sidebar-link">Guru</a>
+            </nav>
+          </aside>      
+
         <header class="hero-section"></header>
         <main class="main-content">
             <section class="bounty-section">
@@ -463,5 +489,8 @@
             <p class="copyright">2026© Vy’s Production</p>
         </footer>
     </div>
+
+    <script src="../sidebar.js"></script>
+    
 </body>
 </html>
