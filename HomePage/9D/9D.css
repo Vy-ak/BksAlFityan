@@ -255,7 +255,7 @@
   .hero-section { 
     height: auto; 
     aspect-ratio: 2.8 / 1; 
-    background: url('Assets/9CHero.png') center / cover no-repeat; 
+    background: url('Assets/9DHero.png') center / cover no-repeat; 
     min-height: unset;
   }
 
