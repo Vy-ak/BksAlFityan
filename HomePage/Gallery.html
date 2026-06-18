@@ -1,82 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery - Elvore 2026 Yearbook</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - Elvore 2026 Yearbook</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat&family=Noto+Sans+Georgian:wght@400;700&family=Nova+Script&family=Nunito+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="Gallery.css">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat&family=Noto+Sans+Georgian:wght@400;700&family=Nova+Script&family=Nunito+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Gallery.css" />
+  </head>
+  <body>
+    <div class="home">
+      <nav class="navbar">
+        <div class="nav-left">
+          <div class="menu-icon" onclick="toggleSidebar()"></div>
+          <a href="index.html" class="brand-link">
+            <div class="alfityan-logo"></div>
+            <div class="line-1"></div>
+            <div class="elvore">Elvore</div>
+          </a>
+        </div>
+        <div class="nav-right">
+          <div class="yearbook-2025">2026 Yearbook</div>
+        </div>
+      </nav>
 
-  <div class="home">
-
-    <nav class="navbar">
-      <div class="nav-left">
-        <div class="menu-icon"></div>
-        <a href="../index.html" class="brand-link">
+      <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+        onclick="closeSidebar()"
+      ></div>
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
           <div class="alfityan-logo"></div>
-          <div class="line-1"></div>
           <div class="elvore">Elvore</div>
-        </a>
-      </div>
-      <div class="nav-right">
-        <div class="yearbook-2025">2026 Yearbook</div>
-      </div>
-    </nav>
-
-    <main class="gallery-page-content">
-
-      <!-- Page Title -->
-      <section class="page-header">
-        <div class="header-title-wrap">
-          <div class="title-bg"></div>
-          <h1>Gallery</h1>
+          <button
+            class="sidebar-close"
+            onclick="closeSidebar()"
+            aria-label="Close menu"
+          >
+            &times;
+          </button>
         </div>
-      </section>
+        <nav class="sidebar-nav">
+          <a href="index.html" class="sidebar-link">Home</a>
 
-      <!-- Pinterest Grid -->
-      <div class="pinterest-grid">
-        <div class="pin-col">
-          <div class="pin" style="background: url('../Assets/Copy of IMG_6749.JPG') center / cover no-repeat;"></div>
-          <div class="pin tall" style="background: url('../Assets/Copy of IMG_6936.JPG') center / cover no-repeat;"></div>
-          <div class="pin" style="background: url('../Assets/Copy of IMG_7187.JPG') center / cover no-repeat;"></div>
-          <div class="pin tall" style="background: url('../Assets/Copy of IMG-20260213-WA0544.jpg') center / cover no-repeat;"></div>
-          <div class="pin" style="background: url('../Assets/Copy of IMG_7419.JPG') center / cover no-repeat;"></div>
+          <div class="sidebar-label">Kelas 9</div>
+          <a href="9A/9A.html" class="sidebar-link">9A</a>
+          <a href="9B/9B.html" class="sidebar-link">9B</a>
+          <a href="9C/9C.html" class="sidebar-link">9C</a>
+          <a href="9D/9D.html" class="sidebar-link">9D</a>
+
+          <div class="sidebar-divider"></div>
+          <a href="Gallery.html" class="sidebar-link current">Gallery</a>
+          <a href="Guru.html" class="sidebar-link">Guru</a>
+        </nav>
+      </aside>
+
+      <main class="gallery-page-content">
+        <section class="page-header">
+          <div class="header-title-wrap">
+            <div class="title-bg"></div>
+            <h1>Gallery</h1>
+          </div>
+        </section>
+
+        <div class="pinterest-grid">
+          
+          <div class="pin-col">
+            <img class="pin" src="Assets/Copy of IMG_6726.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_6737.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6747.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6760.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_6771.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6786.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6926.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_6930.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6934.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6938.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_7095.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7102.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7109.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_7146.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7178.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7181.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_7186.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7377.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_8795.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_8803.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_8925.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9002.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9036.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9084.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9159.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9189.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9244.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9253.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9270.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9299.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9311.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9340.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9360.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9398.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9408.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9441.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9460.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9472.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9506.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9548.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9557.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG-20260213-WA0550.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG-20260213-WA0565.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG-20260213-WA0732.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG-20260213-WA0816.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG-20260213-WA0844.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG-20260213-WA0853.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG-20260213-WA0888.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG-20260213-WA0917.jpg" loading="lazy" alt="Gallery Photo">
+          </div>
+
+          <div class="pin-col">
+            <img class="pin tall" src="Assets/Copy of IMG_6729.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6739.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6753.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_6765.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6776.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6799.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_6927.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6931.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6935.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_7077.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7100.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7103.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_7110.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7174.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7179.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_7182.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7188.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7542.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_8796.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_8827.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_8940.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9007.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9042.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9090.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9171.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9202.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9248.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9264.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9296.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9301.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9312.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9347.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9361.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9402.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9409.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9444.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9463.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9479.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9510.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9551.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9562.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG-20260213-WA0551.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG-20260213-WA0687.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG-20260213-WA0786.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG-20260213-WA0819.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG-20260213-WA0845.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG-20260213-WA0859.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG-20260213-WA0889.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG-20260213-WA0921.jpg" loading="lazy" alt="Gallery Photo">
+          </div>
+
+          <div class="pin-col">
+            <img class="pin" src="Assets/Copy of IMG_6733.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_6743.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6754.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6767.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_6782.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6802.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6928.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_6932.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6936.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7081.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_7101.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7105.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7143.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_7176.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7180.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7184.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_7191.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_8790.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_8799.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_8834.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_8981.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9030.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9052.CR2" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9125.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9188.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9203.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9250.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9265.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9298.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9305.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9313.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9352.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9376.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9406.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9416.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9450.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9468.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9499.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9533.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9553.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG-20260213-WA0523.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG-20260213-WA0562.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG-20260213-WA0693.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG-20260213-WA0804.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG-20260213-WA0843.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG-20260213-WA0846.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG-20260213-WA0862.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG-20260213-WA0910.jpg" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG-20260213-WA0927.jpg" loading="lazy" alt="Gallery Photo">
+          </div>
+
+          <div class="pin-col">
+            <img class="pin tall" src="Assets/Copy of IMG_6736.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6746.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6755.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_6769.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6783.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6807.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_6929.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6933.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_6937.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_7094.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7102.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7107.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_7146.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7178.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7180.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_7184.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7188.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_7542.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_8795.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_8803.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_8925.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9002.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9036.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9084.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9159.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9189.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9244.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9253.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9270.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9299.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9309.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9314.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9338.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9358.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9393.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9435.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG_9451.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9471.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin" src="Assets/Copy of IMG_9502.JPG" loading="lazy" alt="Gallery Photo">
+            <img class="pin tall" src="Assets/Copy of IMG-20260213-WA0937.jpg" loading="lazy" alt="Gallery Photo">
+          </div>
         </div>
-        <div class="pin-col">
-          <div class="pin tall" style="background: url('../Assets/Copy of IMG_6759.JPG') center / cover no-repeat;"></div>
-          <div class="pin" style="background: url('../Assets/Copy of IMG_7105.JPG') center / cover no-repeat;"></div>
-          <div class="pin" style="background: url('../Assets/Copy of IMG-20260213-WA0690.jpg') center / cover no-repeat;"></div>
-          <div class="pin tall" style="background: url('../Assets/Copy of IMG_7287.JPG') center / cover no-repeat;"></div>
-          <div class="pin" style="background: url('../Assets/Copy of IMG_7380.JPG') center / cover no-repeat;"></div>
-        </div>
-        <div class="pin-col">
-          <div class="pin" style="background: url('../Assets/Copy of IMG_6802.JPG') center / cover no-repeat;"></div>
-          <div class="pin" style="background: url('../Assets/Copy of IMG_7179.JPG') center / cover no-repeat;"></div>
-          <div class="pin tall" style="background: url('../Assets/Copy of IMG-20260213-WA0691.jpg') center / cover no-repeat;"></div>
-          <div class="pin" style="background: url('../Assets/Copy of IMG_7077.JPG') center / cover no-repeat;"></div>
-          <div class="pin tall" style="background: url('../Assets/Copy of IMG_6802.JPG') center / cover no-repeat;"></div>
-        </div>
-        <div class="pin-col">
-          <div class="pin tall" style="background: url('../Assets/Copy of IMG_8827.JPG') center / cover no-repeat;"></div>
-          <div class="pin" style="background: url('../Assets/Copy of IMG_7297.JPG') center / cover no-repeat;"></div>
-          <div class="pin" style="background: url('../Assets/Copy of IMG-20260213-WA0842.jpg') center / cover no-repeat;"></div>
-          <div class="pin tall" style="background: url('../Assets/Copy of IMG_7419.JPG') center / cover no-repeat;"></div>
-          <div class="pin" style="background: url('../Assets/Copy of IMG_6749.JPG') center / cover no-repeat;"></div>
-        </div>
-      </div>
+      </main>
 
-    </main>
+      <footer class="footer">
+        <p class="copyright">2026© Vy's Production</p>
+      </footer>
+    </div>
 
-    <footer class="footer">
-      <p class="copyright">2026© Vy's Production</p>
-    </footer>
-
-  </div>
-
-
-
-</body>
+    <script src="sidebar.js"></script>
+  </body>
 </html>

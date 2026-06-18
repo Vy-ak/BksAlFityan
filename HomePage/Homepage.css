@@ -113,50 +113,41 @@
     white-space: nowrap;
   }
   
-  /* Hero Section Adjustment (Agar tidak tertutup navbar fixed) */
+  /* =========================================
+     Hero Section (SLIDING ANIMATION)
+     ========================================= */
   .hero-section {
     margin-top: 80px; 
     height: 500px;
-    
-    /* Base background properties */
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    
-    /* Start with the first image so it doesn't flash white on load */
-    background-image: url('9A/Assets/9AHero.png');
-    
-    /* Attach the slideshow animation (16s total, loops forever) */
-    animation: heroSlideshow 16s infinite;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
+    overflow: hidden; /* Menyembunyikan gambar yang berada di luar layar */
+    background: #141414; /* Fallback background */
   }
   
-  /* Hero Image Slideshow Animation */
-  @keyframes heroSlideshow {
-    /* Image 1: 9A */
-    0%, 20% { 
-      background-image: url('9A/Assets/9AHero.png'); 
-    }
-    /* Image 2: 9B */
-    25%, 45% { 
-      background-image: url('9B/Assets/9BHero.png'); 
-    }
-    /* Image 3: 9C */
-    50%, 70% { 
-      background-image: url('9C/Assets/9CHero.png'); 
-    }
-    /* Image 4: 9D */
-    75%, 95% { 
-      background-image: url('9D/Assets/9DHero.png'); 
-    }
-    /* Loop back seamlessly */
-    100% { 
-      background-image: url('9A/Assets/9AHero.png'); 
-    }
+  /* Track yang menampung 5 gambar, lebarnya 500% agar berjejer ke samping */
+  .hero-track {
+    display: flex;
+    width: 500%;
+    height: 100%;
+    animation: heroSlideAnimation 16s infinite;
+  }
+  
+  /* Setiap slide lebarnya persis seukuran layar aslinya (100% / 5) */
+  .hero-slide {
+    width: 20%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  /* Logika Animasi: Slide -> Jeda -> Slide -> Jeda */
+  @keyframes heroSlideAnimation {
+    0%, 20%   { transform: translateX(0); }       /* Tampil Slide 1 (9A) */
+    25%, 45%  { transform: translateX(-20%); }    /* Geser ke Slide 2 (9B) */
+    50%, 70%  { transform: translateX(-40%); }    /* Geser ke Slide 3 (9C) */
+    75%, 95%  { transform: translateX(-60%); }    /* Geser ke Slide 4 (9D) */
+    100%      { transform: translateX(-80%); }    /* Geser ke Duplikat Slide 1 (9A) kembali ke awal dengan mulus */
   }
   
   /* =========================================
@@ -397,7 +388,7 @@
     letter-spacing: 2px;
     color: #FFFFFF;
   }
-
+  
   /* =========================================
      Sidebar Navigation
      (Opened via the hamburger .menu-icon)
@@ -412,12 +403,12 @@
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 1998;
   }
-
+  
   .sidebar-overlay.active {
     opacity: 1;
     visibility: visible;
   }
-
+  
   .sidebar {
     position: fixed;
     top: 0;
@@ -435,11 +426,11 @@
     flex-direction: column;
     overflow-y: auto;
   }
-
+  
   .sidebar.active {
     transform: translateX(0);
   }
-
+  
   .sidebar-header {
     display: flex;
     align-items: center;
@@ -449,19 +440,19 @@
     position: relative;
     flex-shrink: 0;
   }
-
+  
   .sidebar-header .alfityan-logo {
     width: 42px;
     height: 32px;
     flex-shrink: 0;
   }
-
+  
   .sidebar-header .elvore {
     font-size: 24px;
     color: rgba(255, 255, 255, 0.6);
     white-space: nowrap;
   }
-
+  
   .sidebar-close {
     position: absolute;
     right: 18px;
@@ -475,17 +466,17 @@
     cursor: pointer;
     transition: color 0.2s ease, transform 0.2s ease;
   }
-
+  
   .sidebar-close:hover {
     color: #D4AF37;
   }
-
+  
   .sidebar-nav {
     display: flex;
     flex-direction: column;
     padding: 10px 0 30px;
   }
-
+  
   .sidebar-label {
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
@@ -494,14 +485,14 @@
     color: rgba(212, 175, 55, 0.7);
     padding: 22px 25px 8px;
   }
-
+  
   .sidebar-divider {
     height: 1px;
     margin: 10px 25px;
     background: rgba(255, 255, 255, 0.1);
     flex-shrink: 0;
   }
-
+  
   .sidebar-link {
     display: flex;
     align-items: center;
@@ -516,24 +507,24 @@
     border-left: 3px solid transparent;
     transition: background 0.2s ease, border-color 0.2s ease, padding-left 0.2s ease, color 0.2s ease;
   }
-
+  
   .sidebar-link:hover {
     background: rgba(212, 175, 55, 0.08);
     border-left-color: rgba(212, 175, 55, 0.6);
     padding-left: 31px;
   }
-
+  
   .sidebar-link.current {
     color: #D4AF37;
     border-left-color: #D4AF37;
     background: rgba(212, 175, 55, 0.06);
   }
-
+  
   /* Locks page scroll while the sidebar is open */
   body.sidebar-open {
     overflow: hidden;
   }
-
+  
   @media (max-width: 768px) {
     .sidebar {
       width: 270px;
@@ -605,9 +596,6 @@
          - Jika fotonya seperti ukuran layar TV/YouTube, gunakan: 16 / 9 
          - Jika fotonya agak kotak, gunakan: 4 / 3 */
       aspect-ratio: 16 / 9; 
-      
-      background-size: cover !important; 
-      background-position: center !important;
       min-height: unset !important;
     }
   
