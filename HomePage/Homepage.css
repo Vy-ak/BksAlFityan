@@ -751,3 +751,124 @@
     font-size: 18px;
   }
 }
+
+  .award-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 0 10px;
+}
+
+.award-card {
+  background: #141414;
+  border-radius: 14px;
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  box-shadow: 8px 14px 20px rgba(0, 0, 0, 0.3), 0 0 12px rgba(212, 175, 55, 0.1);
+  padding: 22px 24px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.award-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 10px 20px 26px rgba(0, 0, 0, 0.4), 0 0 16px rgba(212, 175, 55, 0.18);
+}
+
+.award-title {
+  font-family: 'Cinzel', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #D4AF37;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.award-names {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.award-person {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.person-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-color: #2b2b2b;
+  border: 1.5px solid rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.15);
+}
+
+.person-avatar.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.4);
+  border-style: dashed;
+}
+
+.person-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.person-name {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 15px;
+  color: #F0F0F0;
+}
+
+.person-info .nickname {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.45);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .award-grid {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+}
+
+/* =========================================
+  Card Image Slideshow Styles
+  ========================================= */
+.card-slideshow-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  border-radius: inherit; /* Inherits the 10px rounded corners */
+  z-index: 0; /* Keeps the picture behind the floating decorations */
+  transition: background-image 0.8s ease-in-out;
+}
+
+/* Optional: Adds a very subtle dark tint so the decorations (like the fedora) still stand out */
+.card-slideshow-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2); 
+  border-radius: inherit;
+}
+
+/* Ensure the cards clip the background corners cleanly */
+.movie-card, .crew-card {
+  overflow: hidden;
+}

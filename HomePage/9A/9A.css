@@ -396,11 +396,6 @@
   .newspaper-card { zoom: 0.28; } /* Susutkan lebih jauh agar tidak terpotong */
 }
 
-/* =========================================
-Sidebar Navigation
-Tambahkan bagian ini di bawah 9A.css
-========================================= */
-
 .sidebar-overlay {
   position: fixed;
   inset: 0;
