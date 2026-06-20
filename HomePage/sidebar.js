@@ -1,11 +1,3 @@
-/* =========================================
-   sidebar.js
-   Toggles the off-canvas sidebar that opens
-   from the navbar's hamburger (.menu-icon).
-   Include this file on every page that uses
-   the shared .navbar / .sidebar markup.
-   ========================================= */
-
 function toggleSidebar() {
   document.getElementById('sidebar').classList.toggle('active');
   document.getElementById('sidebarOverlay').classList.toggle('active');

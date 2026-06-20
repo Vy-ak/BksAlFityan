@@ -172,3 +172,13 @@
       margin: 0 auto;
     }
   }
+.director-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* shows the full frame, no cropping/zoom */
+  border-radius: 10px;
+  display: block;
+  position: relative;
+  z-index: 2;
+  background: transparent; /* lets the gold gradient show as letterbox, not black bars */
+}

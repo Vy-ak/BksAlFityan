@@ -688,7 +688,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. Helper to generate arrays for Class 9A - 9D dynamically
       const generateClassArray = (folder, prefix, count) => {
         return Array.from({length: count}, (_, i) => `${folder}/Assets/${prefix}_${i + 1}.png`);
       };
@@ -698,7 +697,6 @@
       const images9C = generateClassArray('9C', '9C', 48);
       const images9D = generateClassArray('9D', '9D', 46);
 
-      // 2. Guru Arrays (Based precisely on the screenshot)
       const imagesGuru = [
         "Assets/Copy of DSC01487.png", "Assets/Copy of DSC01498.png", "Assets/Copy of DSC01503.png",
         "Assets/Copy of DSC01505.png", "Assets/Copy of DSC01509.jpg.png", "Assets/Copy of DSC01518.png",
@@ -708,7 +706,6 @@
         "Assets/Copy of DSC01606.png", "Assets/Copy of DSC01611.png", "Assets/Copy of DSC01616.png"
       ];
 
-      // 3. Gallery Arrays (Based on the scroller files)
       const imagesGallery = [
         "Assets/Copy of IMG_6749.JPG", "Assets/Copy of IMG_6759.JPG", "Assets/Copy of IMG_6802.JPG",
         "Assets/Copy of IMG_6936.JPG", "Assets/Copy of IMG_7105.JPG", "Assets/Copy of IMG_7179.JPG",
@@ -716,22 +713,18 @@
         "Assets/Copy of IMG_7297.JPG", "Assets/Copy of IMG_7380.JPG", "Assets/Copy of IMG_7419.JPG"
       ];
 
-      // 4. Logic to append the background div and rotate it
       function setupSlideshow(cardSelector, images, interval = 2500) {
         const card = document.querySelector(cardSelector);
         if (!card || images.length === 0) return;
         
-        let currentIndex = Math.floor(Math.random() * images.length); // Start at a random image
+        let currentIndex = Math.floor(Math.random() * images.length); 
         
-        // Create the background container
         const bgDiv = document.createElement('div');
         bgDiv.className = 'card-slideshow-bg';
         bgDiv.style.backgroundImage = `url('${images[currentIndex]}')`;
         
-        // Insert it at the very back of the card
         card.insertBefore(bgDiv, card.firstChild);
         
-        // Preload next image to prevent flickering
         const preload = (index) => {
           if (images[index]) {
             const img = new Image();
@@ -739,7 +732,6 @@
           }
         };
 
-        // Cycle loop
         setInterval(() => {
           currentIndex = (currentIndex + 1) % images.length;
           bgDiv.style.backgroundImage = `url('${images[currentIndex]}')`;
@@ -747,7 +739,6 @@
         }, interval);
       }
 
-      // Initialize all cards (using staggered intervals so they don't swap at the exact same millisecond)
       setupSlideshow('.movie-card.peaky', images9A, 3000);
       setupSlideshow('.movie-card.fast', images9B, 3200);
       setupSlideshow('.movie-card.elena', images9C, 3400);

@@ -28,7 +28,6 @@
       </div>
     </nav>
 
-    <!-- ===================== Sidebar Navigation ===================== -->
     <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
@@ -52,8 +51,6 @@
     </aside>
 
     <main class="main-content no-hero">
-
-      <!-- ===================== Word from the Director ===================== -->
       <section class="section director-section">
         <div class="section-title">
           <div class="title-container large">
@@ -67,14 +64,18 @@
 
           <div class="director-media">
             <div class="video-placeholder">
-              <div class="play-button"></div>
-              <span>Video Sambutan</span>
+              <video
+                class="director-video"
+                src="Assets/C0022.MP4"
+                controls
+                controlsList="noplaybackrate nodownload"
+                playsinline
+                preload="metadata"
+              ></video>
             </div>
           </div>
-        </div>
       </section>
 
-      <!-- ===================== Character Developer Division ===================== -->
       <section class="section division-section">
         <div class="section-title">
           <div class="title-container large">
@@ -91,7 +92,6 @@
         </div>
       </section>
 
-      <!-- ===================== Logic & Architecture Supervisor ===================== -->
       <section class="section division-section">
         <div class="section-title">
           <div class="title-container large">
@@ -117,8 +117,6 @@
           <div class="person-card" style="background-image: url('Assets/Copy of DSC01581.png');"></div>
           <div class="person-card" style="background-image: url('Assets/Copy of DSC01588.png');"></div>
           <div class="person-card" style="background-image: url('Assets/Copy of DSC01606.png');"></div>
-          <div class="person-card" style="background-image: url('Assets/Copy of DSC01611.png');"></div>
-          <div class="person-card" style="background-image: url('Assets/Copy of DSC01616.png');"></div>
         </div>
       </section>
 

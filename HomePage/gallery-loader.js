@@ -46,6 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // FIX: this was missing — `modal` was used below but never defined,
+  // so clicking a thumbnail threw "modal is not defined" and nothing happened.
+  const modal = document.getElementById('imageModal');
   const modalImg = document.getElementById('modalImage');
   const closeModalBtn = document.getElementById('modalClose');
 
