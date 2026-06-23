@@ -7,7 +7,7 @@
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Homemade+Apple&family=Montserrat:wght@400;700&family=Nova+Script&family=Nunito+Sans:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Homemade+Apple&family=Montserrat:wght@400;700&family=Nova+Script&family=Nunito+Sans:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="9D3.css">
 
  <style>
@@ -20,12 +20,77 @@
     .auth-text::-webkit-scrollbar {
       width: 4px;
     }
+    
     .auth-text::-webkit-scrollbar-track {
       background: transparent;
     }
+    
     .auth-text::-webkit-scrollbar-thumb {
       background-color: rgba(0, 0, 0, 0.4);
       border-radius: 10px;
+    }
+
+    .diary-card {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .diary-card:hover {
+      transform: scale(1.05);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 50px;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10000;
+      font-family: 'Montserrat', sans-serif;
+      transition: color 0.3s ease;
+    }
+
+    .modal-close:hover {
+      color: #ff4d4d;
+    }
+
+    .modal-content .id-card {
+      display: none;
+    }
+
+    .modal-content .id-card.active-card {
+      display: flex; 
+      animation: popIn 0.3s ease forwards;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
  </style>
 </head>
@@ -83,313 +148,36 @@
 
        <div class="diaries-grid">
         
-           <div class="diary-card">
+           <div class="diary-card diary-trigger">
              <div class="diary-photo" style="background-image: url('Assets/9D_1.png');"></div>
              <h3 class="diary-name">Rameyza Nahilah Kusuma</h3>
              <p class="diary-quote">“We met for a reason, either you're a blessing or a lesson.”</p>
            </div>
           
-           <div class="diary-card">
+           <div class="diary-card diary-trigger">
              <div class="diary-photo" style="background-image: url('Assets/9D_2.png');"></div>
              <h3 class="diary-name">Alsya Ufaira Akhlaqi</h3>
              <p class="diary-quote">“one mistake doesn't erase who you were”</p>
            </div>
           
-           <div class="diary-card">
+           <div class="diary-card diary-trigger">
              <div class="diary-photo" style="background-image: url('Assets/9D_3.png');"></div>
              <h3 class="diary-name">Kanaya Naomi Arzeta</h3>
              <p class="diary-quote">“work hard in silence, let your success be your noise.”</p>
            </div>
           
-           <div class="diary-card">
+           <div class="diary-card diary-trigger">
              <div class="diary-photo" style="background-image: url('Assets/9D_4.png');"></div>
              <h3 class="diary-name">Nadyra Akbar Safira</h3>
              <p class="diary-quote">“Anyway, don't be a stranger”</p>
            </div>
           
-           <div class="diary-card">
+           <div class="diary-card diary-trigger">
              <div class="diary-photo" style="background-image: url('Assets/9D_5.png');"></div>
              <h3 class="diary-name">Regina Alisa Supyan</h3>
              <p class="diary-quote">“Allah didn't bring you this far to abandon you”</p>
            </div>
         </div>
-     </section>
-
-     <section class="informant-section">
-       <div class="section-title large">
-         <div class="title-bg"></div>
-         <h2>Detailed Informant</h2>
-       </div>
-
-       <div class="id-cards-container">
-        
-         <div class="id-card">
-           <div class="id-bg-gradient"></div>
-           <div class="id-sidebar">
-             <div class="sidebar-line"></div>
-             <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-             <span class="sidebar-signature">Rameyza</span>
-           </div>
-           <div class="id-main">
-             <div class="id-header">
-               <div class="header-left">
-                 <p>Hogwarts LTD</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
-               </div>
-               <div class="header-center">
-                 <h2>HOGWARTS LIBRARY CARD</h2><p>NON TRANSFERABLE</p>
-               </div>
-               <div class="header-right">
-                 <span class="date-label">Date</span>
-                 <div class="date-group"><span class="date-value">19 feb 1991</span><div class="date-line"></div></div>
-               </div>
-             </div>
-             <div class="id-form">
-               <div class="form-row">
-                 <div class="row-values">
-                   <span class="val-text">Rameyza Nahilah Kusuma</span>
-                   <span class="val-text">@rameyzana_</span>
-                 </div>
-                 <div class="row-line"></div>
-                 <div class="row-labels">
-                   <span class="label-text left-label">NAME</span>
-                   <span class="label-text right-label">Social Media Account</span>
-                 </div>
-               </div>
-               <div class="form-row">
-                 <div class="row-values single">
-                   <span class="val-text">Tangerang Selatan</span>
-                 </div>
-                 <div class="row-line"></div>
-                 <div class="row-labels single">
-                   <span class="label-text left-label">PLACE OF BIRTH</span>
-                 </div>
-               </div>
-             </div>
-             <div class="id-body">
-               <div class="id-photo" style="background-image: url('Assets/9D_6.png');"></div>
-               <div class="id-auth-area">
-                 <div class="id-watermark"></div>
-                 <p class="auth-text">Happy, I have many friends here :p</p>
-                 <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
-               </div>
-             </div>
-           </div>
-         </div>
-
-         <div class="id-card">
-           <div class="id-bg-gradient"></div>
-           <div class="id-sidebar">
-             <div class="sidebar-line"></div>
-             <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-             <span class="sidebar-signature">Alsya</span>
-           </div>
-           <div class="id-main">
-             <div class="id-header">
-               <div class="header-left">
-                 <p>Hogwarts LTD</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
-               </div>
-               <div class="header-center">
-                 <h2>HOGWARTS LIBRARY CARD</h2><p>NON TRANSFERABLE</p>
-               </div>
-               <div class="header-right">
-                 <span class="date-label">Date</span>
-                 <div class="date-group"><span class="date-value">19 feb 1991</span><div class="date-line"></div></div>
-               </div>
-             </div>
-             <div class="id-form">
-               <div class="form-row">
-                 <div class="row-values">
-                   <span class="val-text">Alsya Ufaira Akhlaqi</span>
-                   <span class="val-text">@alsyaufaira</span>
-                 </div>
-                 <div class="row-line"></div>
-                 <div class="row-labels">
-                   <span class="label-text left-label">NAME</span>
-                   <span class="label-text right-label">Social Media Account</span>
-                 </div>
-               </div>
-               <div class="form-row">
-                 <div class="row-values single">
-                   <span class="val-text">Jakarta</span>
-                 </div>
-                 <div class="row-line"></div>
-                 <div class="row-labels single">
-                   <span class="label-text left-label">PLACE OF BIRTH</span>
-                 </div>
-               </div>
-             </div>
-             <div class="id-body">
-               <div class="id-photo" style="background-image: url('Assets/9D_7.png');"></div>
-               <div class="id-auth-area">
-                 <div class="id-watermark"></div>
-                 <p class="auth-text">Asik, seru banyak event dan lingkungan yang mendukung untuk menjadi pribadi yang lebih baik</p>
-                 <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
-               </div>
-             </div>
-           </div>
-         </div>
-
-         <div class="id-card">
-           <div class="id-bg-gradient"></div>
-           <div class="id-sidebar">
-             <div class="sidebar-line"></div>
-             <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-             <span class="sidebar-signature">Zeta</span>
-           </div>
-           <div class="id-main">
-             <div class="id-header">
-               <div class="header-left">
-                 <p>Hogwarts LTD</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
-               </div>
-               <div class="header-center">
-                 <h2>HOGWARTS LIBRARY CARD</h2><p>NON TRANSFERABLE</p>
-               </div>
-               <div class="header-right">
-                 <span class="date-label">Date</span>
-                 <div class="date-group"><span class="date-value">19 feb 1991</span><div class="date-line"></div></div>
-               </div>
-             </div>
-             <div class="id-form">
-               <div class="form-row">
-                 <div class="row-values">
-                   <span class="val-text">Kanaya Naomi Arzeta</span>
-                   <span class="val-text">@arzetttaaa</span>
-                 </div>
-                 <div class="row-line"></div>
-                 <div class="row-labels">
-                   <span class="label-text left-label">NAME</span>
-                   <span class="label-text right-label">Social Media Account</span>
-                 </div>
-               </div>
-               <div class="form-row">
-                 <div class="row-values single">
-                   <span class="val-text">Tangerang</span>
-                 </div>
-                 <div class="row-line"></div>
-                 <div class="row-labels single">
-                   <span class="label-text left-label">PLACE OF BIRTH</span>
-                 </div>
-               </div>
-             </div>
-             <div class="id-body">
-               <div class="id-photo" style="background-image: url('Assets/9D_8.png');"></div>
-               <div class="id-auth-area">
-                 <div class="id-watermark"></div>
-                 <p class="auth-text">Sangat senang sekali, seru dan semoga Al-Fityan semakin maju terus</p>
-                 <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
-               </div>
-             </div>
-           </div>
-         </div>
-
-         <div class="id-card">
-           <div class="id-bg-gradient"></div>
-           <div class="id-sidebar">
-             <div class="sidebar-line"></div>
-             <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-             <span class="sidebar-signature">Nadyra</span>
-           </div>
-           <div class="id-main">
-             <div class="id-header">
-               <div class="header-left">
-                 <p>Hogwarts LTD</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
-               </div>
-               <div class="header-center">
-                 <h2>HOGWARTS LIBRARY CARD</h2><p>NON TRANSFERABLE</p>
-               </div>
-               <div class="header-right">
-                 <span class="date-label">Date</span>
-                 <div class="date-group"><span class="date-value">19 feb 1991</span><div class="date-line"></div></div>
-               </div>
-             </div>
-             <div class="id-form">
-               <div class="form-row">
-                 <div class="row-values">
-                   <span class="val-text">Nadyra Akbar Safira</span>
-                   <span class="val-text">@naztxxz</span>
-                 </div>
-                 <div class="row-line"></div>
-                 <div class="row-labels">
-                   <span class="label-text left-label">NAME</span>
-                   <span class="label-text right-label">Social Media Account</span>
-                 </div>
-               </div>
-               <div class="form-row">
-                 <div class="row-values single">
-                   <span class="val-text">Tangerang</span>
-                 </div>
-                 <div class="row-line"></div>
-                 <div class="row-labels single">
-                   <span class="label-text left-label">PLACE OF BIRTH</span>
-                 </div>
-               </div>
-             </div>
-             <div class="id-body">
-               <div class="id-photo" style="background-image: url('Assets/9D_9.png');"></div>
-               <div class="id-auth-area">
-                 <div class="id-watermark"></div>
-                 <p class="auth-text">Alhamdulillah selama bersekolah di sini saya memiliki banyak teman dan guru-gurunya juga sangat baik dan ramah.</p>
-                 <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
-               </div>
-             </div>
-           </div>
-         </div>
-
-         <div class="id-card">
-           <div class="id-bg-gradient"></div>
-           <div class="id-sidebar">
-             <div class="sidebar-line"></div>
-             <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-             <span class="sidebar-signature">Gina</span>
-           </div>
-           <div class="id-main">
-             <div class="id-header">
-               <div class="header-left">
-                 <p>Hogwarts LTD</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
-               </div>
-               <div class="header-center">
-                 <h2>HOGWARTS LIBRARY CARD</h2><p>NON TRANSFERABLE</p>
-               </div>
-               <div class="header-right">
-                 <span class="date-label">Date</span>
-                 <div class="date-group"><span class="date-value">19 feb 1991</span><div class="date-line"></div></div>
-               </div>
-             </div>
-             <div class="id-form">
-               <div class="form-row">
-                 <div class="row-values">
-                   <span class="val-text">Regina Alisa Supyan</span>
-                   <span class="val-text">@reeginia_</span>
-                 </div>
-                 <div class="row-line"></div>
-                 <div class="row-labels">
-                   <span class="label-text left-label">NAME</span>
-                   <span class="label-text right-label">Social Media Account</span>
-                 </div>
-               </div>
-               <div class="form-row">
-                 <div class="row-values single">
-                   <span class="val-text">Tasikmalaya</span>
-                 </div>
-                 <div class="row-line"></div>
-                 <div class="row-labels single">
-                   <span class="label-text left-label">PLACE OF BIRTH</span>
-                 </div>
-               </div>
-             </div>
-             <div class="id-body">
-               <div class="id-photo" style="background-image: url('Assets/9D_10.png');"></div>
-               <div class="id-auth-area">
-                 <div class="id-watermark"></div>
-                 <p class="auth-text">Seru, sedih, cape, dan kenangannya.. terimakasih</p>
-                 <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-
-       </div>
      </section>
 
    </main>
@@ -400,7 +188,309 @@
 
  </div>
 
+ <div id="idCardModal" class="modal-overlay">
+   <button class="modal-close" id="closeModalBtn">&times;</button>
+   <div class="modal-content">
+     
+     <div class="id-card">
+       <div class="id-bg-gradient"></div>
+       <div class="id-sidebar">
+         <div class="sidebar-line"></div>
+         <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+         <span class="sidebar-signature">Rameyza</span>
+       </div>
+       <div class="id-main">
+         <div class="id-header">
+           <div class="header-left">
+             <p>Hogwarts LTD</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
+           </div>
+           <div class="header-center">
+             <h2>HOGWARTS LIBRARY CARD</h2><p>NON TRANSFERABLE</p>
+           </div>
+           <div class="header-right">
+             <span class="date-label">Date</span>
+             <div class="date-group"><span class="date-value">19 feb 1991</span><div class="date-line"></div></div>
+           </div>
+         </div>
+         <div class="id-form">
+           <div class="form-row">
+             <div class="row-values">
+               <span class="val-text">Rameyza Nahilah Kusuma</span>
+               <span class="val-text">@rameyzana_</span>
+             </div>
+             <div class="row-line"></div>
+             <div class="row-labels">
+               <span class="label-text left-label">NAME</span>
+               <span class="label-text right-label">Social Media Account</span>
+             </div>
+           </div>
+           <div class="form-row">
+             <div class="row-values single">
+               <span class="val-text">Tangerang Selatan</span>
+             </div>
+             <div class="row-line"></div>
+             <div class="row-labels single">
+               <span class="label-text left-label">PLACE OF BIRTH</span>
+             </div>
+           </div>
+         </div>
+         <div class="id-body">
+           <div class="id-photo" style="background-image: url('Assets/9D_6.png');"></div>
+           <div class="id-auth-area">
+             <div class="id-watermark"></div>
+             <p class="auth-text">Happy, I have many friends here :p</p>
+             <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <div class="id-card">
+       <div class="id-bg-gradient"></div>
+       <div class="id-sidebar">
+         <div class="sidebar-line"></div>
+         <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+         <span class="sidebar-signature">Alsya</span>
+       </div>
+       <div class="id-main">
+         <div class="id-header">
+           <div class="header-left">
+             <p>Hogwarts LTD</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
+           </div>
+           <div class="header-center">
+             <h2>HOGWARTS LIBRARY CARD</h2><p>NON TRANSFERABLE</p>
+           </div>
+           <div class="header-right">
+             <span class="date-label">Date</span>
+             <div class="date-group"><span class="date-value">19 feb 1991</span><div class="date-line"></div></div>
+           </div>
+         </div>
+         <div class="id-form">
+           <div class="form-row">
+             <div class="row-values">
+               <span class="val-text">Alsya Ufaira Akhlaqi</span>
+               <span class="val-text">@alsyaufaira</span>
+             </div>
+             <div class="row-line"></div>
+             <div class="row-labels">
+               <span class="label-text left-label">NAME</span>
+               <span class="label-text right-label">Social Media Account</span>
+             </div>
+           </div>
+           <div class="form-row">
+             <div class="row-values single">
+               <span class="val-text">Jakarta</span>
+             </div>
+             <div class="row-line"></div>
+             <div class="row-labels single">
+               <span class="label-text left-label">PLACE OF BIRTH</span>
+             </div>
+           </div>
+         </div>
+         <div class="id-body">
+           <div class="id-photo" style="background-image: url('Assets/9D_7.png');"></div>
+           <div class="id-auth-area">
+             <div class="id-watermark"></div>
+             <p class="auth-text">Asik, seru banyak event dan lingkungan yang mendukung untuk menjadi pribadi yang lebih baik</p>
+             <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <div class="id-card">
+       <div class="id-bg-gradient"></div>
+       <div class="id-sidebar">
+         <div class="sidebar-line"></div>
+         <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+         <span class="sidebar-signature">Zeta</span>
+       </div>
+       <div class="id-main">
+         <div class="id-header">
+           <div class="header-left">
+             <p>Hogwarts LTD</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
+           </div>
+           <div class="header-center">
+             <h2>HOGWARTS LIBRARY CARD</h2><p>NON TRANSFERABLE</p>
+           </div>
+           <div class="header-right">
+             <span class="date-label">Date</span>
+             <div class="date-group"><span class="date-value">19 feb 1991</span><div class="date-line"></div></div>
+           </div>
+         </div>
+         <div class="id-form">
+           <div class="form-row">
+             <div class="row-values">
+               <span class="val-text">Kanaya Naomi Arzeta</span>
+               <span class="val-text">@arzetttaaa</span>
+             </div>
+             <div class="row-line"></div>
+             <div class="row-labels">
+               <span class="label-text left-label">NAME</span>
+               <span class="label-text right-label">Social Media Account</span>
+             </div>
+           </div>
+           <div class="form-row">
+             <div class="row-values single">
+               <span class="val-text">Tangerang</span>
+             </div>
+             <div class="row-line"></div>
+             <div class="row-labels single">
+               <span class="label-text left-label">PLACE OF BIRTH</span>
+             </div>
+           </div>
+         </div>
+         <div class="id-body">
+           <div class="id-photo" style="background-image: url('Assets/9D_8.png');"></div>
+           <div class="id-auth-area">
+             <div class="id-watermark"></div>
+             <p class="auth-text">Sangat senang sekali, seru dan semoga Al-Fityan semakin maju terus</p>
+             <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <div class="id-card">
+       <div class="id-bg-gradient"></div>
+       <div class="id-sidebar">
+         <div class="sidebar-line"></div>
+         <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+         <span class="sidebar-signature">Nadyra</span>
+       </div>
+       <div class="id-main">
+         <div class="id-header">
+           <div class="header-left">
+             <p>Hogwarts LTD</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
+           </div>
+           <div class="header-center">
+             <h2>HOGWARTS LIBRARY CARD</h2><p>NON TRANSFERABLE</p>
+           </div>
+           <div class="header-right">
+             <span class="date-label">Date</span>
+             <div class="date-group"><span class="date-value">19 feb 1991</span><div class="date-line"></div></div>
+           </div>
+         </div>
+         <div class="id-form">
+           <div class="form-row">
+             <div class="row-values">
+               <span class="val-text">Nadyra Akbar Safira</span>
+               <span class="val-text">@naztxxz</span>
+             </div>
+             <div class="row-line"></div>
+             <div class="row-labels">
+               <span class="label-text left-label">NAME</span>
+               <span class="label-text right-label">Social Media Account</span>
+             </div>
+           </div>
+           <div class="form-row">
+             <div class="row-values single">
+               <span class="val-text">Tangerang</span>
+             </div>
+             <div class="row-line"></div>
+             <div class="row-labels single">
+               <span class="label-text left-label">PLACE OF BIRTH</span>
+             </div>
+           </div>
+         </div>
+         <div class="id-body">
+           <div class="id-photo" style="background-image: url('Assets/9D_9.png');"></div>
+           <div class="id-auth-area">
+             <div class="id-watermark"></div>
+             <p class="auth-text">Alhamdulillah selama bersekolah di sini saya memiliki banyak teman dan guru-gurunya juga sangat baik dan ramah.</p>
+             <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <div class="id-card">
+       <div class="id-bg-gradient"></div>
+       <div class="id-sidebar">
+         <div class="sidebar-line"></div>
+         <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+         <span class="sidebar-signature">Gina</span>
+       </div>
+       <div class="id-main">
+         <div class="id-header">
+           <div class="header-left">
+             <p>Hogwarts LTD</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
+           </div>
+           <div class="header-center">
+             <h2>HOGWARTS LIBRARY CARD</h2><p>NON TRANSFERABLE</p>
+           </div>
+           <div class="header-right">
+             <span class="date-label">Date</span>
+             <div class="date-group"><span class="date-value">19 feb 1991</span><div class="date-line"></div></div>
+           </div>
+         </div>
+         <div class="id-form">
+           <div class="form-row">
+             <div class="row-values">
+               <span class="val-text">Regina Alisa Supyan</span>
+               <span class="val-text">@reeginia_</span>
+             </div>
+             <div class="row-line"></div>
+             <div class="row-labels">
+               <span class="label-text left-label">NAME</span>
+               <span class="label-text right-label">Social Media Account</span>
+             </div>
+           </div>
+           <div class="form-row">
+             <div class="row-values single">
+               <span class="val-text">Tasikmalaya</span>
+             </div>
+             <div class="row-line"></div>
+             <div class="row-labels single">
+               <span class="label-text left-label">PLACE OF BIRTH</span>
+             </div>
+           </div>
+         </div>
+         <div class="id-body">
+           <div class="id-photo" style="background-image: url('Assets/9D_10.png');"></div>
+           <div class="id-auth-area">
+             <div class="id-watermark"></div>
+             <p class="auth-text">Seru, sedih, cape, dan kenangannya.. terimakasih</p>
+             <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+   </div>
+ </div>
+
  <script src="../sidebar.js"></script>
+
+ <script>
+   document.addEventListener('DOMContentLoaded', () => {
+     const diaries = document.querySelectorAll('.diary-trigger');
+     const idCards = document.querySelectorAll('.modal-content .id-card');
+     const modal = document.getElementById('idCardModal');
+     const closeBtn = document.getElementById('closeModalBtn');
+
+     diaries.forEach((diary, index) => {
+       diary.addEventListener('click', () => {
+         idCards.forEach(card => card.classList.remove('active-card'));
+         if(idCards[index]) {
+           idCards[index].classList.add('active-card');
+         }
+         modal.classList.add('active');
+       });
+     });
+
+     closeBtn.addEventListener('click', () => {
+       modal.classList.remove('active');
+     });
+
+     modal.addEventListener('click', (e) => {
+       if(e.target === modal) {
+         modal.classList.remove('active');
+       }
+     });
+   });
+ </script>
 
 </body>
 </html>

@@ -781,3 +781,77 @@
 .movie-card, .crew-card {
   overflow: hidden;
 }
+
+.award-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.award-banner {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  background-color: #2b2b2b;
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.award-banner:hover {
+  transform: scale(1.015);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.3);
+}
+
+/* Lightbox */
+.award-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 3000;
+  padding: 40px;
+}
+
+.award-lightbox-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.award-lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 10px;
+  border: 2px solid rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.award-lightbox-close {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.award-lightbox-close:hover {
+  color: #D4AF37;
+}
+
+@media (max-width: 768px) {
+  .award-lightbox-close {
+    top: 15px;
+    right: 20px;
+    font-size: 32px;
+  }
+}

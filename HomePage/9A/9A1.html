@@ -7,6 +7,71 @@
   
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Homemade+Apple&family=Merriweather:wght@400;700&family=Montserrat&family=Noto+Sans+Georgian:wght@400;700&family=Nova+Script&family=Nunito+Sans&family=Playfair+Display+SC:wght@400;700&family=Playfair+Display:wght@400;700&family=Special+Elite&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="9A1.css">
+
+  <style>
+    .poster-card {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .poster-card:hover {
+      transform: scale(1.05);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 50px;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10000;
+      font-family: 'Montserrat', sans-serif;
+      transition: color 0.3s ease;
+    }
+
+    .modal-close:hover {
+      color: #ff4d4d;
+    }
+
+    .modal-content .id-card {
+      display: none;
+    }
+
+    .modal-content .id-card.active-card {
+      display: flex; 
+      animation: popIn 0.3s ease forwards;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
 </head>
 <body>
 
@@ -60,373 +125,44 @@
           <h2>The Bounty</h2>
         </div>
 
+        <!-- Poster yang ada di halaman utama -->
         <div class="posters-grid">
-          <div class="poster-card">
+          <!-- Menambahkan class 'poster-trigger' untuk di deteksi Javascript -->
+          <div class="poster-card poster-trigger">
             <h2 class="wanted-text">Wanted</h2>
             <div class="poster-img" style="background-image: url('Assets/9A_2.png');"></div>
             <hr class="poster-line">
             <h3 class="poster-name">Adli Suman Narendra</h3>
             <p class="poster-desc">“the past is a place to learn from not live in, see u on top”</p>
           </div>
-          <div class="poster-card">
+          <div class="poster-card poster-trigger">
             <h2 class="wanted-text">Wanted</h2>
             <div class="poster-img" style="background-image: url('Assets/9A_4.png');"></div>
             <hr class="poster-line">
             <h3 class="poster-name">Adzam Raffasya Altaf</h3>
             <p class="poster-desc">“Jangan patah semangat bila tidak berhasil melakukan sesuatu. Jika kau gagal,kembali dan coba lagi. Cintai dirimu karena kau kembali untuk mencoba”</p>
           </div>
-          <div class="poster-card">
+          <div class="poster-card poster-trigger">
             <h2 class="wanted-text">Wanted</h2>
             <div class="poster-img" style="background-image: url('Assets/9A_1.png');"></div>
             <hr class="poster-line">
             <h3 class="poster-name">Ahmad Zamzami Syahbani</h3>
             <p class="poster-desc">“Pantang menyerah, tetap semangat”</p>
           </div>
-          <div class="poster-card">
+          <div class="poster-card poster-trigger">
             <h2 class="wanted-text">Wanted</h2>
             <div class="poster-img" style="background-image: url('Assets/9A_5.png');"></div>
             <hr class="poster-line">
             <h3 class="poster-name">Athar Rafardhan El Passa</h3>
             <p class="poster-desc">“Teruslah kalian berbuat baik hingga kalian lupa caranya berbuat jahat”</p>
           </div>
-          <div class="poster-card">
+          <div class="poster-card poster-trigger">
             <h2 class="wanted-text">Wanted</h2>
             <div class="poster-img" style="background-image: url('Assets/9A_3.png');"></div>
             <hr class="poster-line">
             <h3 class="poster-name">Adli Rashid Rahiman</h3>
             <p class="poster-desc">"Saya makan untuk hidup bukan hidup untuk makan" -Socrates ”</p>
           </div>
-        </div>
-      </section>
-
-      <section class="informant-section">
-        <div class="section-title large">
-          <div class="title-bg"></div>
-          <h2>Detailed Informant</h2>
-        </div>
-
-        <div class="id-cards-container">
-          
-          <div class="id-card">
-            <div class="id-sidebar">
-              <div class="sidebar-line"></div>
-              <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-              <span class="sidebar-signature">Rendra</span>
-            </div>
-
-            <div class="id-main">
-              <div class="id-header">
-                <div class="header-left">
-                  <p>Shelby Company LTD</p>
-                  <p>2023 - 2026</p>
-                  <p class="mt-small">NON TRANSFERABLE</p>
-                </div>
-                <div class="header-center">
-                  <h2>IDENTIFICATION CARD</h2>
-                  <p>NON TRANSFERABLE</p>
-                </div>
-                <div class="header-right">
-                  <span class="date-label">Date</span>
-                  <div class="date-group">
-                    <span class="date-value">19 feb 1919</span>
-                    <div class="date-line"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="id-form">
-                <div class="form-row">
-                  <div class="row-values">
-                    <span class="val-text">Adli Suman Narendra</span>
-                    <span class="val-text">@dliinrn</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels">
-                    <span class="label-text left-label">NAME</span>
-                    <span class="label-text right-label">Social Media Account</span>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="row-values single">
-                    <span class="val-text">Pekalongan</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels single">
-                    <span class="label-text left-label">PLACE OF BIRTH</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="id-body">
-                <div class="id-photo" style="background-image: url('Assets/9A_6.png');"></div>
-                <div class="id-auth-area">
-                  <div class="id-watermark"></div>
-                  <p class="auth-text">di sekolah bukan hanya tempat belajar mapel, tapi sekolah juga mengajarkan arti kebersamaan, banyak hal berharga yang didapat diluar kelas, makasih teman" yang membuat proses terasa berarti</p>
-                  <div class="exec-officer">
-                    <div class="exec-line"></div>
-                    <p>EXECUTIVE OFFICER</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="id-card">
-            <div class="id-sidebar">
-              <div class="sidebar-line"></div>
-              <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-              <span class="sidebar-signature">Altaf</span>
-            </div>
-
-            <div class="id-main">
-              <div class="id-header">
-                <div class="header-left">
-                  <p>Shelby Company LTD</p>
-                  <p>2023 - 2026</p>
-                  <p class="mt-small">NON TRANSFERABLE</p>
-                </div>
-                <div class="header-center">
-                  <h2>IDENTIFICATION CARD</h2>
-                  <p>NON TRANSFERABLE</p>
-                </div>
-                <div class="header-right">
-                  <span class="date-label">Date</span>
-                  <div class="date-group">
-                    <span class="date-value">19 feb 1919</span>
-                    <div class="date-line"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="id-form">
-                <div class="form-row">
-                  <div class="row-values">
-                    <span class="val-text">Adzam Raffasya Altaf</span>
-                    <span class="val-text">@altafultraskibidi</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels">
-                    <span class="label-text left-label">NAME</span>
-                    <span class="label-text right-label">Tiktok Account</span>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="row-values single">
-                    <span class="val-text">Jakarta</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels single">
-                    <span class="label-text left-label">PLACE OF BIRTH</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="id-body">
-                <div class="id-photo" style="background-image: url('Assets/9A_7.png');"></div>
-                <div class="id-auth-area">
-                  <div class="id-watermark"></div>
-                  <p class="auth-text">I love my friends</p>
-                  <div class="exec-officer">
-                    <div class="exec-line"></div>
-                    <p>EXECUTIVE OFFICER</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="id-card">
-            <div class="id-sidebar">
-              <div class="sidebar-line"></div>
-              <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-              <span class="sidebar-signature">Azam</span>
-            </div>
-
-            <div class="id-main">
-              <div class="id-header">
-                <div class="header-left">
-                  <p>Shelby Company LTD</p>
-                  <p>2023 - 2026</p>
-                  <p class="mt-small">NON TRANSFERABLE</p>
-                </div>
-                <div class="header-center">
-                  <h2>IDENTIFICATION CARD</h2>
-                  <p>NON TRANSFERABLE</p>
-                </div>
-                <div class="header-right">
-                  <span class="date-label">Date</span>
-                  <div class="date-group">
-                    <span class="date-value">19 feb 1919</span>
-                    <div class="date-line"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="id-form">
-                <div class="form-row">
-                  <div class="row-values">
-                    <span class="val-text">Ahmad Zamzami Syahbani</span>
-                    <span class="val-text">@azm_121</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels">
-                    <span class="label-text left-label">NAME</span>
-                    <span class="label-text right-label">Social Media Account</span>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="row-values single">
-                    <span class="val-text">Tangerang</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels single">
-                    <span class="label-text left-label">PLACE OF BIRTH</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="id-body">
-                <div class="id-photo" style="background-image: url('Assets/9A_8.png');"></div>
-                <div class="id-auth-area">
-                  <div class="id-watermark"></div>
-                  <p class="auth-text">Seru dan menyenangkan</p>
-                  <div class="exec-officer">
-                    <div class="exec-line"></div>
-                    <p>EXECUTIVE OFFICER</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="id-card">
-            <div class="id-sidebar">
-              <div class="sidebar-line"></div>
-              <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-              <span class="sidebar-signature">Athar</span>
-            </div>
-
-            <div class="id-main">
-              <div class="id-header">
-                <div class="header-left">
-                  <p>Shelby Company LTD</p>
-                  <p>2023 - 2026</p>
-                  <p class="mt-small">NON TRANSFERABLE</p>
-                </div>
-                <div class="header-center">
-                  <h2>IDENTIFICATION CARD</h2>
-                  <p>NON TRANSFERABLE</p>
-                </div>
-                <div class="header-right">
-                  <span class="date-label">Date</span>
-                  <div class="date-group">
-                    <span class="date-value">19 feb 1919</span>
-                    <div class="date-line"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="id-form">
-                <div class="form-row">
-                  <div class="row-values">
-                    <span class="val-text">Athar Rafardhan El Passa</span>
-                    <span class="val-text">@rafardhhnn</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels">
-                    <span class="label-text left-label">NAME</span>
-                    <span class="label-text right-label">Social Media Account</span>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="row-values single">
-                    <span class="val-text">Tangerang</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels single">
-                    <span class="label-text left-label">PLACE OF BIRTH</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="id-body">
-                <div class="id-photo" style="background-image: url('Assets/9A_9.png');"></div>
-                <div class="id-auth-area">
-                  <div class="id-watermark"></div>
-                  <p class="auth-text">Al-Fityan bukan sekedar sekolah bagi ku, Alfityan juga adalah rumah ke 3 bagi ku</p>
-                  <div class="exec-officer">
-                    <div class="exec-line"></div>
-                    <p>EXECUTIVE OFFICER</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="id-card">
-            <div class="id-sidebar">
-              <div class="sidebar-line"></div>
-              <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-              <span class="sidebar-signature">Adli</span>
-            </div>
-
-            <div class="id-main">
-              <div class="id-header">
-                <div class="header-left">
-                  <p>Shelby Company LTD</p>
-                  <p>2023 - 2026</p>
-                  <p class="mt-small">NON TRANSFERABLE</p>
-                </div>
-                <div class="header-center">
-                  <h2>IDENTIFICATION CARD</h2>
-                  <p>NON TRANSFERABLE</p>
-                </div>
-                <div class="header-right">
-                  <span class="date-label">Date</span>
-                  <div class="date-group">
-                    <span class="date-value">19 feb 1919</span>
-                    <div class="date-line"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="id-form">
-                <div class="form-row">
-                  <div class="row-values">
-                    <span class="val-text">Adli Rashid Rahiman</span>
-                    <span class="val-text">@adli_rr</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels">
-                    <span class="label-text left-label">NAME</span>
-                    <span class="label-text right-label">Social Media Account</span>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="row-values single">
-                    <span class="val-text">Jakarta</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels single">
-                    <span class="label-text left-label">PLACE OF BIRTH</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="id-body">
-                <div class="id-photo" style="background-image: url('Assets/9A_10.png');"></div>
-                <div class="id-auth-area">
-                  <div class="id-watermark"></div>
-                  <p class="auth-text">Nyaman, aman, dan worth it 👍</p>
-                  <div class="exec-officer">
-                    <div class="exec-line"></div>
-                    <p>EXECUTIVE OFFICER</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
 
@@ -438,7 +174,356 @@
 
   </div>
 
+  <!-- MODAL OVERLAY UNTUK ID CARD (Disembunyikan secara default) -->
+  <div id="idCardModal" class="modal-overlay">
+    <button class="modal-close" id="closeModalBtn">&times;</button>
+    <div class="modal-content">
+      
+      <!-- Card 1: Adli Suman Narendra -->
+      <div class="id-card">
+        <div class="id-sidebar">
+          <div class="sidebar-line"></div>
+          <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+          <span class="sidebar-signature">Rendra</span>
+        </div>
+        <div class="id-main">
+          <div class="id-header">
+            <div class="header-left">
+              <p>Shelby Company LTD</p>
+              <p>2023 - 2026</p>
+              <p class="mt-small">NON TRANSFERABLE</p>
+            </div>
+            <div class="header-center">
+              <h2>IDENTIFICATION CARD</h2>
+              <p>NON TRANSFERABLE</p>
+            </div>
+            <div class="header-right">
+              <span class="date-label">Date</span>
+              <div class="date-group">
+                <span class="date-value">19 feb 1919</span>
+                <div class="date-line"></div>
+              </div>
+            </div>
+          </div>
+          <div class="id-form">
+            <div class="form-row">
+              <div class="row-values">
+                <span class="val-text">Adli Suman Narendra</span>
+                <span class="val-text">@dliinrn</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels">
+                <span class="label-text left-label">NAME</span>
+                <span class="label-text right-label">Social Media Account</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="row-values single">
+                <span class="val-text">Pekalongan</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels single">
+                <span class="label-text left-label">PLACE OF BIRTH</span>
+              </div>
+            </div>
+          </div>
+          <div class="id-body">
+            <div class="id-photo" style="background-image: url('Assets/9A_6.png');"></div>
+            <div class="id-auth-area">
+              <div class="id-watermark"></div>
+              <p class="auth-text">di sekolah bukan hanya tempat belajar mapel, tapi sekolah juga mengajarkan arti kebersamaan, banyak hal berharga yang didapat diluar kelas, makasih teman" yang membuat proses terasa berarti</p>
+              <div class="exec-officer">
+                <div class="exec-line"></div>
+                <p>EXECUTIVE OFFICER</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Adzam Raffasya Altaf -->
+      <div class="id-card">
+        <div class="id-sidebar">
+          <div class="sidebar-line"></div>
+          <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+          <span class="sidebar-signature">Altaf</span>
+        </div>
+        <div class="id-main">
+          <div class="id-header">
+            <div class="header-left">
+              <p>Shelby Company LTD</p>
+              <p>2023 - 2026</p>
+              <p class="mt-small">NON TRANSFERABLE</p>
+            </div>
+            <div class="header-center">
+              <h2>IDENTIFICATION CARD</h2>
+              <p>NON TRANSFERABLE</p>
+            </div>
+            <div class="header-right">
+              <span class="date-label">Date</span>
+              <div class="date-group">
+                <span class="date-value">19 feb 1919</span>
+                <div class="date-line"></div>
+              </div>
+            </div>
+          </div>
+          <div class="id-form">
+            <div class="form-row">
+              <div class="row-values">
+                <span class="val-text">Adzam Raffasya Altaf</span>
+                <span class="val-text">@altafultraskibidi</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels">
+                <span class="label-text left-label">NAME</span>
+                <span class="label-text right-label">Tiktok Account</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="row-values single">
+                <span class="val-text">Jakarta</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels single">
+                <span class="label-text left-label">PLACE OF BIRTH</span>
+              </div>
+            </div>
+          </div>
+          <div class="id-body">
+            <div class="id-photo" style="background-image: url('Assets/9A_7.png');"></div>
+            <div class="id-auth-area">
+              <div class="id-watermark"></div>
+              <p class="auth-text">I love my friends</p>
+              <div class="exec-officer">
+                <div class="exec-line"></div>
+                <p>EXECUTIVE OFFICER</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Ahmad Zamzami Syahbani -->
+      <div class="id-card">
+        <div class="id-sidebar">
+          <div class="sidebar-line"></div>
+          <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+          <span class="sidebar-signature">Azam</span>
+        </div>
+        <div class="id-main">
+          <div class="id-header">
+            <div class="header-left">
+              <p>Shelby Company LTD</p>
+              <p>2023 - 2026</p>
+              <p class="mt-small">NON TRANSFERABLE</p>
+            </div>
+            <div class="header-center">
+              <h2>IDENTIFICATION CARD</h2>
+              <p>NON TRANSFERABLE</p>
+            </div>
+            <div class="header-right">
+              <span class="date-label">Date</span>
+              <div class="date-group">
+                <span class="date-value">19 feb 1919</span>
+                <div class="date-line"></div>
+              </div>
+            </div>
+          </div>
+          <div class="id-form">
+            <div class="form-row">
+              <div class="row-values">
+                <span class="val-text">Ahmad Zamzami Syahbani</span>
+                <span class="val-text">@azm_121</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels">
+                <span class="label-text left-label">NAME</span>
+                <span class="label-text right-label">Social Media Account</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="row-values single">
+                <span class="val-text">Tangerang</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels single">
+                <span class="label-text left-label">PLACE OF BIRTH</span>
+              </div>
+            </div>
+          </div>
+          <div class="id-body">
+            <div class="id-photo" style="background-image: url('Assets/9A_8.png');"></div>
+            <div class="id-auth-area">
+              <div class="id-watermark"></div>
+              <p class="auth-text">Seru dan menyenangkan</p>
+              <div class="exec-officer">
+                <div class="exec-line"></div>
+                <p>EXECUTIVE OFFICER</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Athar Rafardhan El Passa -->
+      <div class="id-card">
+        <div class="id-sidebar">
+          <div class="sidebar-line"></div>
+          <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+          <span class="sidebar-signature">Athar</span>
+        </div>
+        <div class="id-main">
+          <div class="id-header">
+            <div class="header-left">
+              <p>Shelby Company LTD</p>
+              <p>2023 - 2026</p>
+              <p class="mt-small">NON TRANSFERABLE</p>
+            </div>
+            <div class="header-center">
+              <h2>IDENTIFICATION CARD</h2>
+              <p>NON TRANSFERABLE</p>
+            </div>
+            <div class="header-right">
+              <span class="date-label">Date</span>
+              <div class="date-group">
+                <span class="date-value">19 feb 1919</span>
+                <div class="date-line"></div>
+              </div>
+            </div>
+          </div>
+          <div class="id-form">
+            <div class="form-row">
+              <div class="row-values">
+                <span class="val-text">Athar Rafardhan El Passa</span>
+                <span class="val-text">@rafardhhnn</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels">
+                <span class="label-text left-label">NAME</span>
+                <span class="label-text right-label">Social Media Account</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="row-values single">
+                <span class="val-text">Tangerang</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels single">
+                <span class="label-text left-label">PLACE OF BIRTH</span>
+              </div>
+            </div>
+          </div>
+          <div class="id-body">
+            <div class="id-photo" style="background-image: url('Assets/9A_9.png');"></div>
+            <div class="id-auth-area">
+              <div class="id-watermark"></div>
+              <p class="auth-text">Al-Fityan bukan sekedar sekolah bagi ku, Alfityan juga adalah rumah ke 3 bagi ku</p>
+              <div class="exec-officer">
+                <div class="exec-line"></div>
+                <p>EXECUTIVE OFFICER</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Adli Rashid Rahiman -->
+      <div class="id-card">
+        <div class="id-sidebar">
+          <div class="sidebar-line"></div>
+          <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+          <span class="sidebar-signature">Adli</span>
+        </div>
+        <div class="id-main">
+          <div class="id-header">
+            <div class="header-left">
+              <p>Shelby Company LTD</p>
+              <p>2023 - 2026</p>
+              <p class="mt-small">NON TRANSFERABLE</p>
+            </div>
+            <div class="header-center">
+              <h2>IDENTIFICATION CARD</h2>
+              <p>NON TRANSFERABLE</p>
+            </div>
+            <div class="header-right">
+              <span class="date-label">Date</span>
+              <div class="date-group">
+                <span class="date-value">19 feb 1919</span>
+                <div class="date-line"></div>
+              </div>
+            </div>
+          </div>
+          <div class="id-form">
+            <div class="form-row">
+              <div class="row-values">
+                <span class="val-text">Adli Rashid Rahiman</span>
+                <span class="val-text">@adli_rr</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels">
+                <span class="label-text left-label">NAME</span>
+                <span class="label-text right-label">Social Media Account</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="row-values single">
+                <span class="val-text">Jakarta</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels single">
+                <span class="label-text left-label">PLACE OF BIRTH</span>
+              </div>
+            </div>
+          </div>
+          <div class="id-body">
+            <div class="id-photo" style="background-image: url('Assets/9A_10.png');"></div>
+            <div class="id-auth-area">
+              <div class="id-watermark"></div>
+              <p class="auth-text">Nyaman, aman, dan worth it 👍</p>
+              <div class="exec-officer">
+                <div class="exec-line"></div>
+                <p>EXECUTIVE OFFICER</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <script src="../sidebar.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const posters = document.querySelectorAll('.poster-trigger');
+      const idCards = document.querySelectorAll('.modal-content .id-card');
+      const modal = document.getElementById('idCardModal');
+      const closeBtn = document.getElementById('closeModalBtn');
+
+      posters.forEach((poster, index) => {
+        poster.addEventListener('click', () => {
+          idCards.forEach(card => card.classList.remove('active-card'));
+          
+          if(idCards[index]) {
+            idCards[index].classList.add('active-card');
+          }
+          
+          modal.classList.add('active');
+        });
+      });
+
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+      });
+
+      modal.addEventListener('click', (e) => {
+        if(e.target === modal) {
+          modal.classList.remove('active');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>

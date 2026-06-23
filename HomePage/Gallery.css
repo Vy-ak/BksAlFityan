@@ -1,7 +1,4 @@
-/* =========================================
-  Global Resets & Base (mirrors Homepage)
-  ========================================= */
-  * {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -22,9 +19,6 @@ body {
   overflow-x: hidden;
 }
 
-/* =========================================
-    Navbar (identical to Homepage)
-    ========================================= */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -101,23 +95,17 @@ body {
   white-space: nowrap;
 }
 
-/* =========================================
-    Gallery Page Content
-    ========================================= */
 .gallery-page-content {
   padding-top: 80px;
   padding-bottom: 80px;
   min-height: 100vh;
 }
 
-/* =========================================
-    Page Header / Title
-    ========================================= */
 .page-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 70px 40px 50px;
+  padding: 70px 40px 30px;
 }
 
 .header-title-wrap {
@@ -150,50 +138,108 @@ body {
   white-space: nowrap;
 }
 
-/* =========================================
-    Pinterest Masonry Grid
-    ========================================= */
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 40px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.filter-btn {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
+  border-radius: 999px;
+  padding: 9px 20px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  border-color: rgba(212, 175, 55, 0.8);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #D4AF37, #b9912a);
+  border-color: #D4AF37;
+  color: #141414;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.3);
+}
+
 .pinterest-grid {
-  display: flex;
-  gap: 16px;
+  column-count: 4;
+  column-gap: 16px;
   padding: 0 40px 80px;
-  align-items: flex-start;
+  max-width: 1440px;
 }
 
-.pin-col {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  flex: 1;
-}
-
-/* LAZY LOADING FIX: Applied to <img> tags directly */
 img.pin {
   width: 100%;
-  height: 200px;
+  display: block;
+  margin: 0 0 16px;
   border-radius: 12px;
   border: 1.5px solid rgba(212, 175, 55, 0.45);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 12px rgba(212, 175, 55, 0.08);
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.25s ease;
   cursor: pointer;
-  object-fit: cover; 
-  display: block;   
-  background-color: #2b2b2b; 
-}
-
-img.pin.tall {
-  height: 300px;
+  object-fit: cover;
+  background-color: #2b2b2b;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
 }
 
 img.pin:hover {
   transform: translateY(-4px) scale(1.02);
   border-color: rgba(212, 175, 55, 0.9);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55), 0 0 22px rgba(212, 175, 55, 0.22);
+  will-change: transform;
 }
 
-/* =========================================
-    Sidebar Navigation
-    ========================================= */
+img.pin.pin-hidden {
+  display: none;
+}
+
+img.pin.pin-deferred {
+  background-color: #2b2b2b;
+  background-image: linear-gradient(
+    90deg,
+    #2b2b2b 0%,
+    #3a3a3a 50%,
+    #2b2b2b 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  min-height: 200px;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+.no-results {
+  display: none;
+  text-align: center;
+  font-family: 'Nunito Sans', sans-serif;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  padding: 40px 0 80px;
+}
+
+.no-results.show {
+  display: block;
+}
+
 .sidebar-overlay {
   position: fixed;
   inset: 0;
@@ -325,9 +371,6 @@ body.sidebar-open {
   overflow: hidden;
 }
 
-/* =========================================
-    Footer (identical to Homepage)
-    ========================================= */
 .footer {
   background: #141414;
   border-top: 2.5px solid rgba(255, 255, 255, 0.1);
@@ -343,23 +386,74 @@ body.sidebar-open {
   color: #FFFFFF;
 }
 
-/* =========================================
-    Responsive – Mobile
-    ========================================= */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-modal.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.2);
+  border: 1.5px solid rgba(212, 175, 55, 0.6);
+  animation: zoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 1;
+  transition: color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  z-index: 2001;
+}
+
+.modal-close:hover {
+  color: #D4AF37;
+  transform: scale(1.1);
+}
+
 @media (max-width: 768px) {
   .navbar { padding: 0 15px; }
   .elvore { font-size: 24px; }
   .yearbook-2025 { font-size: 14px; }
   .alfityan-logo { width: 40px; height: 35px; }
 
-  .page-header { padding: 50px 20px 30px; }
+  .page-header { padding: 50px 20px 20px; }
   .header-title-wrap { width: 100%; }
   .header-title-wrap h1 { font-size: 26px; }
 
-  .pinterest-grid { padding: 0 16px 60px; gap: 10px; }
-  .pin-col { gap: 10px; }
-  img.pin { height: 130px; }
-  img.pin.tall { height: 200px; }
+  .gallery-filters { padding: 8px 16px 28px; gap: 8px; }
+  .filter-btn { font-size: 12.5px; padding: 7px 15px; }
+
+  .pinterest-grid { padding: 0 16px 60px; column-count: 2; column-gap: 10px; }
+  img.pin { margin-bottom: 10px; }
 
   /* Sidebar scaling for mobile */
   .sidebar {
@@ -368,95 +462,18 @@ body.sidebar-open {
   .sidebar-header .elvore {
     font-size: 20px;
   }
-}
 
-img.pin.pin-deferred {
-  background-color: #2b2b2b;
-  background-image: linear-gradient(
-    90deg,
-    #2b2b2b 0%,
-    #3a3a3a 50%,
-    #2b2b2b 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-}
-
-@keyframes shimmer {
-  0%   { background-position: 200% center; }
-  100% { background-position: -200% center; }
-}
-
-img.pin:hover {
-  transform: translateY(-4px) scale(1.02);
-  border-color: rgba(212, 175, 55, 0.9);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55), 0 0 22px rgba(212, 175, 55, 0.22);
-  will-change: transform;
-}
-
-   .image-modal {
-    display: none; /* Tersembunyi secara default */
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(15, 15, 15, 0.95);
-    backdrop-filter: blur(8px);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  /* Class ini akan ditambahkan lewat JS saat gambar diklik */
-  .image-modal.show {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
-  }
-  
   .modal-content {
-    max-width: 90%;
-    max-height: 85vh;
-    border-radius: 8px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.2);
-    border: 1.5px solid rgba(212, 175, 55, 0.6);
-    animation: zoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 95%;
+    max-height: 80vh;
   }
-  
-  @keyframes zoomIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-  
   .modal-close {
-    position: absolute;
-    top: 30px;
-    right: 50px;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 50px;
-    font-weight: 300;
-    line-height: 1;
-    transition: color 0.2s ease, transform 0.2s ease;
-    cursor: pointer;
-    z-index: 2001;
+    top: 15px;
+    right: 25px;
+    font-size: 45px;
   }
-  
-  .modal-close:hover {
-    color: #D4AF37;
-    transform: scale(1.1);
-  }
-  
-  /* Responsiveness for Mobile */
-  @media (max-width: 768px) {
-    .modal-content {
-      max-width: 95%;
-      max-height: 80vh;
-    }
-    .modal-close {
-      top: 15px;
-      right: 25px;
-      font-size: 45px;
-    }
-  }
+}
+
+@media (max-width: 480px) {
+  .pinterest-grid { column-count: 2; }
+}

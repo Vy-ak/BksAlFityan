@@ -17,12 +17,77 @@
     .auth-text::-webkit-scrollbar {
       width: 4px;
     }
+    
     .auth-text::-webkit-scrollbar-track {
       background: transparent;
     }
+    
     .auth-text::-webkit-scrollbar-thumb {
       background-color: rgba(0, 0, 0, 0.4);
       border-radius: 10px;
+    }
+
+    .poster-card {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .poster-card:hover {
+      transform: scale(1.05);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 50px;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10000;
+      font-family: 'Montserrat', sans-serif;
+      transition: color 0.3s ease;
+    }
+
+    .modal-close:hover {
+      color: #ff4d4d;
+    }
+
+    .modal-content .id-card {
+      display: none;
+    }
+
+    .modal-content .id-card.active-card {
+      display: flex; 
+      animation: popIn 0.3s ease forwards;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
@@ -80,35 +145,35 @@
 
         <div class="posters-grid">
           
-          <div class="poster-card">
+          <div class="poster-card poster-trigger">
             <h2 class="wanted-text">Fadly</h2>
             <div class="poster-img" style="background-image: url('Assets/9B_11.png');"></div>
             <hr class="poster-line">
             <p class="poster-desc">“Success is the result of thorough preparation.”</p>
           </div>
           
-          <div class="poster-card">
+          <div class="poster-card poster-trigger">
             <h2 class="wanted-text" style="color: #DAB679;">Faheem</h2>
             <div class="poster-img" style="background-image: url('Assets/9B_12.png');"></div>
             <hr class="poster-line">
             <p class="poster-desc">“Hidup adalah perjalanan bukan tujuan maka nikmatilah setiap langkah,karena setiap langkah membawa kita lebih dekat ke tujuan. #Faheem”</p>
           </div>
           
-          <div class="poster-card">
+          <div class="poster-card poster-trigger">
             <h2 class="wanted-text" style="color: #f5f5f5;">Syarif</h2>
             <div class="poster-img" style="background-image: url('Assets/9B_13.png');"></div>
             <hr class="poster-line">
             <p class="poster-desc">“In order to see the probilities, you have to try the impossible. Inspired by Mehmed II”</p>
           </div>
           
-          <div class="poster-card">
+          <div class="poster-card poster-trigger">
             <h2 class="wanted-text" style="color: #808080;">Faidz</h2>
             <div class="poster-img" style="background-image: url('Assets/9B_14.png');"></div>
             <hr class="poster-line">
             <p class="poster-desc">“Arise,Awake And Not Stop till the goal Is Reached”</p>
           </div>
           
-          <div class="poster-card">
+          <div class="poster-card poster-trigger">
             <h2 class="wanted-text" style="color: #f5f5f5;">Adnin</h2>
             <div class="poster-img" style="background-image: url('Assets/9B_15.png');"></div>
             <hr class="poster-line">
@@ -120,227 +185,6 @@
 
       <div class="hero-divider"></div>
 
-      <section class="informant-section">
-        <div class="section-title large">
-          <div class="title-bg"></div>
-          <h2>Detailed Informant</h2>
-        </div>
-
-        <div class="id-cards-container">
-          
-          <div class="id-card">
-            <div class="id-sidebar">
-              <div class="sidebar-line"></div>
-              <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-              <span class="sidebar-signature">Fadly</span>
-            </div>
-            <div class="id-main">
-              <div class="id-header">
-                <div class="header-left">
-                  <p>Indonesian Police Dept</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
-                </div>
-                <div class="header-center">
-                  <h2>Driving License</h2><p>NON TRANSFERABLE</p>
-                </div>
-                <div class="header-right">
-                  <span class="date-label">Date</span>
-                  <div class="date-group"><span class="date-value">19 feb 2001</span><div class="date-line"></div></div>
-                </div>
-              </div>
-              <div class="id-form">
-                <div class="form-row">
-                  <div class="row-values"><span class="val-text">Fadly Masaid Nurdiansyah</span><span class="val-text">@Dlyy</span></div>
-                  <div class="row-line"></div>
-                  <div class="row-labels"><span class="label-text left-label">NAME</span><span class="label-text right-label">Social Media Account</span></div>
-                </div>
-                <div class="form-row">
-                  <div class="row-values single"><span class="val-text">Bekasi</span></div>
-                  <div class="row-line"></div>
-                  <div class="row-labels single"><span class="label-text left-label">PLACE OF BIRTH</span></div>
-                </div>
-              </div>
-              <div class="id-body">
-                <div class="id-photo" style="background-image: url('Assets/9B_16.png');"></div>
-                <div class="id-auth-area">
-                  <div class="id-watermark"></div>
-                  <p class="auth-text">kesan: keren si<br>pesan: banyakin acara yg seru</p>
-                  <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="id-card">
-            <div class="id-sidebar">
-              <div class="sidebar-line"></div>
-              <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-              <span class="sidebar-signature">Faheem,payo</span>
-            </div>
-            <div class="id-main">
-              <div class="id-header">
-                <div class="header-left">
-                  <p>Indonesian Police Dept</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
-                </div>
-                <div class="header-center">
-                  <h2>Driving License</h2><p>NON TRANSFERABLE</p>
-                </div>
-                <div class="header-right">
-                  <span class="date-label">Date</span>
-                  <div class="date-group"><span class="date-value">19 feb 2001</span><div class="date-line"></div></div>
-                </div>
-              </div>
-              <div class="id-form">
-                <div class="form-row">
-                  <div class="row-values"><span class="val-text">Faheem Ahmad Abhitah</span><span class="val-text">@faheemabittah</span></div>
-                  <div class="row-line"></div>
-                  <div class="row-labels"><span class="label-text left-label">NAME</span><span class="label-text right-label">Social Media Account</span></div>
-                </div>
-                <div class="form-row">
-                  <div class="row-values single"><span class="val-text">Jakarta</span></div>
-                  <div class="row-line"></div>
-                  <div class="row-labels single"><span class="label-text left-label">PLACE OF BIRTH</span></div>
-                </div>
-              </div>
-              <div class="id-body">
-                <div class="id-photo" style="background-image: url('Assets/9B_17.png');"></div>
-                <div class="id-auth-area">
-                  <div class="id-watermark"></div>
-                  <p class="auth-text">seru dan menyenangkan ketika saya bertemu dengan teman teman saya dan begitu banyak teman yang asik,Kesan saya tentang pertemanan di Alfityan adalah bahwa pertemanan dapat membuat kita merasa lebih nyaman dan bahagia. Ketika kita memiliki teman yang baik, kita dapat berbagi suka dan duka, serta mendapatkan dukungan dan motivasi untuk mencapai tujuan,<br>pesan saya adalah bahwa kita harus selalu menghargai dan menjaga pertemanan yang kita miliki dan kita harus selalu ada untuk teman-teman kita baik dalam suka maupun duka kita juga harus selalu berkomunikasi dengan baik serta tidak pernah membiarkan kesalahpahaman atau konflik menghancurkan pertemanan kita.</p>
-                  <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="id-card">
-            <div class="id-sidebar">
-              <div class="sidebar-line"></div>
-              <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-              <span class="sidebar-signature">Syarif</span>
-            </div>
-            <div class="id-main">
-              <div class="id-header">
-                <div class="header-left">
-                  <p>Indonesian Police Dept</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
-                </div>
-                <div class="header-center">
-                  <h2>Driving License</h2><p>NON TRANSFERABLE</p>
-                </div>
-                <div class="header-right">
-                  <span class="date-label">Date</span>
-                  <div class="date-group"><span class="date-value">19 feb 2001</span><div class="date-line"></div></div>
-                </div>
-              </div>
-              <div class="id-form">
-                <div class="form-row">
-                  <div class="row-values"><span class="val-text">Ibrahim Syarif Putranto</span><span class="val-text">@baimsyarif_</span></div>
-                  <div class="row-line"></div>
-                  <div class="row-labels"><span class="label-text left-label">NAME</span><span class="label-text right-label">Social Media Account</span></div>
-                </div>
-                <div class="form-row">
-                  <div class="row-values single"><span class="val-text">Tangerang, Banten</span></div>
-                  <div class="row-line"></div>
-                  <div class="row-labels single"><span class="label-text left-label">PLACE OF BIRTH</span></div>
-                </div>
-              </div>
-              <div class="id-body">
-                <div class="id-photo" style="background-image: url('Assets/9B_18.png');"></div>
-                <div class="id-auth-area">
-                  <div class="id-watermark"></div>
-                  <p class="auth-text">Jujur aja seru, dan banyak bgt kenangan, apalagi disini dari sebelum sekolah. Dan udh kenal sama orang orang alfityan</p>
-                  <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="id-card">
-            <div class="id-sidebar">
-              <div class="sidebar-line"></div>
-              <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-              <span class="sidebar-signature">Faidz</span>
-            </div>
-            <div class="id-main">
-              <div class="id-header">
-                <div class="header-left">
-                  <p>Indonesian Police Dept</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
-                </div>
-                <div class="header-center">
-                  <h2>Driving License</h2><p>NON TRANSFERABLE</p>
-                </div>
-                <div class="header-right">
-                  <span class="date-label">Date</span>
-                  <div class="date-group"><span class="date-value">19 feb 2001</span><div class="date-line"></div></div>
-                </div>
-              </div>
-              <div class="id-form">
-                <div class="form-row">
-                  <div class="row-values"><span class="val-text">Muhammad Ghaniyy Alfaridzy</span><span class="val-text">@faridzy2_</span></div>
-                  <div class="row-line"></div>
-                  <div class="row-labels"><span class="label-text left-label">NAME</span><span class="label-text right-label">Social Media Account</span></div>
-                </div>
-                <div class="form-row">
-                  <div class="row-values single"><span class="val-text">Tangerang</span></div>
-                  <div class="row-line"></div>
-                  <div class="row-labels single"><span class="label-text left-label">PLACE OF BIRTH</span></div>
-                </div>
-              </div>
-              <div class="id-body">
-                <div class="id-photo" style="background-image: url('Assets/9B_19.png');"></div>
-                <div class="id-auth-area">
-                  <div class="id-watermark"></div>
-                  <p class="auth-text">Selama bersekolah di sini, saya mendapatkan banyak pengalaman berharga, baik dalam pelajaran maupun dalam membentuk karakter. Guru-gurunya sabar, peduli, dan selalu membimbing kami dengan baik.Semoga sekolah ini semakin sukses dan terus mencetak siswa-siswi yang berprestasi dan berakhlak baik.</p>
-                  <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="id-card">
-            <div class="id-sidebar">
-              <div class="sidebar-line"></div>
-              <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-              <span class="sidebar-signature">Adnin</span>
-            </div>
-            <div class="id-main">
-              <div class="id-header">
-                <div class="header-left">
-                  <p>Indonesian Police Dept</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
-                </div>
-                <div class="header-center">
-                  <h2>Driving License</h2><p>NON TRANSFERABLE</p>
-                </div>
-                <div class="header-right">
-                  <span class="date-label">Date</span>
-                  <div class="date-group"><span class="date-value">19 feb 2001</span><div class="date-line"></div></div>
-                </div>
-              </div>
-              <div class="id-form">
-                <div class="form-row">
-                  <div class="row-values"><span class="val-text">Muhammad Adnindya Ibadurrohman</span><span class="val-text" style="font-size: 30px;">@mhamadninn</span></div>
-                  <div class="row-line"></div>
-                  <div class="row-labels"><span class="label-text left-label">NAME</span><span class="label-text right-label">Social Media Account</span></div>
-                </div>
-                <div class="form-row">
-                  <div class="row-values single"><span class="val-text">Tangerang</span></div>
-                  <div class="row-line"></div>
-                  <div class="row-labels single"><span class="label-text left-label">PLACE OF BIRTH</span></div>
-                </div>
-              </div>
-              <div class="id-body">
-                <div class="id-photo" style="background-image: url('Assets/9B_20.png');"></div>
-                <div class="id-auth-area">
-                  <div class="id-watermark"></div>
-                  <p class="auth-text">Kesan = Sekolah di Al Fityan ini merupakan kenangan yang mungkin sangat terkesan bagiku kedepannya, 9 Tahun aku disini, tentunya aku merasa senang dapat bertemu dengan teman-teman yang baik dan asiq, guru guru yang perhatian, ramah, serta profesional dalam mengajar, fasilitas belajar yang mendukung, kegiatan-kegiatan yang menarik seperti kemah, outing, dll. Adanya organisasi seperti OSIS yang dapat membuatku merasa lebih percaya diri kedepannya, tak lupa juga ada ekskul yang sudah membuatku mendapatkan banyak ilmu yang bisa aku terapkan/manfaatkan di kehidupanku kedepannya.<br><br>Pesan = Semoga di tahun-tahun berikutnya semuanya dapat menjadi lebih baik lagi, dan semua kreativitas & bakat yang dimiliki siswa/i dapat dituangkan, agar sekolah ini menjadi sekolah berprestasi di bidang akademik maupun nonakademik.</p>
-                  <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
     </main>
 
     <footer class="footer">
@@ -349,7 +193,253 @@
 
   </div>
 
+  <div id="idCardModal" class="modal-overlay">
+    <button class="modal-close" id="closeModalBtn">&times;</button>
+    <div class="modal-content">
+      
+      <div class="id-card">
+        <div class="id-sidebar">
+          <div class="sidebar-line"></div>
+          <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+          <span class="sidebar-signature">Fadly</span>
+        </div>
+        <div class="id-main">
+          <div class="id-header">
+            <div class="header-left">
+              <p>Indonesian Police Dept</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
+            </div>
+            <div class="header-center">
+              <h2>Driving License</h2><p>NON TRANSFERABLE</p>
+            </div>
+            <div class="header-right">
+              <span class="date-label">Date</span>
+              <div class="date-group"><span class="date-value">19 feb 2001</span><div class="date-line"></div></div>
+            </div>
+          </div>
+          <div class="id-form">
+            <div class="form-row">
+              <div class="row-values"><span class="val-text">Fadly Masaid Nurdiansyah</span><span class="val-text">@Dlyy</span></div>
+              <div class="row-line"></div>
+              <div class="row-labels"><span class="label-text left-label">NAME</span><span class="label-text right-label">Social Media Account</span></div>
+            </div>
+            <div class="form-row">
+              <div class="row-values single"><span class="val-text">Bekasi</span></div>
+              <div class="row-line"></div>
+              <div class="row-labels single"><span class="label-text left-label">PLACE OF BIRTH</span></div>
+            </div>
+          </div>
+          <div class="id-body">
+            <div class="id-photo" style="background-image: url('Assets/9B_16.png');"></div>
+            <div class="id-auth-area">
+              <div class="id-watermark"></div>
+              <p class="auth-text">kesan: keren si<br>pesan: banyakin acara yg seru</p>
+              <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="id-card">
+        <div class="id-sidebar">
+          <div class="sidebar-line"></div>
+          <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+          <span class="sidebar-signature">Faheem,payo</span>
+        </div>
+        <div class="id-main">
+          <div class="id-header">
+            <div class="header-left">
+              <p>Indonesian Police Dept</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
+            </div>
+            <div class="header-center">
+              <h2>Driving License</h2><p>NON TRANSFERABLE</p>
+            </div>
+            <div class="header-right">
+              <span class="date-label">Date</span>
+              <div class="date-group"><span class="date-value">19 feb 2001</span><div class="date-line"></div></div>
+            </div>
+          </div>
+          <div class="id-form">
+            <div class="form-row">
+              <div class="row-values"><span class="val-text">Faheem Ahmad Abhitah</span><span class="val-text">@faheemabittah</span></div>
+              <div class="row-line"></div>
+              <div class="row-labels"><span class="label-text left-label">NAME</span><span class="label-text right-label">Social Media Account</span></div>
+            </div>
+            <div class="form-row">
+              <div class="row-values single"><span class="val-text">Jakarta</span></div>
+              <div class="row-line"></div>
+              <div class="row-labels single"><span class="label-text left-label">PLACE OF BIRTH</span></div>
+            </div>
+          </div>
+          <div class="id-body">
+            <div class="id-photo" style="background-image: url('Assets/9B_17.png');"></div>
+            <div class="id-auth-area">
+              <div class="id-watermark"></div>
+              <p class="auth-text">seru dan menyenangkan ketika saya bertemu dengan teman teman saya dan begitu banyak teman yang asik,Kesan saya tentang pertemanan di Alfityan adalah bahwa pertemanan dapat membuat kita merasa lebih nyaman dan bahagia. Ketika kita memiliki teman yang baik, kita dapat berbagi suka dan duka, serta mendapatkan dukungan dan motivasi untuk mencapai tujuan,<br>pesan saya adalah bahwa kita harus selalu menghargai dan menjaga pertemanan yang kita miliki dan kita harus selalu ada untuk teman-teman kita baik dalam suka maupun duka kita juga harus selalu berkomunikasi dengan baik serta tidak pernah membiarkan kesalahpahaman atau konflik menghancurkan pertemanan kita.</p>
+              <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="id-card">
+        <div class="id-sidebar">
+          <div class="sidebar-line"></div>
+          <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+          <span class="sidebar-signature">Syarif</span>
+        </div>
+        <div class="id-main">
+          <div class="id-header">
+            <div class="header-left">
+              <p>Indonesian Police Dept</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
+            </div>
+            <div class="header-center">
+              <h2>Driving License</h2><p>NON TRANSFERABLE</p>
+            </div>
+            <div class="header-right">
+              <span class="date-label">Date</span>
+              <div class="date-group"><span class="date-value">19 feb 2001</span><div class="date-line"></div></div>
+            </div>
+          </div>
+          <div class="id-form">
+            <div class="form-row">
+              <div class="row-values"><span class="val-text">Ibrahim Syarif Putranto</span><span class="val-text">@baimsyarif_</span></div>
+              <div class="row-line"></div>
+              <div class="row-labels"><span class="label-text left-label">NAME</span><span class="label-text right-label">Social Media Account</span></div>
+            </div>
+            <div class="form-row">
+              <div class="row-values single"><span class="val-text">Tangerang, Banten</span></div>
+              <div class="row-line"></div>
+              <div class="row-labels single"><span class="label-text left-label">PLACE OF BIRTH</span></div>
+            </div>
+          </div>
+          <div class="id-body">
+            <div class="id-photo" style="background-image: url('Assets/9B_18.png');"></div>
+            <div class="id-auth-area">
+              <div class="id-watermark"></div>
+              <p class="auth-text">Jujur aja seru, dan banyak bgt kenangan, apalagi disini dari sebelum sekolah. Dan udh kenal sama orang orang alfityan</p>
+              <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="id-card">
+        <div class="id-sidebar">
+          <div class="sidebar-line"></div>
+          <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+          <span class="sidebar-signature">Faidz</span>
+        </div>
+        <div class="id-main">
+          <div class="id-header">
+            <div class="header-left">
+              <p>Indonesian Police Dept</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
+            </div>
+            <div class="header-center">
+              <h2>Driving License</h2><p>NON TRANSFERABLE</p>
+            </div>
+            <div class="header-right">
+              <span class="date-label">Date</span>
+              <div class="date-group"><span class="date-value">19 feb 2001</span><div class="date-line"></div></div>
+            </div>
+          </div>
+          <div class="id-form">
+            <div class="form-row">
+              <div class="row-values"><span class="val-text">Muhammad Ghaniyy Alfaridzy</span><span class="val-text">@faridzy2_</span></div>
+              <div class="row-line"></div>
+              <div class="row-labels"><span class="label-text left-label">NAME</span><span class="label-text right-label">Social Media Account</span></div>
+            </div>
+            <div class="form-row">
+              <div class="row-values single"><span class="val-text">Tangerang</span></div>
+              <div class="row-line"></div>
+              <div class="row-labels single"><span class="label-text left-label">PLACE OF BIRTH</span></div>
+            </div>
+          </div>
+          <div class="id-body">
+            <div class="id-photo" style="background-image: url('Assets/9B_19.png');"></div>
+            <div class="id-auth-area">
+              <div class="id-watermark"></div>
+              <p class="auth-text">Selama bersekolah di sini, saya mendapatkan banyak pengalaman berharga, baik dalam pelajaran maupun dalam membentuk karakter. Guru-gurunya sabar, peduli, dan selalu membimbing kami dengan baik.Semoga sekolah ini semakin sukses dan terus mencetak siswa-siswi yang berprestasi dan berakhlak baik.</p>
+              <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="id-card">
+        <div class="id-sidebar">
+          <div class="sidebar-line"></div>
+          <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+          <span class="sidebar-signature">Adnin</span>
+        </div>
+        <div class="id-main">
+          <div class="id-header">
+            <div class="header-left">
+              <p>Indonesian Police Dept</p><p>2023 - 2026</p><p class="mt-small">NON TRANSFERABLE</p>
+            </div>
+            <div class="header-center">
+              <h2>Driving License</h2><p>NON TRANSFERABLE</p>
+            </div>
+            <div class="header-right">
+              <span class="date-label">Date</span>
+              <div class="date-group"><span class="date-value">19 feb 2001</span><div class="date-line"></div></div>
+            </div>
+          </div>
+          <div class="id-form">
+            <div class="form-row">
+              <div class="row-values"><span class="val-text">Muhammad Adnindya Ibadurrohman</span><span class="val-text" style="font-size: 30px;">@mhamadninn</span></div>
+              <div class="row-line"></div>
+              <div class="row-labels"><span class="label-text left-label">NAME</span><span class="label-text right-label">Social Media Account</span></div>
+            </div>
+            <div class="form-row">
+              <div class="row-values single"><span class="val-text">Tangerang</span></div>
+              <div class="row-line"></div>
+              <div class="row-labels single"><span class="label-text left-label">PLACE OF BIRTH</span></div>
+            </div>
+          </div>
+          <div class="id-body">
+            <div class="id-photo" style="background-image: url('Assets/9B_20.png');"></div>
+            <div class="id-auth-area">
+              <div class="id-watermark"></div>
+              <p class="auth-text">Kesan = Sekolah di Al Fityan ini merupakan kenangan yang mungkin sangat terkesan bagiku kedepannya, 9 Tahun aku disini, tentunya aku merasa senang dapat bertemu dengan teman-teman yang baik dan asiq, guru guru yang perhatian, ramah, serta profesional dalam mengajar, fasilitas belajar yang mendukung, kegiatan-kegiatan yang menarik seperti kemah, outing, dll. Adanya organisasi seperti OSIS yang dapat membuatku merasa lebih percaya diri kedepannya, tak lupa juga ada ekskul yang sudah membuatku mendapatkan banyak ilmu yang bisa aku terapkan/manfaatkan di kehidupanku kedepannya.<br><br>Pesan = Semoga di tahun-tahun berikutnya semuanya dapat menjadi lebih baik lagi, dan semua kreativitas & bakat yang dimiliki siswa/i dapat dituangkan, agar sekolah ini menjadi sekolah berprestasi di bidang akademik maupun nonakademik.</p>
+              <div class="exec-officer"><div class="exec-line"></div><p>EXECUTIVE OFFICER</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <script src="../sidebar.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const posters = document.querySelectorAll('.poster-trigger');
+      const idCards = document.querySelectorAll('.modal-content .id-card');
+      const modal = document.getElementById('idCardModal');
+      const closeBtn = document.getElementById('closeModalBtn');
+
+      posters.forEach((poster, index) => {
+        poster.addEventListener('click', () => {
+          idCards.forEach(card => card.classList.remove('active-card'));
+          if(idCards[index]) {
+            idCards[index].classList.add('active-card');
+          }
+          modal.classList.add('active');
+        });
+      });
+
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+      });
+
+      modal.addEventListener('click', (e) => {
+        if(e.target === modal) {
+          modal.classList.remove('active');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>

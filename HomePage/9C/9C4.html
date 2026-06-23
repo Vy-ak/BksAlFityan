@@ -17,12 +17,77 @@
     .auth-text::-webkit-scrollbar {
       width: 4px;
     }
+    
     .auth-text::-webkit-scrollbar-track {
       background: transparent;
     }
+    
     .auth-text::-webkit-scrollbar-thumb {
       background-color: rgba(0, 0, 0, 0.4);
       border-radius: 10px;
+    }
+
+    .diary-card {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .diary-card:hover {
+      transform: scale(1.05);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 50px;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10000;
+      font-family: 'Montserrat', sans-serif;
+      transition: color 0.3s ease;
+    }
+
+    .modal-close:hover {
+      color: #ff4d4d;
+    }
+
+    .modal-content .id-card {
+      display: none;
+    }
+
+    .modal-content .id-card.active-card {
+      display: flex; 
+      animation: popIn 0.3s ease forwards;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
@@ -80,429 +145,46 @@
 
         <div class="diaries-grid">
           
-          <div class="diary-card">
+          <div class="diary-card diary-trigger">
             <div class="border-overlay" style="background-image: url('Assets/1st Border.png');"></div>
             <h3 class="diary-name">Novia's Diary</h3>
             <p class="diary-quote">“intertwined, sewn together”</p>
             <div class="diary-photo" style="background-image: url('Assets/9C_37.png');"></div>
           </div>
           
-          <div class="diary-card">
+          <div class="diary-card diary-trigger">
             <div class="border-overlay" style="background-image: url('Assets/2nd Border.png');"></div>
             <h3 class="diary-name">Ratu's Diary</h3>
             <p class="diary-quote">“The future depends on what we do today”</p>
             <div class="diary-photo" style="background-image: url('Assets/9C_38.png');"></div>
           </div>
           
-          <div class="diary-card">
+          <div class="diary-card diary-trigger">
             <div class="border-overlay" style="background-image: url('Assets/3rd Border.png');"></div>
             <h3 class="diary-name">Syakira's Diary</h3>
             <p class="diary-quote">“Not the end, Just the start of a new beginning”</p>
             <div class="diary-photo" style="background-image: url('Assets/9C_39.png');"></div>
           </div>
           
-          <div class="diary-card">
+          <div class="diary-card diary-trigger">
             <div class="border-overlay" style="background-image: url('Assets/4th Border.png');"></div>
             <h3 class="diary-name">Safa's Diary</h3>
             <p class="diary-quote">“Achieve success in any area of life by identifying the optimum strategies and repeating them until they become habits. - Charles J. Givens”</p>
             <div class="diary-photo" style="background-image: url('Assets/9C_40.png');"></div>
           </div>
           
-          <div class="diary-card">
+          <div class="diary-card diary-trigger">
             <div class="border-overlay" style="background-image: url('Assets/5th Border.png');"></div>
             <h3 class="diary-name">Nayyara's Diary</h3>
             <p class="diary-quote">“Tidak akan ada kata menyerah dalam hidupku”</p>
             <div class="diary-photo" style="background-image: url('Assets/9C_41.png');"></div>
           </div>
           
-          <div class="diary-card">
+          <div class="diary-card diary-trigger">
             <div class="border-overlay" style="background-image: url('Assets/6th Botder.png');"></div>
             <h3 class="diary-name">Qaisara's Diary</h3>
             <p class="diary-quote">“stars can’t shine without darkness”</p>
             <div class="diary-photo" style="background-image: url('Assets/9C_42.png');"></div>
-          </div>
-
-        </div>
-      </section>
-
-      <section class="informant-section">
-        <div class="section-title large">
-          <div class="title-bg"></div>
-          <h2>Detailed Informant</h2>
-        </div>
-
-        <div class="id-cards-container">
-          
-          <div class="id-card">
-            <div class="id-bg-gradient"></div> 
-            <div class="id-sidebar">
-              <div class="sidebar-line"></div>
-              <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-              <span class="sidebar-signature">Novia</span>
-            </div>
-            <div class="id-main">
-              <div class="id-header">
-                <div class="header-left">
-                  <p>Holmes LTD</p>
-                  <p>2023 - 2026</p>
-                  <p class="mt-small">NON TRANSFERABLE</p>
-                </div>
-                <div class="header-center">
-                  <h2>INVESTIGATOR CARD</h2>
-                  <p>NON TRANSFERABLE</p>
-                </div>
-                <div class="header-right">
-                  <span class="date-label">Date</span>
-                  <div class="date-group">
-                    <span class="date-value">19 feb 1884</span>
-                    <div class="date-line"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="id-form">
-                <div class="form-row">
-                  <div class="row-values">
-                    <span class="val-text">Novia Rizqita Utami</span>
-                    <span class="val-text">@nnooov_</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels">
-                    <span class="label-text left-label">NAME</span>
-                    <span class="label-text right-label">Social Media Account</span>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="row-values single">
-                    <span class="val-text">Tangerang</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels single">
-                    <span class="label-text left-label">PLACE OF BIRTH</span>
-                  </div>
-                </div>
-              </div>
-              <div class="id-body">
-                <div class="id-photo" style="background-image: url('Assets/9C_43.png');"></div>
-                <div class="id-auth-area">
-                  <div class="id-watermark"></div> 
-                  <p class="auth-text">Kesan:<br>Sekolah ini memberi banyak pengalaman berharga, kenangan indah, dan kebersamaan yang sulit dilupakan.<br><br>Pesan:<br>Terima kasih atas bimbingan dan kenangan yang telah diberikan selama aku menjadi bagian dari sekolah ini.</p>
-                  <div class="exec-officer">
-                    <div class="exec-line"></div>
-                    <p>EXECUTIVE OFFICER</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="id-card">
-            <div class="id-bg-gradient"></div> 
-            <div class="id-sidebar">
-              <div class="sidebar-line"></div>
-              <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-              <span class="sidebar-signature">Ratu</span>
-            </div>
-            <div class="id-main">
-              <div class="id-header">
-                <div class="header-left">
-                  <p>Holmes LTD</p>
-                  <p>2023 - 2026</p>
-                  <p class="mt-small">NON TRANSFERABLE</p>
-                </div>
-                <div class="header-center">
-                  <h2>INVESTIGATOR CARD</h2>
-                  <p>NON TRANSFERABLE</p>
-                </div>
-                <div class="header-right">
-                  <span class="date-label">Date</span>
-                  <div class="date-group">
-                    <span class="date-value">19 feb 1884</span>
-                    <div class="date-line"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="id-form">
-                <div class="form-row">
-                  <div class="row-values">
-                    <span class="val-text">Ratu Keira Raizel Davina</span>
-                    <span class="val-text">@yacuuw</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels">
-                    <span class="label-text left-label">NAME</span>
-                    <span class="label-text right-label">Social Media Account</span>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="row-values single">
-                    <span class="val-text">Tangerang</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels single">
-                    <span class="label-text left-label">PLACE OF BIRTH</span>
-                  </div>
-                </div>
-              </div>
-              <div class="id-body">
-                <div class="id-photo" style="background-image: url('Assets/9C_44.png');"></div>
-                <div class="id-auth-area">
-                  <div class="id-watermark"></div> 
-                  <p class="auth-text">seru</p>
-                  <div class="exec-officer">
-                    <div class="exec-line"></div>
-                    <p>EXECUTIVE OFFICER</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="id-card">
-            <div class="id-bg-gradient"></div> 
-            <div class="id-sidebar">
-              <div class="sidebar-line"></div>
-              <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-              <span class="sidebar-signature">Syakira</span>
-            </div>
-            <div class="id-main">
-              <div class="id-header">
-                <div class="header-left">
-                  <p>Holmes LTD</p>
-                  <p>2023 - 2026</p>
-                  <p class="mt-small">NON TRANSFERABLE</p>
-                </div>
-                <div class="header-center">
-                  <h2>INVESTIGATOR CARD</h2>
-                  <p>NON TRANSFERABLE</p>
-                </div>
-                <div class="header-right">
-                  <span class="date-label">Date</span>
-                  <div class="date-group">
-                    <span class="date-value">19 feb 1884</span>
-                    <div class="date-line"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="id-form">
-                <div class="form-row">
-                  <div class="row-values">
-                    <span class="val-text">Talitha Syakira Ahnaf</span>
-                    <span class="val-text">@syaahnaf._</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels">
-                    <span class="label-text left-label">NAME</span>
-                    <span class="label-text right-label">Social Media Account</span>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="row-values single">
-                    <span class="val-text">Tangerang</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels single">
-                    <span class="label-text left-label">PLACE OF BIRTH</span>
-                  </div>
-                </div>
-              </div>
-              <div class="id-body">
-                <div class="id-photo" style="background-image: url('Assets/9C_45.png');"></div>
-                <div class="id-auth-area">
-                  <div class="id-watermark"></div> 
-                  <p class="auth-text">Kesan: 3 tahun di Alfityan banyak cerita, kenangan, dan pelajaran berharga yang di dapatkan.<br>Pesan: Semoga kita semua bisa jadi orang yang sukses dan keren & tidak melupakan kenangan² yang sudah kita buat di sini.</p>
-                  <div class="exec-officer">
-                    <div class="exec-line"></div>
-                    <p>EXECUTIVE OFFICER</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="id-card">
-            <div class="id-bg-gradient"></div> 
-            <div class="id-sidebar">
-              <div class="sidebar-line"></div>
-              <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-              <span class="sidebar-signature">Safa</span>
-            </div>
-            <div class="id-main">
-              <div class="id-header">
-                <div class="header-left">
-                  <p>Holmes LTD</p>
-                  <p>2023 - 2026</p>
-                  <p class="mt-small">NON TRANSFERABLE</p>
-                </div>
-                <div class="header-center">
-                  <h2>INVESTIGATOR CARD</h2>
-                  <p>NON TRANSFERABLE</p>
-                </div>
-                <div class="header-right">
-                  <span class="date-label">Date</span>
-                  <div class="date-group">
-                    <span class="date-value">19 feb 1884</span>
-                    <div class="date-line"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="id-form">
-                <div class="form-row">
-                  <div class="row-values">
-                    <span class="val-text">Safa Rhania Putri Wasis</span>
-                    <span class="val-text">@ssaf_24pw</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels">
-                    <span class="label-text left-label">NAME</span>
-                    <span class="label-text right-label">Social Media Account</span>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="row-values single">
-                    <span class="val-text">Tangerang</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels single">
-                    <span class="label-text left-label">PLACE OF BIRTH</span>
-                  </div>
-                </div>
-              </div>
-              <div class="id-body">
-                <div class="id-photo" style="background-image: url('Assets/9C_46.png');"></div>
-                <div class="id-auth-area">
-                  <div class="id-watermark"></div> 
-                  <p class="auth-text">Kesan nya seru , pesannya  semoga kita bisa bertemu kembali</p>
-                  <div class="exec-officer">
-                    <div class="exec-line"></div>
-                    <p>EXECUTIVE OFFICER</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="id-card">
-            <div class="id-bg-gradient"></div> 
-            <div class="id-sidebar">
-              <div class="sidebar-line"></div>
-              <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-              <span class="sidebar-signature">Nayyara</span>
-            </div>
-            <div class="id-main">
-              <div class="id-header">
-                <div class="header-left">
-                  <p>Holmes LTD</p>
-                  <p>2023 - 2026</p>
-                  <p class="mt-small">NON TRANSFERABLE</p>
-                </div>
-                <div class="header-center">
-                  <h2>INVESTIGATOR CARD</h2>
-                  <p>NON TRANSFERABLE</p>
-                </div>
-                <div class="header-right">
-                  <span class="date-label">Date</span>
-                  <div class="date-group">
-                    <span class="date-value">19 feb 1884</span>
-                    <div class="date-line"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="id-form">
-                <div class="form-row">
-                  <div class="row-values">
-                    <span class="val-text">Nayyara Hanifa Darmawan</span>
-                    <span class="val-text">@nayyara.hd</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels">
-                    <span class="label-text left-label">NAME</span>
-                    <span class="label-text right-label">Social Media Account</span>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="row-values single">
-                    <span class="val-text">Tangerang</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels single">
-                    <span class="label-text left-label">PLACE OF BIRTH</span>
-                  </div>
-                </div>
-              </div>
-              <div class="id-body">
-                <div class="id-photo" style="background-image: url('Assets/9C_47.png');"></div>
-                <div class="id-auth-area">
-                  <div class="id-watermark"></div> 
-                  <p class="auth-text">Selama belajar disini, saya merasa sangat nyaman, karna fasilitas nya yang mendukung, lingkungan pertemanan nya yang sangat supportiv, dan juga guru gurunya asik dan mudah untuk di pahami. Intinya seruu bangeeettt</p>
-                  <div class="exec-officer">
-                    <div class="exec-line"></div>
-                    <p>EXECUTIVE OFFICER</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="id-card">
-            <div class="id-bg-gradient"></div> 
-            <div class="id-sidebar">
-              <div class="sidebar-line"></div>
-              <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
-              <span class="sidebar-signature">Qaisara</span>
-            </div>
-            <div class="id-main">
-              <div class="id-header">
-                <div class="header-left">
-                  <p>Holmes LTD</p>
-                  <p>2023 - 2026</p>
-                  <p class="mt-small">NON TRANSFERABLE</p>
-                </div>
-                <div class="header-center">
-                  <h2>INVESTIGATOR CARD</h2>
-                  <p>NON TRANSFERABLE</p>
-                </div>
-                <div class="header-right">
-                  <span class="date-label">Date</span>
-                  <div class="date-group">
-                    <span class="date-value">19 feb 1884</span>
-                    <div class="date-line"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="id-form">
-                <div class="form-row">
-                  <div class="row-values">
-                    <span class="val-text">Qaisara Aqeela Siswanto</span>
-                    <span class="val-text">@qaisara._</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels">
-                    <span class="label-text left-label">NAME</span>
-                    <span class="label-text right-label">Social Media Account</span>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="row-values single">
-                    <span class="val-text">Jakarta</span>
-                  </div>
-                  <div class="row-line"></div>
-                  <div class="row-labels single">
-                    <span class="label-text left-label">PLACE OF BIRTH</span>
-                  </div>
-                </div>
-              </div>
-              <div class="id-body">
-                <div class="id-photo" style="background-image: url('Assets/9C_48.png');"></div>
-                <div class="id-auth-area">
-                  <div class="id-watermark"></div> 
-                  <p class="auth-text">disini aku belajar banyak hal, tidak hanya teori tapi juga bekal hidup dan akhlak mulia</p>
-                  <div class="exec-officer">
-                    <div class="exec-line"></div>
-                    <p>EXECUTIVE OFFICER</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
         </div>
@@ -516,7 +198,415 @@
 
   </div>
 
+  <div id="idCardModal" class="modal-overlay">
+    <button class="modal-close" id="closeModalBtn">&times;</button>
+    <div class="modal-content">
+      
+      <div class="id-card">
+        <div class="id-bg-gradient"></div> 
+        <div class="id-sidebar">
+          <div class="sidebar-line"></div>
+          <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+          <span class="sidebar-signature">Novia</span>
+        </div>
+        <div class="id-main">
+          <div class="id-header">
+            <div class="header-left">
+              <p>Holmes LTD</p>
+              <p>2023 - 2026</p>
+              <p class="mt-small">NON TRANSFERABLE</p>
+            </div>
+            <div class="header-center">
+              <h2>INVESTIGATOR CARD</h2>
+              <p>NON TRANSFERABLE</p>
+            </div>
+            <div class="header-right">
+              <span class="date-label">Date</span>
+              <div class="date-group">
+                <span class="date-value">19 feb 1884</span>
+                <div class="date-line"></div>
+              </div>
+            </div>
+          </div>
+          <div class="id-form">
+            <div class="form-row">
+              <div class="row-values">
+                <span class="val-text">Novia Rizqita Utami</span>
+                <span class="val-text">@nnooov_</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels">
+                <span class="label-text left-label">NAME</span>
+                <span class="label-text right-label">Social Media Account</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="row-values single">
+                <span class="val-text">Tangerang</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels single">
+                <span class="label-text left-label">PLACE OF BIRTH</span>
+              </div>
+            </div>
+          </div>
+          <div class="id-body">
+            <div class="id-photo" style="background-image: url('Assets/9C_43.png');"></div>
+            <div class="id-auth-area">
+              <div class="id-watermark"></div> 
+              <p class="auth-text">Kesan:<br>Sekolah ini memberi banyak pengalaman berharga, kenangan indah, dan kebersamaan yang sulit dilupakan.<br><br>Pesan:<br>Terima kasih atas bimbingan dan kenangan yang telah diberikan selama aku menjadi bagian dari sekolah ini.</p>
+              <div class="exec-officer">
+                <div class="exec-line"></div>
+                <p>EXECUTIVE OFFICER</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="id-card">
+        <div class="id-bg-gradient"></div> 
+        <div class="id-sidebar">
+          <div class="sidebar-line"></div>
+          <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+          <span class="sidebar-signature">Ratu</span>
+        </div>
+        <div class="id-main">
+          <div class="id-header">
+            <div class="header-left">
+              <p>Holmes LTD</p>
+              <p>2023 - 2026</p>
+              <p class="mt-small">NON TRANSFERABLE</p>
+            </div>
+            <div class="header-center">
+              <h2>INVESTIGATOR CARD</h2>
+              <p>NON TRANSFERABLE</p>
+            </div>
+            <div class="header-right">
+              <span class="date-label">Date</span>
+              <div class="date-group">
+                <span class="date-value">19 feb 1884</span>
+                <div class="date-line"></div>
+              </div>
+            </div>
+          </div>
+          <div class="id-form">
+            <div class="form-row">
+              <div class="row-values">
+                <span class="val-text">Ratu Keira Raizel Davina</span>
+                <span class="val-text">@yacuuw</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels">
+                <span class="label-text left-label">NAME</span>
+                <span class="label-text right-label">Social Media Account</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="row-values single">
+                <span class="val-text">Tangerang</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels single">
+                <span class="label-text left-label">PLACE OF BIRTH</span>
+              </div>
+            </div>
+          </div>
+          <div class="id-body">
+            <div class="id-photo" style="background-image: url('Assets/9C_44.png');"></div>
+            <div class="id-auth-area">
+              <div class="id-watermark"></div> 
+              <p class="auth-text">seru</p>
+              <div class="exec-officer">
+                <div class="exec-line"></div>
+                <p>EXECUTIVE OFFICER</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="id-card">
+        <div class="id-bg-gradient"></div> 
+        <div class="id-sidebar">
+          <div class="sidebar-line"></div>
+          <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+          <span class="sidebar-signature">Syakira</span>
+        </div>
+        <div class="id-main">
+          <div class="id-header">
+            <div class="header-left">
+              <p>Holmes LTD</p>
+              <p>2023 - 2026</p>
+              <p class="mt-small">NON TRANSFERABLE</p>
+            </div>
+            <div class="header-center">
+              <h2>INVESTIGATOR CARD</h2>
+              <p>NON TRANSFERABLE</p>
+            </div>
+            <div class="header-right">
+              <span class="date-label">Date</span>
+              <div class="date-group">
+                <span class="date-value">19 feb 1884</span>
+                <div class="date-line"></div>
+              </div>
+            </div>
+          </div>
+          <div class="id-form">
+            <div class="form-row">
+              <div class="row-values">
+                <span class="val-text">Talitha Syakira Ahnaf</span>
+                <span class="val-text">@syaahnaf._</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels">
+                <span class="label-text left-label">NAME</span>
+                <span class="label-text right-label">Social Media Account</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="row-values single">
+                <span class="val-text">Tangerang</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels single">
+                <span class="label-text left-label">PLACE OF BIRTH</span>
+              </div>
+            </div>
+          </div>
+          <div class="id-body">
+            <div class="id-photo" style="background-image: url('Assets/9C_45.png');"></div>
+            <div class="id-auth-area">
+              <div class="id-watermark"></div> 
+              <p class="auth-text">Kesan: 3 tahun di Alfityan banyak cerita, kenangan, dan pelajaran berharga yang di dapatkan.<br>Pesan: Semoga kita semua bisa jadi orang yang sukses dan keren & tidak melupakan kenangan² yang sudah kita buat di sini.</p>
+              <div class="exec-officer">
+                <div class="exec-line"></div>
+                <p>EXECUTIVE OFFICER</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="id-card">
+        <div class="id-bg-gradient"></div> 
+        <div class="id-sidebar">
+          <div class="sidebar-line"></div>
+          <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+          <span class="sidebar-signature">Safa</span>
+        </div>
+        <div class="id-main">
+          <div class="id-header">
+            <div class="header-left">
+              <p>Holmes LTD</p>
+              <p>2023 - 2026</p>
+              <p class="mt-small">NON TRANSFERABLE</p>
+            </div>
+            <div class="header-center">
+              <h2>INVESTIGATOR CARD</h2>
+              <p>NON TRANSFERABLE</p>
+            </div>
+            <div class="header-right">
+              <span class="date-label">Date</span>
+              <div class="date-group">
+                <span class="date-value">19 feb 1884</span>
+                <div class="date-line"></div>
+              </div>
+            </div>
+          </div>
+          <div class="id-form">
+            <div class="form-row">
+              <div class="row-values">
+                <span class="val-text">Safa Rhania Putri Wasis</span>
+                <span class="val-text">@ssaf_24pw</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels">
+                <span class="label-text left-label">NAME</span>
+                <span class="label-text right-label">Social Media Account</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="row-values single">
+                <span class="val-text">Tangerang</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels single">
+                <span class="label-text left-label">PLACE OF BIRTH</span>
+              </div>
+            </div>
+          </div>
+          <div class="id-body">
+            <div class="id-photo" style="background-image: url('Assets/9C_46.png');"></div>
+            <div class="id-auth-area">
+              <div class="id-watermark"></div> 
+              <p class="auth-text">Kesan nya seru , pesannya  semoga kita bisa bertemu kembali</p>
+              <div class="exec-officer">
+                <div class="exec-line"></div>
+                <p>EXECUTIVE OFFICER</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="id-card">
+        <div class="id-bg-gradient"></div> 
+        <div class="id-sidebar">
+          <div class="sidebar-line"></div>
+          <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+          <span class="sidebar-signature">Nayyara</span>
+        </div>
+        <div class="id-main">
+          <div class="id-header">
+            <div class="header-left">
+              <p>Holmes LTD</p>
+              <p>2023 - 2026</p>
+              <p class="mt-small">NON TRANSFERABLE</p>
+            </div>
+            <div class="header-center">
+              <h2>INVESTIGATOR CARD</h2>
+              <p>NON TRANSFERABLE</p>
+            </div>
+            <div class="header-right">
+              <span class="date-label">Date</span>
+              <div class="date-group">
+                <span class="date-value">19 feb 1884</span>
+                <div class="date-line"></div>
+              </div>
+            </div>
+          </div>
+          <div class="id-form">
+            <div class="form-row">
+              <div class="row-values">
+                <span class="val-text">Nayyara Hanifa Darmawan</span>
+                <span class="val-text">@nayyara.hd</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels">
+                <span class="label-text left-label">NAME</span>
+                <span class="label-text right-label">Social Media Account</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="row-values single">
+                <span class="val-text">Tangerang</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels single">
+                <span class="label-text left-label">PLACE OF BIRTH</span>
+              </div>
+            </div>
+          </div>
+          <div class="id-body">
+            <div class="id-photo" style="background-image: url('Assets/9C_47.png');"></div>
+            <div class="id-auth-area">
+              <div class="id-watermark"></div> 
+              <p class="auth-text">Selama belajar disini, saya merasa sangat nyaman, karna fasilitas nya yang mendukung, lingkungan pertemanan nya yang sangat supportiv, dan juga guru gurunya asik dan mudah untuk di pahami. Intinya seruu bangeeettt</p>
+              <div class="exec-officer">
+                <div class="exec-line"></div>
+                <p>EXECUTIVE OFFICER</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="id-card">
+        <div class="id-bg-gradient"></div> 
+        <div class="id-sidebar">
+          <div class="sidebar-line"></div>
+          <span class="sidebar-text">NOT VALID UNLESS SIGNED</span>
+          <span class="sidebar-signature">Qaisara</span>
+        </div>
+        <div class="id-main">
+          <div class="id-header">
+            <div class="header-left">
+              <p>Holmes LTD</p>
+              <p>2023 - 2026</p>
+              <p class="mt-small">NON TRANSFERABLE</p>
+            </div>
+            <div class="header-center">
+              <h2>INVESTIGATOR CARD</h2>
+              <p>NON TRANSFERABLE</p>
+            </div>
+            <div class="header-right">
+              <span class="date-label">Date</span>
+              <div class="date-group">
+                <span class="date-value">19 feb 1884</span>
+                <div class="date-line"></div>
+              </div>
+            </div>
+          </div>
+          <div class="id-form">
+            <div class="form-row">
+              <div class="row-values">
+                <span class="val-text">Qaisara Aqeela Siswanto</span>
+                <span class="val-text">@qaisara._</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels">
+                <span class="label-text left-label">NAME</span>
+                <span class="label-text right-label">Social Media Account</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="row-values single">
+                <span class="val-text">Jakarta</span>
+              </div>
+              <div class="row-line"></div>
+              <div class="row-labels single">
+                <span class="label-text left-label">PLACE OF BIRTH</span>
+              </div>
+            </div>
+          </div>
+          <div class="id-body">
+            <div class="id-photo" style="background-image: url('Assets/9C_48.png');"></div>
+            <div class="id-auth-area">
+              <div class="id-watermark"></div> 
+              <p class="auth-text">disini aku belajar banyak hal, tidak hanya teori tapi juga bekal hidup dan akhlak mulia</p>
+              <div class="exec-officer">
+                <div class="exec-line"></div>
+                <p>EXECUTIVE OFFICER</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <script src="../sidebar.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const diaries = document.querySelectorAll('.diary-trigger');
+      const idCards = document.querySelectorAll('.modal-content .id-card');
+      const modal = document.getElementById('idCardModal');
+      const closeBtn = document.getElementById('closeModalBtn');
+
+      diaries.forEach((diary, index) => {
+        diary.addEventListener('click', () => {
+          idCards.forEach(card => card.classList.remove('active-card'));
+          if(idCards[index]) {
+            idCards[index].classList.add('active-card');
+          }
+          modal.classList.add('active');
+        });
+      });
+
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+      });
+
+      modal.addEventListener('click', (e) => {
+        if(e.target === modal) {
+          modal.classList.remove('active');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
