@@ -1,856 +1,861 @@
-   * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    background-color: #1F1F1F;
-    font-family: 'Nunito Sans', sans-serif;
-    color: #fff;
-  }
-  
-  .home {
-    max-width: 1440px;
-    margin: 0 auto;
-    background: url('Assets/Homepage_Background.png') center / cover no-repeat, #1F1F1F;
-    min-height: 100vh;
-    position: relative;
-    overflow-x: hidden;
-  }
-  
-  .navbar {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;
-    height: 80px;
-    background: #141414;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
-    padding: 0 30px;
-    position: fixed; 
-    width: 100%;
-    max-width: 1440px;
-    z-index: 1000;
-  }
-  
-  .nav-left {
-    display: flex;
-    align-items: center;
-    gap: 15px; 
-  }
-  
-  .brand-link {
-    display: flex;
-    align-items: center;
-    gap: 15px; 
-    text-decoration: none; 
-    cursor: pointer;
-  }
-  
-  .nav-center {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .menu-icon {
-    width: 25px;
-    height: 2px;
-    background: white;
-    position: relative;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  .menu-icon::before, .menu-icon::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 2px;
-    background: white;
-  }
-  
-  .menu-icon::before { top: -8px; }
-  .menu-icon::after { top: 8px; }
-  
-  .alfityan-logo {
-    width: 150px;
-    height: 45px;
-    background: url('Assets/logo-alfityan.png') center / contain no-repeat;
-  }
-  
-  .line-1 {
-    width: 1px;
-    height: 30px;
-    background: rgba(255, 255, 255, 0.4);
-    margin: 0 5px;
-  }
-  
-  .elvore {
-    font-family: 'Nova Script', cursive;
-    font-size: 32px;
-    color: #E0E0E0;
-    letter-spacing: 1px;
-  }
-  
-  .yearbook-2025 {
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 25px;
-    font-weight: 400;
-    color: white;
-    white-space: nowrap;
-  }
-
-  .hero-section {
-    margin-top: 80px; 
-    height: 500px;
-    position: relative;
-    overflow: hidden; 
-    background: #141414; 
-  }
-  
-  .hero-track {
-    display: flex;
-    width: 500%;
-    height: 100%;
-    animation: heroSlideAnimation 16s infinite;
-  }
-  
-  .hero-slide {
-    width: 20%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  
-  @keyframes heroSlideAnimation {
-    0%, 20%   { transform: translateX(0); }      
-    25%, 45%  { transform: translateX(-20%); }    
-    50%, 70%  { transform: translateX(-40%); }    
-    75%, 95%  { transform: translateX(-60%); }    
-    100%      { transform: translateX(-80%); } 
-  }
-  
-  .main-content {
-    padding: 80px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 120px;
-  }
-  
-  .section-title {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 60px;
-  }
-  
-  .section-title h2 {
-    font-family: 'Cinzel', serif;
-    font-size: 35px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    white-space: nowrap;
-  }
-  
-  .title-bg {
-    position: absolute;
-    width: 550px;
-    height: 78px;
-    background: rgba(20, 20, 20, 0.85);
-    border-radius: 25px;
-    border: 1.5px solid rgba(212, 175, 55, 0.6); 
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.15); 
-    z-index: 1;
-  }
-  
-  .title-container { position: relative; width: 400px; display: flex; justify-content: center; align-items: center; }
-  .title-container .title-bg { width: 100%; }
-  
-  .title-container.large { width: 750px; } 
-  .title-container.large .title-bg { width: 100%; }
-  
-  .with-icons {
-    display: flex;
-    gap: 40px; 
-    align-items: center;
-  }
-  
-  .ticket-icon { width: 80px; height: 80px; background: url('Assets/Ticket.png') center / contain no-repeat; z-index: 2; }
-  .cam-icon { width: 80px; height: 80px; background: url('Assets/Video Cam.png') center / contain no-repeat; z-index: 2; }
-  
-  .gallery-container {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    overflow: hidden;
-    padding: 20px 0;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-  
-  .gallery-scroller {
-    display: flex;
-    gap: 30px;
-    width: max-content;
-    animation: scrollGallery 40s linear infinite; 
-  }
-  
-  .gallery-scroller.staggered {
-    margin-left: -265px; 
-  }
-  
-  .gallery-scroller:hover {
-    animation-play-state: paused;
-  }
-  
-  .gallery-track {
-    display: flex;
-    gap: 30px;
-  }
-  
-  .gallery-card {
-    width: 500px;
-    height: 281px;
-    background: #141414;
-    border-radius: 10px;
-    border: 1.5px solid rgba(212, 175, 55, 0.6); 
-    box-shadow: 10px 20px 4px rgba(0, 0, 0, 0.25), 0 0 15px rgba(212, 175, 55, 0.15);
-    flex-shrink: 0; 
-  }
-  
-  @keyframes scrollGallery {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-50% - 15px)); } 
-  }
-
-  .movie-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    padding: 0 20px;
-  }
-  
-  .movie-card {
-    height: 433px;
-    border-radius: 10px;
-    border: 1.5px solid rgba(212, 175, 55, 0.6); 
-    box-shadow: 10px 20px 4px rgba(0, 0, 0, 0.25), 0 0 15px rgba(212, 175, 55, 0.15);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .movie-card h3 {
-    font-family: 'Noto Sans Georgian', sans-serif;
-    font-size: 40px;
-    z-index: 2;
-  }
-  
-  .peaky { background: linear-gradient(180deg, #555555 0%, #1C1C1C 100%); }
-  .fast { background: linear-gradient(180deg, #222222 0%, #000000 100%); }
-  .elena { background: linear-gradient(180deg, #F4E4BC 0%, #E0D0A0 100%); color: #000; }
-  .harry { background: linear-gradient(180deg, #1A1A2E 0%, #0F0F1A 100%); }
-  .card-decor { position: absolute; z-index: 1; opacity: 0.8; }
-  .fedora { width: 130px; height: 130px; top: -30px; left: -30px; transform: rotate(-15deg); background: url('Assets/Fedora.png') center / contain no-repeat; }
-  .nitro { width: 110px; height: 110px; bottom: -30px; left: -30px; background: url('Assets/Nitro.png') center / contain no-repeat; }
-  .question-mark { width: 90px; height: 90px; top: -20px; right: -20px; background: url('Assets/Question Mark.png') center / contain no-repeat; }
-  .mag-glass { width: 110px; height: 110px; bottom: -30px; right: -30px; background: url('Assets/Mag Glass.png') center / contain no-repeat; }
-  .wand { width: 140px; height: 140px; bottom: -30px; right: -30px; background: url('Assets/Wand.png') center / contain no-repeat; }
-  .megaphone { width: 125px; height: 125px; top: -30px; right: -30px; background: url('Assets/MegaPhone.png') center / contain no-repeat; }
-  .clipper { width: 125px; height: 125px; bottom: -30px; left: -30px; background: url('Assets/Cliipper.png') center / contain no-repeat; }
-  
-  .crew-grid, .actor-grid-top, .actor-grid-bottom {
-    display: flex;
-    justify-content: center;
-    gap: 70px; 
-  }
-  .actor-grid-bottom { 
-    margin-top: 160px;
-    margin-bottom: 50px; 
-  }
-  
-  .crew-card, .actor-card {
-    width: 267px;
-    height: 400px;
-    background: #141414;
-    border-radius: 10px;
-    border: 1.5px solid rgba(212, 175, 55, 0.6); 
-    box-shadow: 10px 20px 4px rgba(0, 0, 0, 0.25), 0 0 15px rgba(212, 175, 55, 0.15);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  
-  .crew-card h3, .actor-card h3 {
-    font-family: 'Noto Sans Georgian', sans-serif;
-    font-size: 48px;
-    opacity: 0.25;
-  }
-  
-  .actor-badge {
-    position: absolute;
-    bottom: -65px; 
-    width: 120%;
-    padding: 20px 0;
-    background: linear-gradient(180deg, #E0E0E0 0%, #FFFFFF 50%, #A9A9A9 100%);
-    border-radius: 25px;
-    border: 1.5px solid rgba(212, 175, 55, 0.8); 
-    box-shadow: 4px 14px 4px rgba(0, 0, 0, 0.25), 0 0 10px rgba(212, 175, 55, 0.2);
-    color: #000;
-    font-family: 'Cinzel', serif;
-    font-weight: 900;
-    font-size: 22px;
-    text-align: center;
-    letter-spacing: 1px;
-  }
-  
-  .footer {
-    background: #141414;
-    border-top: 2.5px solid rgba(255, 255, 255, 0.1);
-    padding: 40px 0;
-    display: flex;
-    justify-content: center;
-  }
-  .copyright {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    letter-spacing: 2px;
-    color: #FFFFFF;
-  }
-
-  .sidebar-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(2px);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 1998;
-  }
-  
-  .sidebar-overlay.active {
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 320px;
-    max-width: 85vw;
-    background: linear-gradient(180deg, #1c1c1c 0%, #141414 100%);
-    border-right: 1.5px solid rgba(212, 175, 55, 0.5);
-    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
-    transform: translateX(-100%);
-    transition: transform 0.35s ease;
-    z-index: 1999;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-  }
-  
-  .sidebar.active {
-    transform: translateX(0);
-  }
-  
-  .sidebar-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 25px 55px 20px 25px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-    flex-shrink: 0;
-  }
-  
-  .sidebar-header .alfityan-logo {
-    width: 42px;
-    height: 32px;
-    flex-shrink: 0;
-  }
-  
-  .sidebar-header .elvore {
-    font-size: 24px;
-    color: rgba(255, 255, 255, 0.6);
-    white-space: nowrap;
-  }
-  
-  .sidebar-close {
-    position: absolute;
-    right: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.55);
-    font-size: 30px;
-    line-height: 1;
-    cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
-  }
-  
-  .sidebar-close:hover {
-    color: #D4AF37;
-  }
-  
-  .sidebar-nav {
-    display: flex;
-    flex-direction: column;
-    padding: 10px 0 30px;
-  }
-  
-  .sidebar-label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(212, 175, 55, 0.7);
-    padding: 22px 25px 8px;
-  }
-  
-  .sidebar-divider {
-    height: 1px;
-    margin: 10px 25px;
-    background: rgba(255, 255, 255, 0.1);
-    flex-shrink: 0;
-  }
-  
-  .sidebar-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 13px 25px;
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 17px;
-    font-weight: 400;
-    color: #F0F0F0;
-    text-decoration: none;
-    letter-spacing: 0.01em;
-    border-left: 3px solid transparent;
-    transition: background 0.2s ease, border-color 0.2s ease, padding-left 0.2s ease, color 0.2s ease;
-  }
-  
-  .sidebar-link:hover {
-    background: rgba(212, 175, 55, 0.08);
-    border-left-color: rgba(212, 175, 55, 0.6);
-    padding-left: 31px;
-  }
-  
-  .sidebar-link.current {
-    color: #D4AF37;
-    border-left-color: #D4AF37;
-    background: rgba(212, 175, 55, 0.06);
-  }
-  
-  body.sidebar-open {
-    overflow: hidden;
-  }
-  
-  @media (max-width: 768px) {
-    .sidebar {
-      width: 270px;
-    }
-    .sidebar-header .elvore {
-      font-size: 20px;
-    }
-  }
-  
-  @media (max-width: 1024px) {
-    .movie-grid {
-      grid-template-columns: repeat(2, 1fr); 
-      gap: 40px;
-    }
-  
-    .crew-grid, .actor-grid-top, .actor-grid-bottom {
-      gap: 30px; 
-    }
-  
-    .title-bg {
-      width: 100% !important;
-    }
-    .title-container, .title-container.large {
-      width: 80%;
-    }
-  
-    .gallery-card {
-      width: 350px;
-      height: 196px;
-    }
-    .gallery-scroller.staggered {
-      margin-left: -190px; 
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .navbar {
-      padding: 0 15px;
-    }
-    .elvore {
-      font-size: 24px;
-    }
-    .yearbook-2025 {
-      font-size: 14px;
-    }
-    .alfityan-logo {
-      width: 40px;
-      height: 35px;
-    }
-  
-    .hero-section { 
-      height: auto !important; 
-      aspect-ratio: 16 / 9; 
-      min-height: unset !important;
-    }
-  
-    .vid-bebas {
-      font-size: 45px;
-      line-height: 1.2;
-    }
-    .disini-subtitle {
-      font-size: 16px;
-    }
-  
-    .main-content {
-      padding: 40px 20px;
-      gap: 80px;
-    }
-    .section-title h2 {
-      font-size: 22px;
-      white-space: normal;
-      padding: 0 20px;
-    }
-    .title-container, .title-container.large {
-      width: 100%;
-    }
-    .ticket-icon, .cam-icon {
-      display: none;
-    }
-  
-    .movie-grid {
-      grid-template-columns: 1fr; 
-      padding: 0;
-    }
-  
-    .crew-grid, .actor-grid-top, .actor-grid-bottom {
-      flex-direction: column;
-      align-items: center;
-      gap: 90px;
-    }
-    .actor-grid-bottom {
-      margin-top: 90px;
-    }
-  
-    .card-decor {
-      transform: scale(0.7);
-    }
-  
-    .gallery-card {
-      width: 250px;
-      height: 140px;
-    }
-    .gallery-row {
-      gap: 15px;
-    }
-    .gallery-wrapper {
-      gap: 15px;
-    }
-    .gallery-scroller {
-      gap: 15px;
-    }
-    .gallery-scroller.staggered {
-      margin-left: -132px;
-    }
-    .gallery-container {
-      gap: 15px;
-    }
-  
-    .actor-badge {
-      width: 100%;
-      bottom: -45px;
-      font-size: 18px;
-      padding: 15px 0;
-    }
-  }
-
-.award-subsection-label {
-  font-family: 'Cinzel', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: #D4AF37;
-  text-align: center;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-bottom: 30px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.award-subsection-label:not(:first-of-type) {
-  margin-top: 60px;
-}
-
-.award-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  padding: 0 10px;
-}
-
-.award-card {
-  background: #141414;
-  border-radius: 14px;
-  border: 1.5px solid rgba(212, 175, 55, 0.5);
-  box-shadow: 8px 14px 20px rgba(0, 0, 0, 0.3), 0 0 12px rgba(212, 175, 55, 0.1);
-  padding: 22px 24px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.award-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 10px 20px 26px rgba(0, 0, 0, 0.4), 0 0 16px rgba(212, 175, 55, 0.18);
-}
-
-.award-title {
-  font-family: 'Cinzel', serif;
-  font-size: 19px;
-  font-weight: 700;
-  color: #D4AF37;
-  letter-spacing: 1px;
-  margin-bottom: 14px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-}
-
-.award-names {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.award-names li {
+body {
+  background-color: #1F1F1F;
   font-family: 'Nunito Sans', sans-serif;
-  font-size: 15px;
-  color: #F0F0F0;
-  line-height: 1.4;
+  color: #fff;
 }
 
-.award-names .nickname {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.45);
-  font-style: italic;
+.home {
+  max-width: 1440px;
+  margin: 0 auto;
+  background: url('Assets/Homepage_Background.png') center / cover no-repeat, #1F1F1F;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
-@media (max-width: 768px) {
-  .award-grid {
-    grid-template-columns: 1fr;
-    padding: 0;
-  }
-  .award-subsection-label {
-    font-size: 18px;
-  }
-}
-
-  .award-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  padding: 0 10px;
-}
-
-.award-card {
+.navbar {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  height: 80px;
   background: #141414;
-  border-radius: 14px;
-  border: 1.5px solid rgba(212, 175, 55, 0.5);
-  box-shadow: 8px 14px 20px rgba(0, 0, 0, 0.3), 0 0 12px rgba(212, 175, 55, 0.1);
-  padding: 22px 24px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+  padding: 0 30px;
+  position: fixed; 
+  width: 100%;
+  max-width: 1440px;
+  z-index: 1000;
 }
 
-.award-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 10px 20px 26px rgba(0, 0, 0, 0.4), 0 0 16px rgba(212, 175, 55, 0.18);
-}
-
-.award-title {
-  font-family: 'Cinzel', serif;
-  font-size: 19px;
-  font-weight: 700;
-  color: #D4AF37;
-  letter-spacing: 1px;
-  margin-bottom: 16px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-}
-
-.award-names {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.award-person {
+.nav-left {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 15px; 
 }
 
-.person-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-color: #2b2b2b;
-  border: 1.5px solid rgba(212, 175, 55, 0.6);
-  box-shadow: 0 0 8px rgba(212, 175, 55, 0.15);
-}
-
-.person-avatar.placeholder {
+.brand-link {
   display: flex;
   align-items: center;
+  gap: 15px; 
+  text-decoration: none; 
+  cursor: pointer;
+}
+
+.nav-center {
+  display: flex;
   justify-content: center;
-  font-family: 'Cinzel', serif;
-  font-weight: 700;
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.4);
-  border-style: dashed;
 }
 
-.person-info {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.3;
+.menu-icon {
+  width: 25px;
+  height: 2px;
+  background: white;
+  position: relative;
+  cursor: pointer;
+  margin-right: 10px;
 }
 
-.person-name {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 15px;
-  color: #F0F0F0;
-}
-
-.person-info .nickname {
-  font-size: 12.5px;
-  color: rgba(255, 255, 255, 0.45);
-  font-style: italic;
-}
-
-@media (max-width: 768px) {
-  .award-grid {
-    grid-template-columns: 1fr;
-    padding: 0;
-  }
-}
-
-.card-slideshow-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  border-radius: inherit;
-  z-index: 0; 
-  transition: background-image 0.8s ease-in-out;
-}
-
-.card-slideshow-bg::after {
+.menu-icon::before, .menu-icon::after {
   content: '';
   position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.2); 
-  border-radius: inherit;
+  width: 25px;
+  height: 2px;
+  background: white;
 }
 
-.movie-card, .crew-card {
-  overflow: hidden;
+.menu-icon::before { top: -8px; }
+.menu-icon::after { top: 8px; }
+
+.alfityan-logo {
+  width: 150px;
+  height: 45px;
+  background: url('Assets/logo-alfityan.png') center / contain no-repeat;
 }
 
-.award-card {
+.line-1 {
+  width: 1px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.4);
+  margin: 0 5px;
+}
+
+.elvore {
+  font-family: 'Nova Script', cursive;
+  font-size: 32px;
+  color: #E0E0E0;
+  letter-spacing: 1px;
+}
+
+.yearbook-2025 {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  color: white;
+  white-space: nowrap;
+}
+
+.hero-section {
+  margin-top: 80px; 
+  height: 500px;
+  position: relative;
+  overflow: hidden; 
+  background: #141414; 
+}
+
+/* UPDATED: 700% width for 7 slides and 24s animation duration */
+.hero-track {
   display: flex;
-  flex-direction: column;
+  width: 700%; 
+  height: 100%;
+  animation: heroSlideAnimation 24s infinite; 
 }
 
-.award-banner {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 10px;
+/* UPDATED: Each slide takes up 100% / 7 (14.2857%) */
+.hero-slide {
+  width: 14.2857%;
+  height: 100%;
   background-size: cover;
   background-position: center;
-  background-color: #2b2b2b;
-  border: 1.5px solid rgba(212, 175, 55, 0.5);
-  margin-bottom: 16px;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background-repeat: no-repeat;
 }
 
-.award-banner:hover {
-  transform: scale(1.015);
-  box-shadow: 0 0 16px rgba(212, 175, 55, 0.3);
+/* UPDATED: Added 7 stops for smooth slider transitions */
+@keyframes heroSlideAnimation {
+  0%, 12.5%       { transform: translateX(0); }      
+  16.66%, 29.16%  { transform: translateX(-14.2857%); }    
+  33.33%, 45.83%  { transform: translateX(-28.5714%); }    
+  50%, 62.5%      { transform: translateX(-42.8571%); }    
+  66.66%, 79.16%  { transform: translateX(-57.1428%); } 
+  83.33%, 95.83%  { transform: translateX(-71.4285%); } 
+  100%            { transform: translateX(-85.7142%); } 
 }
 
-.award-lightbox-overlay {
+.main-content {
+  padding: 80px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+}
+
+.section-title {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.section-title h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 35px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.title-bg {
+  position: absolute;
+  width: 550px;
+  height: 78px;
+  background: rgba(20, 20, 20, 0.85);
+  border-radius: 25px;
+  border: 1.5px solid rgba(212, 175, 55, 0.6); 
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.15); 
+  z-index: 1;
+}
+
+.title-container { position: relative; width: 400px; display: flex; justify-content: center; align-items: center; }
+.title-container .title-bg { width: 100%; }
+
+.title-container.large { width: 750px; } 
+.title-container.large .title-bg { width: 100%; }
+
+.with-icons {
+  display: flex;
+  gap: 40px; 
+  align-items: center;
+}
+
+.ticket-icon { width: 80px; height: 80px; background: url('Assets/Ticket.png') center / contain no-repeat; z-index: 2; }
+.cam-icon { width: 80px; height: 80px; background: url('Assets/Video Cam.png') center / contain no-repeat; z-index: 2; }
+
+.gallery-container {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  padding: 20px 0;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.gallery-scroller {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: scrollGallery 40s linear infinite; 
+}
+
+.gallery-scroller.staggered {
+  margin-left: -265px; 
+}
+
+.gallery-scroller:hover {
+  animation-play-state: paused;
+}
+
+.gallery-track {
+  display: flex;
+  gap: 30px;
+}
+
+.gallery-card {
+  width: 500px;
+  height: 281px;
+  background: #141414;
+  border-radius: 10px;
+  border: 1.5px solid rgba(212, 175, 55, 0.6); 
+  box-shadow: 10px 20px 4px rgba(0, 0, 0, 0.25), 0 0 15px rgba(212, 175, 55, 0.15);
+  flex-shrink: 0; 
+}
+
+@keyframes scrollGallery {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 15px)); } 
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.movie-card {
+  height: 433px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(212, 175, 55, 0.6); 
+  box-shadow: 10px 20px 4px rgba(0, 0, 0, 0.25), 0 0 15px rgba(212, 175, 55, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  padding: 20px;
+}
+
+.movie-card h3 {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 40px;
+  z-index: 2;
+}
+
+.peaky { background: linear-gradient(180deg, #555555 0%, #1C1C1C 100%); }
+.fast { background: linear-gradient(180deg, #222222 0%, #000000 100%); }
+.elena { background: linear-gradient(180deg, #F4E4BC 0%, #E0D0A0 100%); color: #000; }
+.harry { background: linear-gradient(180deg, #1A1A2E 0%, #0F0F1A 100%); }
+.card-decor { position: absolute; z-index: 1; opacity: 0.8; }
+.fedora { width: 130px; height: 130px; top: -30px; left: -30px; transform: rotate(-15deg); background: url('Assets/Fedora.png') center / contain no-repeat; }
+.nitro { width: 110px; height: 110px; bottom: -30px; left: -30px; background: url('Assets/Nitro.png') center / contain no-repeat; }
+.question-mark { width: 90px; height: 90px; top: -20px; right: -20px; background: url('Assets/Question Mark.png') center / contain no-repeat; }
+.mag-glass { width: 110px; height: 110px; bottom: -30px; right: -30px; background: url('Assets/Mag Glass.png') center / contain no-repeat; }
+.wand { width: 140px; height: 140px; bottom: -30px; right: -30px; background: url('Assets/Wand.png') center / contain no-repeat; }
+.megaphone { width: 125px; height: 125px; top: -30px; right: -30px; background: url('Assets/MegaPhone.png') center / contain no-repeat; }
+.clipper { width: 125px; height: 125px; bottom: -30px; left: -30px; background: url('Assets/Cliipper.png') center / contain no-repeat; }
+
+.crew-grid, .actor-grid-top, .actor-grid-bottom {
+  display: flex;
+  justify-content: center;
+  gap: 70px; 
+}
+.actor-grid-bottom { 
+  margin-top: 160px;
+  margin-bottom: 50px; 
+}
+
+.crew-card, .actor-card {
+  width: 267px;
+  height: 400px;
+  background: #141414;
+  border-radius: 10px;
+  border: 1.5px solid rgba(212, 175, 55, 0.6); 
+  box-shadow: 10px 20px 4px rgba(0, 0, 0, 0.25), 0 0 15px rgba(212, 175, 55, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.crew-card h3, .actor-card h3 {
+  font-family: 'Noto Sans Georgian', sans-serif;
+  font-size: 48px;
+  opacity: 0.25;
+}
+
+.actor-badge {
+  position: absolute;
+  bottom: -65px; 
+  width: 120%;
+  padding: 20px 0;
+  background: linear-gradient(180deg, #E0E0E0 0%, #FFFFFF 50%, #A9A9A9 100%);
+  border-radius: 25px;
+  border: 1.5px solid rgba(212, 175, 55, 0.8); 
+  box-shadow: 4px 14px 4px rgba(0, 0, 0, 0.25), 0 0 10px rgba(212, 175, 55, 0.2);
+  color: #000;
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 22px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.footer {
+  background: #141414;
+  border-top: 2.5px solid rgba(255, 255, 255, 0.1);
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+}
+.copyright {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+}
+
+.sidebar-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.25s ease, visibility 0.25s ease;
-  z-index: 3000;
-  padding: 40px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1998;
 }
 
-.award-lightbox-overlay.active {
+.sidebar-overlay.active {
   opacity: 1;
   visibility: visible;
 }
 
-.award-lightbox-overlay img {
-  max-width: 90vw;
-  max-height: 90vh;
-  border-radius: 10px;
-  border: 2px solid rgba(212, 175, 55, 0.6);
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 320px;
+  max-width: 85vw;
+  background: linear-gradient(180deg, #1c1c1c 0%, #141414 100%);
+  border-right: 1.5px solid rgba(212, 175, 55, 0.5);
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
+  z-index: 1999;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
 }
 
-.award-lightbox-close {
+.sidebar.active {
+  transform: translateX(0);
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 25px 55px 20px 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.sidebar-header .alfityan-logo {
+  width: 42px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.sidebar-header .elvore {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+}
+
+.sidebar-close {
   position: absolute;
-  top: 25px;
-  right: 35px;
-  font-size: 40px;
-  color: rgba(255, 255, 255, 0.8);
-  cursor: pointer;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 30px;
   line-height: 1;
-  transition: color 0.2s ease;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.award-lightbox-close:hover {
+.sidebar-close:hover {
   color: #D4AF37;
 }
 
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0 30px;
+}
+
+.sidebar-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(212, 175, 55, 0.7);
+  padding: 22px 25px 8px;
+}
+
+.sidebar-divider {
+  height: 1px;
+  margin: 10px 25px;
+  background: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 25px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #F0F0F0;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  border-left: 3px solid transparent;
+  transition: background 0.2s ease, border-color 0.2s ease, padding-left 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background: rgba(212, 175, 55, 0.08);
+  border-left-color: rgba(212, 175, 55, 0.6);
+  padding-left: 31px;
+}
+
+.sidebar-link.current {
+  color: #D4AF37;
+  border-left-color: #D4AF37;
+  background: rgba(212, 175, 55, 0.06);
+}
+
+body.sidebar-open {
+  overflow: hidden;
+}
+
 @media (max-width: 768px) {
-  .award-lightbox-close {
-    top: 15px;
-    right: 20px;
-    font-size: 32px;
+  .sidebar {
+    width: 270px;
   }
+  .sidebar-header .elvore {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .movie-grid {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 40px;
+  }
+
+  .crew-grid, .actor-grid-top, .actor-grid-bottom {
+    gap: 30px; 
+  }
+
+  .title-bg {
+    width: 100% !important;
+  }
+  .title-container, .title-container.large {
+    width: 80%;
+  }
+
+  .gallery-card {
+    width: 350px;
+    height: 196px;
+  }
+  .gallery-scroller.staggered {
+    margin-left: -190px; 
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 15px;
+  }
+  .elvore {
+    font-size: 24px;
+  }
+  .yearbook-2025 {
+    font-size: 14px;
+  }
+  .alfityan-logo {
+    width: 40px;
+    height: 35px;
+  }
+
+  .hero-section { 
+    height: auto !important; 
+    aspect-ratio: 16 / 9; 
+    min-height: unset !important;
+  }
+
+  .vid-bebas {
+    font-size: 45px;
+    line-height: 1.2;
+  }
+  .disini-subtitle {
+    font-size: 16px;
+  }
+
+  .main-content {
+    padding: 40px 20px;
+    gap: 80px;
+  }
+  .section-title h2 {
+    font-size: 22px;
+    white-space: normal;
+    padding: 0 20px;
+  }
+  .title-container, .title-container.large {
+    width: 100%;
+  }
+  .ticket-icon, .cam-icon {
+    display: none;
+  }
+
+  .movie-grid {
+    grid-template-columns: 1fr; 
+    padding: 0;
+  }
+
+  .crew-grid, .actor-grid-top, .actor-grid-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 90px;
+  }
+  .actor-grid-bottom {
+    margin-top: 90px;
+  }
+
+  .card-decor {
+    transform: scale(0.7);
+  }
+
+  .gallery-card {
+    width: 250px;
+    height: 140px;
+  }
+  .gallery-row {
+    gap: 15px;
+  }
+  .gallery-wrapper {
+    gap: 15px;
+  }
+  .gallery-scroller {
+    gap: 15px;
+  }
+  .gallery-scroller.staggered {
+    margin-left: -132px;
+  }
+  .gallery-container {
+    gap: 15px;
+  }
+
+  .actor-badge {
+    width: 100%;
+    bottom: -45px;
+    font-size: 18px;
+    padding: 15px 0;
+  }
+}
+
+.award-subsection-label {
+font-family: 'Cinzel', serif;
+font-size: 22px;
+font-weight: 700;
+color: #D4AF37;
+text-align: center;
+letter-spacing: 3px;
+text-transform: uppercase;
+margin-bottom: 30px;
+}
+
+.award-subsection-label:not(:first-of-type) {
+margin-top: 60px;
+}
+
+.award-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 24px;
+padding: 0 10px;
+}
+
+.award-card {
+background: #141414;
+border-radius: 14px;
+border: 1.5px solid rgba(212, 175, 55, 0.5);
+box-shadow: 8px 14px 20px rgba(0, 0, 0, 0.3), 0 0 12px rgba(212, 175, 55, 0.1);
+padding: 22px 24px;
+transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.award-card:hover {
+transform: translateY(-4px);
+box-shadow: 10px 20px 26px rgba(0, 0, 0, 0.4), 0 0 16px rgba(212, 175, 55, 0.18);
+}
+
+.award-title {
+font-family: 'Cinzel', serif;
+font-size: 19px;
+font-weight: 700;
+color: #D4AF37;
+letter-spacing: 1px;
+margin-bottom: 14px;
+padding-bottom: 10px;
+border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.award-names {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.award-names li {
+font-family: 'Nunito Sans', sans-serif;
+font-size: 15px;
+color: #F0F0F0;
+line-height: 1.4;
+}
+
+.award-names .nickname {
+font-size: 13px;
+color: rgba(255, 255, 255, 0.45);
+font-style: italic;
+}
+
+@media (max-width: 768px) {
+.award-grid {
+  grid-template-columns: 1fr;
+  padding: 0;
+}
+.award-subsection-label {
+  font-size: 18px;
+}
+}
+
+.award-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 24px;
+padding: 0 10px;
+}
+
+.award-card {
+background: #141414;
+border-radius: 14px;
+border: 1.5px solid rgba(212, 175, 55, 0.5);
+box-shadow: 8px 14px 20px rgba(0, 0, 0, 0.3), 0 0 12px rgba(212, 175, 55, 0.1);
+padding: 22px 24px;
+transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.award-card:hover {
+transform: translateY(-4px);
+box-shadow: 10px 20px 26px rgba(0, 0, 0, 0.4), 0 0 16px rgba(212, 175, 55, 0.18);
+}
+
+.award-title {
+font-family: 'Cinzel', serif;
+font-size: 19px;
+font-weight: 700;
+color: #D4AF37;
+letter-spacing: 1px;
+margin-bottom: 16px;
+padding-bottom: 10px;
+border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.award-names {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 14px;
+}
+
+.award-person {
+display: flex;
+align-items: center;
+gap: 14px;
+}
+
+.person-avatar {
+width: 48px;
+height: 48px;
+border-radius: 50%;
+flex-shrink: 0;
+background-size: cover;
+background-position: center top;
+background-repeat: no-repeat;
+background-color: #2b2b2b;
+border: 1.5px solid rgba(212, 175, 55, 0.6);
+box-shadow: 0 0 8px rgba(212, 175, 55, 0.15);
+}
+
+.person-avatar.placeholder {
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: 'Cinzel', serif;
+font-weight: 700;
+font-size: 18px;
+color: rgba(255, 255, 255, 0.4);
+border-style: dashed;
+}
+
+.person-info {
+display: flex;
+flex-direction: column;
+line-height: 1.3;
+}
+
+.person-name {
+font-family: 'Nunito Sans', sans-serif;
+font-size: 15px;
+color: #F0F0F0;
+}
+
+.person-info .nickname {
+font-size: 12.5px;
+color: rgba(255, 255, 255, 0.45);
+font-style: italic;
+}
+
+@media (max-width: 768px) {
+.award-grid {
+  grid-template-columns: 1fr;
+  padding: 0;
+}
+}
+
+.card-slideshow-bg {
+position: absolute;
+inset: 0;
+background-size: cover;
+background-position: center;
+border-radius: inherit;
+z-index: 0; 
+transition: background-image 0.8s ease-in-out;
+}
+
+.card-slideshow-bg::after {
+content: '';
+position: absolute;
+inset: 0;
+background: rgba(0, 0, 0, 0.2); 
+border-radius: inherit;
+}
+
+.movie-card, .crew-card {
+overflow: hidden;
+}
+
+.award-card {
+display: flex;
+flex-direction: column;
+}
+
+.award-banner {
+width: 100%;
+aspect-ratio: 16 / 10;
+border-radius: 10px;
+background-size: cover;
+background-position: center;
+background-color: #2b2b2b;
+border: 1.5px solid rgba(212, 175, 55, 0.5);
+margin-bottom: 16px;
+cursor: pointer;
+transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.award-banner:hover {
+transform: scale(1.015);
+box-shadow: 0 0 16px rgba(212, 175, 55, 0.3);
+}
+
+.award-lightbox-overlay {
+position: fixed;
+inset: 0;
+background: rgba(0, 0, 0, 0.85);
+display: flex;
+align-items: center;
+justify-content: center;
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.25s ease, visibility 0.25s ease;
+z-index: 3000;
+padding: 40px;
+}
+
+.award-lightbox-overlay.active {
+opacity: 1;
+visibility: visible;
+}
+
+.award-lightbox-overlay img {
+max-width: 90vw;
+max-height: 90vh;
+border-radius: 10px;
+border: 2px solid rgba(212, 175, 55, 0.6);
+box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.award-lightbox-close {
+position: absolute;
+top: 25px;
+right: 35px;
+font-size: 40px;
+color: rgba(255, 255, 255, 0.8);
+cursor: pointer;
+line-height: 1;
+transition: color 0.2s ease;
+}
+
+.award-lightbox-close:hover {
+color: #D4AF37;
+}
+
+@media (max-width: 768px) {
+.award-lightbox-close {
+  top: 15px;
+  right: 20px;
+  font-size: 32px;
+}
 }
