@@ -108,32 +108,21 @@ body {
   background: #141414; 
 }
 
-/* UPDATED: 700% width for 7 slides and 24s animation duration */
+/* Hero slider is now JS-controlled so video slides can hold until playback finishes */
 .hero-track {
   display: flex;
   width: 700%; 
   height: 100%;
-  animation: heroSlideAnimation 24s infinite; 
+  transition: transform 0.8s ease-in-out;
+  will-change: transform;
 }
 
-/* UPDATED: Each slide takes up 100% / 7 (14.2857%) */
 .hero-slide {
   width: 14.2857%;
   height: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-/* UPDATED: Added 7 stops for smooth slider transitions */
-@keyframes heroSlideAnimation {
-  0%, 12.5%       { transform: translateX(0); }      
-  16.66%, 29.16%  { transform: translateX(-14.2857%); }    
-  33.33%, 45.83%  { transform: translateX(-28.5714%); }    
-  50%, 62.5%      { transform: translateX(-42.8571%); }    
-  66.66%, 79.16%  { transform: translateX(-57.1428%); } 
-  83.33%, 95.83%  { transform: translateX(-71.4285%); } 
-  100%            { transform: translateX(-85.7142%); } 
 }
 
 .main-content {

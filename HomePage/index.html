@@ -52,17 +52,17 @@
     <header class="hero-section">
       <div class="hero-track">
         <div class="hero-slide">
-          <video src="Trailer bks.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+          <video src="Assets/Trailer-bks.mp4" muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
         </div>
         <div class="hero-slide">
-          <video src="teaser bks.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+          <video src="Assets/teaser-bks.mp4" muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
         </div>
         <div class="hero-slide" style="background-image: url('9A/Assets/9AHero.png');"></div>
         <div class="hero-slide" style="background-image: url('9B/Assets/9BHero.png');"></div>
         <div class="hero-slide" style="background-image: url('9C/Assets/9CHero.png');"></div>
         <div class="hero-slide" style="background-image: url('9D/Assets/9DHero.png');"></div>
         <div class="hero-slide">
-          <video src="Trailer bks.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+          <video src="Assets/Trailer-bks.mp4" muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
         </div>
       </div>
     </header>
@@ -776,6 +776,85 @@
       document.getElementById('awardLightbox').classList.remove('active');
       document.body.classList.remove('sidebar-open');
     }
+
+    function initHeroSlider() {
+      const heroTrack = document.querySelector('.hero-track');
+      if (!heroTrack) return;
+
+      const slides = Array.from(heroTrack.querySelectorAll('.hero-slide'));
+      const totalVisual = slides.length;   // includes the trailing clone slide
+      const realSlides = totalVisual - 1;  // unique slides only (clone excluded)
+      const slideWidthPercent = 100 / totalVisual;
+      const transitionMs = 800;
+      const imageDuration = 4000;
+
+      let currentIndex = 0;
+      let imageTimer = null;
+
+      function setTransform(index, withTransition) {
+        heroTrack.style.transition = withTransition ? `transform ${transitionMs}ms ease-in-out` : 'none';
+        heroTrack.style.transform = `translateX(-${index * slideWidthPercent}%)`;
+      }
+
+      function clearImageTimer() {
+        if (imageTimer) {
+          clearTimeout(imageTimer);
+          imageTimer = null;
+        }
+      }
+
+      function pauseAllVideosExcept(exceptSlide) {
+        slides.forEach((slide) => {
+          const v = slide.querySelector('video');
+          if (v && slide !== exceptSlide) {
+            v.pause();
+          }
+        });
+      }
+
+      function playSlide(index) {
+        clearImageTimer();
+        const slide = slides[index];
+        pauseAllVideosExcept(slide);
+
+        const video = slide.querySelector('video');
+
+        if (video) {
+          video.onended = null;
+          video.currentTime = 0;
+          const playPromise = video.play();
+          if (playPromise && playPromise.catch) playPromise.catch(() => {});
+          // Don't advance to the next slide until this video finishes playing
+          video.onended = () => advance();
+        } else {
+          imageTimer = setTimeout(advance, imageDuration);
+        }
+      }
+
+      function advance() {
+        currentIndex++;
+
+        if (currentIndex >= realSlides) {
+          // Slide visually onto the clone (smooth forward motion), then snap
+          // back to the real first slide with no transition once it lands.
+          setTransform(realSlides, true);
+          setTimeout(() => {
+            currentIndex = 0;
+            setTransform(0, false);
+            requestAnimationFrame(() => playSlide(0));
+          }, transitionMs);
+          return;
+        }
+
+        setTransform(currentIndex, true);
+        playSlide(currentIndex);
+      }
+
+      setTransform(0, false);
+      playSlide(0);
+    }
+
+    document.addEventListener('DOMContentLoaded', initHeroSlider);
 
     document.addEventListener('DOMContentLoaded', () => {
       const generateClassArray = (folder, prefix, count) => {
