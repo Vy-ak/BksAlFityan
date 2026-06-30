@@ -65,6 +65,11 @@
           <video src="Assets/Trailer-bks.mp4" muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
         </div>
       </div>
+
+      <button class="hero-nav hero-nav-prev" aria-label="Previous slide">&#10094;</button>
+      <button class="hero-nav hero-nav-next" aria-label="Next slide">&#10095;</button>
+      <button class="hero-play-pause" aria-label="Pause">&#10074;&#10074;</button>
+      <button class="hero-mute" aria-label="Unmute">&#128263;</button>
     </header>
 
     <main class="main-content">
@@ -778,6 +783,7 @@
     }
 
     function initHeroSlider() {
+      const heroSection = document.querySelector('.hero-section');
       const heroTrack = document.querySelector('.hero-track');
       if (!heroTrack) return;
 
@@ -788,8 +794,15 @@
       const transitionMs = 800;
       const imageDuration = 4000;
 
+      const prevBtn = heroSection.querySelector('.hero-nav-prev');
+      const nextBtn = heroSection.querySelector('.hero-nav-next');
+      const playPauseBtn = heroSection.querySelector('.hero-play-pause');
+      const muteBtn = heroSection.querySelector('.hero-mute');
+
       let currentIndex = 0;
       let imageTimer = null;
+      let isPaused = false;
+      let isMuted = true;
 
       function setTransform(index, withTransition) {
         heroTrack.style.transition = withTransition ? `transform ${transitionMs}ms ease-in-out` : 'none';
@@ -812,6 +825,27 @@
         });
       }
 
+      function updatePlayPauseIcon() {
+        if (!playPauseBtn) return;
+        playPauseBtn.innerHTML = isPaused ? '&#9658;' : '&#10074;&#10074;';
+        playPauseBtn.setAttribute('aria-label', isPaused ? 'Play' : 'Pause');
+      }
+
+      function updateMuteIcon() {
+        if (!muteBtn) return;
+        muteBtn.innerHTML = isMuted ? '&#128263;' : '&#128266;';
+        muteBtn.setAttribute('aria-label', isMuted ? 'Unmute' : 'Mute');
+      }
+
+      function toggleMute() {
+        isMuted = !isMuted;
+        slides.forEach((slide) => {
+          const v = slide.querySelector('video');
+          if (v) v.muted = isMuted;
+        });
+        updateMuteIcon();
+      }
+
       function playSlide(index) {
         clearImageTimer();
         const slide = slides[index];
@@ -819,7 +853,13 @@
 
         const video = slide.querySelector('video');
 
+        if (isPaused) {
+          if (video) video.pause();
+          return;
+        }
+
         if (video) {
+          video.muted = isMuted;
           video.onended = null;
           video.currentTime = 0;
           const playPromise = video.play();
@@ -849,6 +889,51 @@
         setTransform(currentIndex, true);
         playSlide(currentIndex);
       }
+
+      function goNext() {
+        clearImageTimer();
+        const v = slides[currentIndex].querySelector('video');
+        if (v) v.onended = null;
+        advance();
+      }
+
+      function goPrev() {
+        clearImageTimer();
+        const currentVideo = slides[currentIndex].querySelector('video');
+        if (currentVideo) {
+          currentVideo.onended = null;
+          currentVideo.pause();
+        }
+
+        if (currentIndex === 0) {
+          // Wrap to the last real slide instantly (no leading clone to animate through)
+          currentIndex = realSlides - 1;
+          setTransform(currentIndex, false);
+        } else {
+          currentIndex--;
+          setTransform(currentIndex, true);
+        }
+
+        playSlide(currentIndex);
+      }
+
+      function togglePlayPause() {
+        isPaused = !isPaused;
+        updatePlayPauseIcon();
+
+        if (isPaused) {
+          clearImageTimer();
+          const v = slides[currentIndex].querySelector('video');
+          if (v) v.pause();
+        } else {
+          playSlide(currentIndex);
+        }
+      }
+
+      if (prevBtn) prevBtn.addEventListener('click', goPrev);
+      if (nextBtn) nextBtn.addEventListener('click', goNext);
+      if (playPauseBtn) playPauseBtn.addEventListener('click', togglePlayPause);
+      if (muteBtn) muteBtn.addEventListener('click', toggleMute);
 
       setTransform(0, false);
       playSlide(0);

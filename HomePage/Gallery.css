@@ -210,6 +210,63 @@ body {
   display: none;
 }
 
+.video-pin-wrap {
+  position: relative;
+  width: 100%;
+  margin: 0 0 16px;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+}
+
+.video-pin-wrap .pin {
+  margin: 0;
+}
+
+.video-pin-wrap.pin-hidden {
+  display: none;
+}
+
+.video-expand-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(20, 20, 20, 0.75);
+  border: 1.5px solid rgba(212, 175, 55, 0.6);
+  color: #D4AF37;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.video-pin-wrap:hover .video-expand-btn {
+  opacity: 1;
+}
+
+.video-expand-btn:hover {
+  background: rgba(212, 175, 55, 0.85);
+  color: #141414;
+  transform: scale(1.08);
+}
+
+@media (max-width: 768px) {
+  .video-expand-btn {
+    opacity: 1; /* always visible on touch devices, no hover state */
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    top: 8px;
+    right: 8px;
+  }
+}
+
 .pin.pin-deferred {
   background-color: #2b2b2b;
   background-image: linear-gradient(

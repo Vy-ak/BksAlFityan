@@ -83,8 +83,14 @@
 
         <div class="pinterest-grid" id="pinterestGrid">
           
-          <video class="pin" data-category="videos" src="Assets/Trailer-bks.mp4" controls preload="metadata"></video>
-          <video class="pin" data-category="videos" src="Assets/teaser-bks.mp4" controls preload="metadata"></video>
+          <div class="video-pin-wrap" data-category="videos">
+            <video class="pin" data-category="videos" src="Assets/Trailer-bks.mp4" controls preload="metadata"></video>
+            <button class="video-expand-btn" aria-label="Fullscreen" title="Fullscreen">&#9974;</button>
+          </div>
+          <div class="video-pin-wrap" data-category="videos">
+            <video class="pin" data-category="videos" src="Assets/teaser-bks.mp4" controls preload="metadata"></video>
+            <button class="video-expand-btn" aria-label="Fullscreen" title="Fullscreen">&#9974;</button>
+          </div>
 
           <img class="pin" data-category="depan-sekolah" src="Assets/Depan Sekolah/DepanSekolah1.jpg" loading="lazy" alt="Depan Sekolah 1">
           <img class="pin" data-category="depan-sekolah" src="Assets/Depan Sekolah/DepanSekolah2.jpg" loading="lazy" alt="Depan Sekolah 2">
@@ -288,5 +294,41 @@
 
     <script src="sidebar.js"></script>
     <script src="gallery-loader.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Expand / fullscreen button for gallery videos
+        document.querySelectorAll('.video-expand-btn').forEach((btn) => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const video = btn.previousElementSibling;
+            if (!video) return;
+
+            if (video.requestFullscreen) {
+              video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+              video.webkitRequestFullscreen();
+            } else if (video.webkitEnterFullscreen) {
+              video.webkitEnterFullscreen(); // iOS Safari
+            } else if (video.msRequestFullscreen) {
+              video.msRequestFullscreen();
+            }
+          });
+        });
+
+        // Keep the .video-pin-wrap shown/hidden in sync with the existing
+        // gallery filter logic, which toggles "pin-hidden" on the .pin video itself.
+        document.querySelectorAll('.video-pin-wrap').forEach((wrap) => {
+          const video = wrap.querySelector('video.pin');
+          if (!video) return;
+
+          const sync = () => {
+            wrap.classList.toggle('pin-hidden', video.classList.contains('pin-hidden'));
+          };
+
+          sync();
+          new MutationObserver(sync).observe(video, { attributes: true, attributeFilter: ['class'] });
+        });
+      });
+    </script>
   </body>
 </html>
