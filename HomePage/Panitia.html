@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - Elvore 2026 Yearbook</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat&family=Noto+Sans+Georgian:wght@400;700&family=Nova+Script&family=Nunito+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Gallery.css" />
+  </head>
+  <body>
+    <div class="home">
+
+      <!-- ===================== Navbar ===================== -->
+      <nav class="navbar">
+        <div class="nav-left">
+          <div class="menu-icon" onclick="toggleSidebar()"></div>
+          <a href="index.html" class="brand-link">
+            <div class="alfityan-logo"></div>
+            <div class="line-1"></div>
+            <div class="elvore">Elvore</div>
+          </a>
+        </div>
+        <div class="nav-right">
+          <div class="yearbook-2025">2026 Yearbook</div>
+        </div>
+      </nav>
+
+      <!-- ===================== Sidebar ===================== -->
+      <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div class="alfityan-logo"></div>
+          <div class="elvore">Elvore</div>
+          <button class="sidebar-close" onclick="closeSidebar()" aria-label="Close menu">&times;</button>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="index.html" class="sidebar-link">Home</a>
+
+          <div class="sidebar-label">Kelas 9</div>
+          <a href="9A/9A.html" class="sidebar-link">9A</a>
+          <a href="9B/9B.html" class="sidebar-link">9B</a>
+          <a href="9C/9C.html" class="sidebar-link">9C</a>
+          <a href="9D/9D.html" class="sidebar-link">9D</a>
+
+          <div class="sidebar-divider"></div>
+          <a href="Gallery.html" class="sidebar-link">Gallery</a>
+          <a href="Guru.html" class="sidebar-link">Guru</a>
+          <a href="Panitia.html" class="sidebar-link current">Panitia</a>
+        </nav>
+      </aside>
+
+      <main class="gallery-page-content">
+
+        <!-- ===================== Sambutan ===================== -->
+        <section class="sambutan-section">
+          <div class="page-header">
+            <div class="header-title-wrap">
+              <div class="title-bg"></div>
+              <h1>Sambutan</h1>
+            </div>
+          </div>
+
+          <div class="sambutan-content">
+            <p class="sambutan-text">
+              Anak-anakku kelas 9 angkatan ke-17. Terima kasih, jazakumullah khairan katsira,
+              telah menjadi bagian dari keluarga besar SMP Al-Fityan School Tangerang. Kalian
+              telah memberi warna, cerita, dan kenangan yang insya Allah akan selalu kami doakan
+              kebaikan-kebaikannya. Ke mana pun ananda melangkah, jangan lupa untuk selalu
+              melibatkan Allah dalam setiap mimpi dan keputusan. Melangkahlah dengan iman sebagai
+              cahaya, adab sebagai pakaian, dan ilmu sebagai bekal. Jangan takut pada masa depan,
+              karena Allah telah lebih dulu berada di sana. Menyiapkan yang terbaik bagi
+              hamba-Nya yang terus berikhtiar dan berserah diri. Kami lepaskan kalian dengan doa,
+              bukan dengan air mata. Semoga Allah menjaga setiap langkah kalian dan menguatkan
+              hati kalian dalam kebaikan. Wassalamualaikum warahmatullahi wabarakatuh.
+            </p>
+
+            <div class="sambutan-video-wrap">
+              <video
+                class="sambutan-video"
+                src="Assets/C0044.mp4"
+                controls
+                controlsList="noplaybackrate nodownload"
+                playsinline
+                preload="metadata"
+              ></video>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== Gallery ===================== -->
+        <section class="gallery-section">
+          <div class="page-header">
+            <div class="header-title-wrap">
+              <div class="title-bg"></div>
+              <h1>Gallery</h1>
+            </div>
+          </div>
+
+          <div class="pinterest-grid">
+
+            <!-- Col 1: Panitia1–10 -->
+            <div class="pin-col">
+              <img class="pin"      src="Assets/Panitia1.jpg"  loading="lazy" alt="Gallery Photo">
+              <img class="pin tall" src="Assets/Panitia2.jpg"  loading="lazy" alt="Gallery Photo">
+              <img class="pin"      src="Assets/Panitia3.jpg"  loading="lazy" alt="Gallery Photo">
+              <img class="pin"      src="Assets/Panitia4.jpg"  loading="lazy" alt="Gallery Photo">
+              <img class="pin tall" src="Assets/Panitia5.jpg"  loading="lazy" alt="Gallery Photo">
+              <img class="pin"      src="Assets/Panitia6.jpg"  loading="lazy" alt="Gallery Photo">
+              <img class="pin"      src="Assets/Panitia7.jpg"  loading="lazy" alt="Gallery Photo">
+              <img class="pin tall" src="Assets/Panitia8.jpeg"  loading="lazy" alt="Gallery Photo">
+              <img class="pin"      src="Assets/Panitia9.jpeg"  loading="lazy" alt="Gallery Photo">
+              <img class="pin"      src="Assets/Panitia10.jpeg" loading="lazy" alt="Gallery Photo">
+            </div>
+
+            <!-- Col 2: Panitia11–16, cycle back to 1–4 -->
+            <div class="pin-col">
+              <img class="pin tall" src="Assets/Panitia11.jpeg" loading="lazy" alt="Gallery Photo">
+              <img class="pin"      src="Assets/Panitia12.jpeg" loading="lazy" alt="Gallery Photo">
+              <img class="pin"      src="Assets/Panitia13.jpeg" loading="lazy" alt="Gallery Photo">
+              <img class="pin tall" src="Assets/Panitia14.jpeg" loading="lazy" alt="Gallery Photo">
+              <img class="pin"      src="Assets/Panitia15.jpeg" loading="lazy" alt="Gallery Photo">
+              <img class="pin"      src="Assets/Panitia16.jpeg" loading="lazy" alt="Gallery Photo">
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+
+      <footer class="footer">
+        <p class="copyright">2026© Vy's Production</p>
+      </footer>
+
+    </div>
+
+    <!-- ===================== Lightbox Modal ===================== -->
+    <div id="imageModal" class="image-modal">
+      <span class="modal-close" id="modalClose">&times;</span>
+      <img class="modal-content" id="modalImage" alt="">
+    </div>
+
+    <script src="sidebar.js"></script>
+    <script src="gallery-loader.js"></script>
+  </body>
+</html>
