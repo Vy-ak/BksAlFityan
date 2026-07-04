@@ -111,14 +111,14 @@ body {
 /* Hero slider is now JS-controlled so video slides can hold until playback finishes */
 .hero-track {
   display: flex;
-  width: 700%; 
+  width: 800%; 
   height: 100%;
   transition: transform 0.8s ease-in-out;
   will-change: transform;
 }
 
 .hero-slide {
-  width: 14.2857%;
+  width: 12.5%;
   height: 100%;
   background-size: cover;
   background-position: center;

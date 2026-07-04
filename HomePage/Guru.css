@@ -14,80 +14,43 @@
   /* =========================================
      Word from the Director
      ========================================= */
-  .director-content {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 60px;
+  .director-hero-wrap {
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    border-top: 1.5px solid rgba(212, 175, 55, 0.5);
+    border-bottom: 1.5px solid rgba(212, 175, 55, 0.5);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.12);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .director-hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    background: #000;
+  }
+
+  .director-caption {
     max-width: 1218px;
     margin: 0 auto;
+    padding: 40px 70px 60px;
   }
-  
+
   .director-text {
-    flex: 1;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 19px;
     font-weight: 400;
     line-height: 1.75;
     letter-spacing: 0.02em;
     color: #F0F0F0;
-  }
-  
-  .director-media {
-    flex-shrink: 0;
-  }
-  
-  .video-placeholder {
-    width: 350px;
-    height: 450px;
-    border-radius: 10px;
-    background: linear-gradient(165deg, #2b2b2b 0%, #141414 100%);
-    border: 1.5px solid rgba(212, 175, 55, 0.6);
-    box-shadow: 10px 20px 4px rgba(0, 0, 0, 0.25), 0 0 15px rgba(212, 175, 55, 0.15);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 22px;
-  }
-  
-  .video-placeholder::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 38%, rgba(212, 175, 55, 0.14), transparent 60%);
-  }
-  
-  .play-button {
-    width: 76px;
-    height: 76px;
-    border-radius: 50%;
-    border: 2px solid rgba(212, 175, 55, 0.85);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-  }
-  
-  .play-button::after {
-    content: '';
-    display: block;
-    margin-left: 5px;
-    border-style: solid;
-    border-width: 13px 0 13px 21px;
-    border-color: transparent transparent transparent rgba(212, 175, 55, 0.9);
-  }
-  
-  .video-placeholder span {
-    font-family: 'Cinzel', serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(240, 240, 240, 0.55);
-    z-index: 2;
+    text-align: justify;
+    text-align-last: left;
   }
   
   /* =========================================
@@ -131,10 +94,8 @@
      RESPONSIVE
      ========================================= */
   @media (max-width: 1024px) {
-    .director-content {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+    .director-hero-wrap {
+      height: 300px;
     }
   
     .person-grid.two-col,
@@ -150,14 +111,17 @@
       margin-top: 60px;
     }
   
+    .director-caption {
+      padding: 30px 24px 40px;
+    }
+
     .director-text {
       font-size: 16px;
       line-height: 1.7;
     }
   
-    .video-placeholder {
-      width: 280px;
-      height: 360px;
+    .director-hero-wrap {
+      height: 220px;
     }
   
     .person-grid.two-col,
@@ -172,13 +136,3 @@
       margin: 0 auto;
     }
   }
-.director-video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;   /* shows the full frame, no cropping/zoom */
-  border-radius: 10px;
-  display: block;
-  position: relative;
-  z-index: 2;
-  background: transparent; /* lets the gold gradient show as letterbox, not black bars */
-}
